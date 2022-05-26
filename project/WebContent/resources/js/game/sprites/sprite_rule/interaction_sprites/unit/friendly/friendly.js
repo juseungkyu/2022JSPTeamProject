@@ -6,4 +6,6 @@ class Friendly extends Unit {
 
         this.type.push('Friendly')
     }
+
+    
 }

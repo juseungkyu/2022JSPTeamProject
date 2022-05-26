@@ -7,17 +7,27 @@ class Enemy extends Unit {
         this.type.push('Enemy')
     }
 
-    customOnCollisionEnter = (obj)=>{
-
-    }
-
     onCollisionEnter = (obj)=>{
         if(obj.sprites.type.includes('Unit')){
             this.onCollisionEnterByUnit()
         }
     }
 
-    onCollisionEnterByUnit = ()=>{
+    onCollisionEnterByUnit = (obj)=>{
 
+    }
+
+    onCollisionByEnemyFriendly = (obj)=>{
+        if(obj.x > this.x) {
+            this.xForce -= 100
+        }  else {
+            this.xForce += 100
+        }
+
+        if(obj.y > this.y) {
+            this.yForce -= 100
+        }  else {
+            this.yForce += 100
+        }
     }
 }

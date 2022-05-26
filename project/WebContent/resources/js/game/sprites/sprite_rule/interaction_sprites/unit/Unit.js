@@ -50,11 +50,13 @@ class Unit extends InteractionSprites {
         const currentSpeed = getForce(this.xForce, this.yForce)
 
         if(currentSpeed >= maxSpeed) {
-            if(x != 0) {
+            if(x == 0) {
                 this.xForce /= 1.1
-            } else if(y != 0) {
+            } else if(y == 0) {
                 this.yForce /= 1.1
             }
         }
     }
+
+    
 }
