@@ -1,9 +1,11 @@
 // 이 클래스는 유니티 따라함
 // hitBoxType에 nonIgnoreConflicts를 무조건 포함시킴
+import Sprites from "../Sprites";
+import {HitBoxType} from '/resources/js/constant/HitBoxType.js';
 
-class InteractionSprites extends Sprites {
-    constructor(x,y,vertexList, hitBoxType){
-        super(x,y,vertexList, hitBoxType&HitBoxType.nonIgnoreConflicts)
+export default class InteractionSprites extends Sprites {
+    constructor(x,y,vertexList, hitBoxType, animationImageList){
+        super(x,y,vertexList, hitBoxType&HitBoxType.nonIgnoreConflicts, animationImageList)
 
         this.type.push('InteractionSprites')
     }
