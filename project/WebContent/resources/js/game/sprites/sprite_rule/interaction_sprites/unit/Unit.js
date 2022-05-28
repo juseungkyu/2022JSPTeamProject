@@ -73,7 +73,5 @@ export default class Unit extends InteractionSprites {
             this.xForce *= ratio
             this.yForce *= ratio
         }
-
-        console.log(this.xForce, this.yForce)
     }
 }

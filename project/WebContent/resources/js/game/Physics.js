@@ -7,7 +7,7 @@ export default class Physics {
 
     init(){
         this.dateTime = new Date().getTime()
-        this.physicsTimer = setInterval(this.moveControl.bind(this), 100)
+        this.physicsTimer = setInterval(this.moveControl.bind(this), 20)
     }
 
     // Unit의 힘을 바탕으로 이동
@@ -18,23 +18,21 @@ export default class Physics {
         const list = Object.values(window.unitList)
 
         for(let sprite of list){
-            sprite.x += sprite.xForce * this.dateTime
-            sprite.y += sprite.yForce * this.dateTime
+            sprite.x += sprite.xForce * this.dateTime * 0.1
+            sprite.y += sprite.yForce * this.dateTime * 0.1
             
-            if(sprite.isMoving){
-                sprite.xForce/= 1.1
-                sprite.yForce/= 1.1
-            } else {
-                sprite.xForce/= 1.5
-                sprite.yForce/= 1.5
-            }
+            // 마찰이라고 칩시다
+            sprite.xForce /= 1.4
+            sprite.yForce /= 1.4
 
-            if(sprite.xForce < 0.01){
+            if(Math.abs(sprite.xForce) < 10){
                 sprite.xForce = 0
             } 
-            if(sprite.yForce < 0.01){
+            if(Math.abs(sprite.yForce) < 10){
                 sprite.yForce = 0
             } 
+
+            // console.log(sprite.xForce, sprite.yForce)
         }
 
 

@@ -8,6 +8,6 @@ const Miku1Animation = {
 
 export default class Miku1 extends Friendly {
     constructor(){
-        super(100,100, [], Miku1Animation, 100, 5, 5)
+        super(100,100, [], Miku1Animation, 100, 40, 200)
     }
 }
