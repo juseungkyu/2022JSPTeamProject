@@ -14,54 +14,66 @@ export default class Unit extends InteractionSprites {
         this.xForce = 0
         this.yForce = 0
 
+        this.xDirection = 0
+        this.yDriection = 0
+
         this.type.push('Unit')
+
+        this.isMoving = true
+        
+        this.moveTimer = setInterval(this.move.bind(), 100)
+        this.stopMoving()
     }
 
-    move = (x, y)=>{
-        if(x == 1 && y == 1){
-            this.xForce += this.speed/2
-            this.yForce += this.speed/2
-        } else if(x == -1 && y == -1 ){
-            this.xForce -= this.speed/2
-            this.yForce -= this.speed/2
-        } 
-        
-        if(x == 1){
-            this.xForce += this.speed/2
-        } else if(x == -1){
-            this.xForce -= this.speed/2
-        } else {
-            this.xForce /= 2
-            
-            if(this.xForce < 0.1) {
-                this.xForce == 0
-            }
+    stopMoving = ()=>{
+        this.isMoving = false
+        clearInterval(this.moveTimer)
+    }
+
+    startMoving = ()=>{
+        this.isMoving = true
+        this.moveTimer = setInterval(this.move.bind(), 10)
+    }
+
+    changeDirection = (x,y)=>{
+        if(!this.isMoving){
+            this.startMoving()
         }
 
-        if(y == 1) {
-            this.yForce += this.speed/2
-        } else if(x == -1){
-            this.yForce -= this.speed/2
-        } else {
-            this.yForce /= 2
+        this.xDirection = x
+        this.yDirection = y
+    }
 
-            if(this.yForce < 0.1) {
-                this.yForce == 0
-            }
+    move = ()=>{
+        if(this.xDirection == 1 && this.yDirection == 1){
+            this.xForce += this.speed/2
+            this.yForce += this.speed/2
+        } else if(this.xDirection == -1 && this.yDirection == -1 ){
+            this.xForce += this.speed/2
+            this.yForce += this.speed/2
+        } 
+        
+        if(this.xDirection == 1){
+            this.xForce += this.speed
+        } else if(this.xDirection == -1){
+            this.xForce -= this.speed
+        }
+
+        if(this.yDirection == 1) {
+            this.yForce += this.speed
+        } else if(this.yDirection == -1){
+            this.yForce -= this.speed
         }
 
         const currentSpeed = getForce(this.xForce, this.yForce)
 
         if(currentSpeed >= this.maxSpeed) {
-            if(x == 0) {
-                this.xForce /= 1.1
-            } else if(y == 0) {
-                this.yForce /= 1.1
-            }
+            const ratio = this.maxSpeed / currentSpeed 
+
+            this.xForce *= ratio
+            this.yForce *= ratio
         }
 
         console.log(this.xForce, this.yForce)
     }
-
-    
 }

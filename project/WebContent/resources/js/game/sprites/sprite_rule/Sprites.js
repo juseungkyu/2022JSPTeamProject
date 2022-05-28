@@ -26,7 +26,7 @@ export default class Sprites {
 
         this.type = []
 
-        this.image = DefaultValue.defualtImage
+        this.image = DefaultValue.DEFAULT_IMAGE
 
         this.animationInit()
     }
@@ -41,10 +41,9 @@ export default class Sprites {
         if(this.animationIndex >= this.animationLength) {
             this.animationIndex = 0
         }
-
         this.image = this.animationImageList[this.animationType][this.animationIndex]
-
-        this.animationTimer = setTimeout(this.imageChange.bind(), this.animationspeed);
+        console.log(this.image)
+        // this.animationTimer = setTimeout(this.imageChange.bind(), this.animationspeed);
     }
 
     animationTypeChange = (type)=>{
@@ -52,6 +51,6 @@ export default class Sprites {
         this.animationIndex = 0
         this.animationLength = this.animationImageList[this.animationType].length
 
-        this.animationTimer = this.imageChange.bind();
+        this.animationTimer = this.imageChange.bind(this)();
     }
 }

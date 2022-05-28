@@ -6,21 +6,8 @@ export default class Physics {
     }
 
     init(){
-        this.UnitList = {}
-
         this.dateTime = new Date().getTime()
         this.physicsTimer = setInterval(this.moveControl.bind(this), 100)
-    }
-
-    pushUnitList = (sprite)=>{
-        const id = new Date().getTime() * 0.000000000001
-        this.UnitList[id] = sprite
-
-        return id 
-    }
-
-    deleteUnitList = (id)=>{
-        delete this.UnitList[id]
     }
 
     // Unit의 힘을 바탕으로 이동
@@ -28,11 +15,26 @@ export default class Physics {
     // 인터벌 사이의 시간 측정해서 곱해줌
     moveControl(){
         
-        const list = Object.values(this.UnitList)
+        const list = Object.values(window.unitList)
 
         for(let sprite of list){
             sprite.x += sprite.xForce * this.dateTime
             sprite.y += sprite.yForce * this.dateTime
+            
+            if(sprite.isMoving){
+                sprite.xForce/= 1.1
+                sprite.yForce/= 1.1
+            } else {
+                sprite.xForce/= 1.5
+                sprite.yForce/= 1.5
+            }
+
+            if(sprite.xForce < 0.01){
+                sprite.xForce = 0
+            } 
+            if(sprite.yForce < 0.01){
+                sprite.yForce = 0
+            } 
         }
 
 
