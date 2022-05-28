@@ -2,12 +2,12 @@
 // hitBoxType에 nonIgnoreConflicts를 무조건 포함시킴
 
 import Sprites from "../Sprites";
-import {HitBoxType} from '/resources/js/constant/HitBoxType.js';
+import HitBoxType from '/resources/js/constant/HitBoxType.js';
 
 export default class NonInteractionSprites extends Sprites {
-    constructor(x,y,vertexList, hitBoxType, animationImageList
+    constructor(x,y,collisionList, hitBoxType, animationImageList
 ){
-        super(x,y,vertexList, hitBoxType&HitBoxType.nonIgnoreConflicts, animationImageList)
+        super(x,y,collisionList, hitBoxType&HitBoxType.nonIgnoreConflicts, animationImageList)
 
         this.type.push('NonInteractionSprites')
     }

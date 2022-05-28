@@ -1,11 +1,11 @@
 // 피아식별 기능 추가
 
-import Unit from "../Unit";
-import {HitBoxType} from '/resources/js/constant/HitBoxType.js';
+import Unit from "../Unit.js";
+import HitBoxType from '/resources/js/constant/HitBoxType.js';
 
 export default class Enemy extends Unit {
-    constructor(x,y,vertexList, hitBoxType, animationImageList, hp){
-        super(x,y,vertexList, hitBoxType, animationImageList, hp)
+    constructor(x,y,collisionList, hitBoxType, animationImageList, hp){
+        super(x,y,collisionList, hitBoxType, animationImageList, hp)
 
         this.type.push('Enemy')
     }

@@ -1,4 +1,4 @@
-class HitBoxType {
+export default class HitBoxType {
     static ignoreConflicts = 0b00000000
     static nonIgnoreConflicts = 0b00000001
 

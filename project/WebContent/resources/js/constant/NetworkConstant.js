@@ -1,4 +1,4 @@
-class NetworkConstant{
+export default class NetworkConstant{
     static ajaxRequestUrl = {
         getRanking : '/ranking',
         addRanking : '/ranking',

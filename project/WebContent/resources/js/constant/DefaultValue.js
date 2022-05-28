@@ -1,3 +1,6 @@
 export default class DefaultValue {
-    static defualtImage = document.createElement('img')
+    static DEFAULT_IMAGE = document.createElement('img')
+    static STANDARD_HITBOX = [
+        
+    ]
 } 

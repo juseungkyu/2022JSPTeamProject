@@ -1,12 +1,12 @@
 // hitBoxType에 pass를 무조건 포함시킴 + nonIgnoreConflicts
 // 이것도 유니티 따라함.
 
-import InteractionSprites from "../InteractionSprites";
-import {HitBoxType} from '/resources/js/constant/HitBoxType.js';
+import InteractionSprites from "../InteractionSprites.js";
+import HitBoxType from '/resources/js/constant/HitBoxType.js';
 
 export default class Unit extends InteractionSprites {
-    constructor(x,y,vertexList, hitBoxType, animationImageList, hp, speed, maxSpeed){
-        super(x,y,vertexList, hitBoxType&HitBoxType.pass, animationImageList)
+    constructor(x,y,collisionList, animationImageList, hp, speed, maxSpeed){
+        super(x,y,collisionList, HitBoxType.pass, animationImageList)
         this.hp = hp
         this.speed = speed
         this.maxSpeed = maxSpeed 
@@ -52,13 +52,15 @@ export default class Unit extends InteractionSprites {
 
         const currentSpeed = getForce(this.xForce, this.yForce)
 
-        if(currentSpeed >= maxSpeed) {
+        if(currentSpeed >= this.maxSpeed) {
             if(x == 0) {
                 this.xForce /= 1.1
             } else if(y == 0) {
                 this.yForce /= 1.1
             }
         }
+
+        console.log(this.xForce, this.yForce)
     }
 
     
