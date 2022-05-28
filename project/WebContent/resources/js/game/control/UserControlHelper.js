@@ -34,11 +34,14 @@ export default class UserControlHelper {
     }
 
     onInputChange() {
-        const x = this.inputKey['ArrowUp'] ? 1 : (this.inputKey['ArrowDown'] ? -1 : 0)
-        const y = this.inputKey['ArrowRight'] ? 1 : (this.inputKey['ArrowLeft'] ? -1 : 0)
+        const x = this.inputKey['ArrowRight'] ? 1 : (this.inputKey['ArrowLeft'] ? -1 : 0)
+        const y = this.inputKey['ArrowUp'] ? -1 : (this.inputKey['ArrowDown'] ? 1 : 0)
 
-        console.log(x, y)
-        this.sprite.move(x, y)
+        if(x == 0 && y == 0){
+            this.sprite.stopMoving()
+        } else {
+            this.sprite.changeDirection(x, y)
+        }
     }   
     
 
