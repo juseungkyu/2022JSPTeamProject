@@ -5,8 +5,8 @@ import InteractionSprites from "../InteractionSprites.js";
 import HitBoxType from '/resources/js/constant/HitBoxType.js';
 
 export default class Unit extends InteractionSprites {
-    constructor(x,y,collisionList, animationImageList, hp, speed, maxSpeed){
-        super(x,y,collisionList, HitBoxType.pass, animationImageList)
+    constructor(x,y,collisionList, animationImageList, hp, speed, maxSpeed, size){
+        super(x,y,collisionList, HitBoxType.pass, animationImageList, size)
         this.hp = hp
         this.speed = speed
         this.maxSpeed = maxSpeed 

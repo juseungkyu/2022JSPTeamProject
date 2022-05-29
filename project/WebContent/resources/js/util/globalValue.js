@@ -1,21 +1,23 @@
-window.unitList = {}
-window.spriteList = {}
+window.unitList = new SpriteList(800)
+window.spriteList = new SpriteList(800)
 
 // 유닛 리스트
-function pushUnitList (sprite){
-    const id = new Date().getTime()
-    window.unitList[id] = sprite
-    window.spriteList[id] = sprite
-
-    return id 
+function pushUnitList (sprite, y){
+    window.unitList.push(sprite, y)
+    window.spriteList.push(sprite, y)
 }
 
-function deleteUnitList (id){
-    delete window.unitList[id]
+function swapUnitPoint (sprite, beforeY, newY){
+    window.unitList.swap(sprite, beforeY, newY)
+    swapSpritePoint(sprite, beforeY, newY)
+}
+
+function deleteUnitList (y){
+    window.unitList.delete(y)
 }
 
 function getUnitList(){
-    return window.unitList
+    return window.unitList.getList()
 }
 
 function getUnit(id){
@@ -23,22 +25,19 @@ function getUnit(id){
 }
 
 // 스프라이트 리스트
-function pushSpriteList (sprite){
-    const id = new Date().getTime() * 0.000000000001
-    window.spriteList[id] = sprite
-
-    return id 
+function pushSpriteList (sprite, y){
+    window.spriteList.push(sprite, y)
 }
 
-function deleteSpriteList (id){
-    delete window.spriteList[id]
+function deleteSpriteList (y){
+    window.spriteList.delete(y)
+}
+
+function swapSpritePoint (sprite, beforeY, newY){
+    window.spriteList.swap(sprite, beforeY, newY)
 }
 
 function getSpriteList(){
-    return window.spriteList
-}
-
-function getSprite(id){
-    return window.spriteList[id]
+    return window.spriteList.getList()
 }
 

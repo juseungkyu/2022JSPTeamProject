@@ -3,8 +3,8 @@
 import Unit from "../Unit.js";
 
 export default class Friendly extends Unit {
-    constructor(x,y,collisionList, animationImageList, hp, speed, maxSpeed){
-        super(x,y,collisionList, animationImageList, hp, speed, maxSpeed)
+    constructor(x,y,collisionList, animationImageList, hp, speed, maxSpeed, size){
+        super(x,y,collisionList, animationImageList, hp, speed, maxSpeed, size)
 
         this.type.push('Friendly')
     }

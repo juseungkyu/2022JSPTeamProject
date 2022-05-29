@@ -4,8 +4,8 @@ import Sprites from "../Sprites.js";
 import HitBoxType from '/resources/js/constant/HitBoxType.js';
 
 export default class InteractionSprites extends Sprites {
-    constructor(x,y,collisionList, hitBoxType, animationImageList){
-        super(x,y,collisionList, hitBoxType&HitBoxType.nonIgnoreConflicts, animationImageList)
+    constructor(x,y,collisionList, hitBoxType, animationImageList,size ){
+        super(x,y,collisionList, hitBoxType&HitBoxType.nonIgnoreConflicts, animationImageList, size)
 
         this.type.push('InteractionSprites')
     }

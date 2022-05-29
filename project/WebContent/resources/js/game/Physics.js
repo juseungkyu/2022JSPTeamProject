@@ -1,8 +1,14 @@
 // UnitList은 unit 같이 물리적인 힘이 있는 객체들을 저장하는 곳
 
+import HitBoxType from '/resources/js/constant/HitBoxType.js';
+
 export default class Physics {
     constructor(){
         this.init()
+
+        this.canvas = document.createElement('canvas')
+        this.ctx = this.canvas.getContext('2d')
+        document.querySelector('body').appendChild(this.canvas)
     }
 
     init(){
@@ -10,26 +16,90 @@ export default class Physics {
         this.physicsTimer = setInterval(this.moveControl.bind(this), 20)
     }
 
+    hitBoxCheck(unit, sprite){
+        if(unit == sprite){
+            return
+        }
+        
+        for(let unitHitbox of unit.collisionList){
+            const x1 = unit.x + unitHitbox.vertexList[0].x
+            const y1 = unit.y + unitHitbox.vertexList[0].y
+            const x2 = unit.x + unitHitbox.vertexList[1].x
+            const y2 = unit.y + unitHitbox.vertexList[1].y
+
+
+            for(let spriteHitbox of sprite.collisionList){
+                const spriteX1 = sprite.x + spriteHitbox.vertexList[0].x
+                const spriteY1 = sprite.y + spriteHitbox.vertexList[0].y
+                const spriteX2 = sprite.x + spriteHitbox.vertexList[1].x
+                const spriteY2 = sprite.y + spriteHitbox.vertexList[1].y
+                
+                if(!(x1 < spriteX2 || x2 > spriteX1 
+                  ||y1 > spriteY2 || y2 < spriteY1)){
+                    return true
+                }
+            }
+        }
+
+        return false
+    }
+
     // Unit의 힘을 바탕으로 이동
     // 인터벌로 하니까 자꾸 순서 밀려서 슬로우 먹히길래
     // 인터벌 사이의 시간 측정해서 곱해줌
     moveControl(){
         
-        const list = Object.values(window.unitList)
+        const unitList = getUnitList()
+        const spriteList = getSpriteList()
 
-        for(let sprite of list){
-            sprite.x += sprite.xForce * this.dateTime * 0.1
-            sprite.y += sprite.yForce * this.dateTime * 0.1
+        for(let unit of unitList){
+            const beforeY = unit.y
+            const beforeX = unit.x
+
+            unit.x += parseInt(unit.xForce * this.dateTime * 0.1)
+            unit.y += parseInt(unit.yForce * this.dateTime * 0.1)
+
+
+            // 충돌처리
+            for(let sprite  of spriteList){
+                // 배경 등 상호작용이 없는 스프라이트는 무시
+                if(sprite.hitBoxType & HitBoxType.nonIgnoreConflicts == HitBoxType.nonIgnoreConflicts){
+                    continue
+                }
+
+                let isContact = this.hitBoxCheck.bind(this)(unit, sprite)
+
+                if(isContact){
+                    // 넘어갈 수 없는 스프라이트 일때
+                    if((sprite.hitBoxType & HitBoxType.nonpass) == HitBoxType.nonpass){
+                        unit.x = beforeX
+                        unit.y = beforeY
+
+                        unit.xForce = 0
+                        unit.yForce = 0
+                    }
+
+                    // 넘어갈 수 있는 스프라이트 일때
+                    if((sprite.hitBoxType & HitBoxType.nonpass) == HitBoxType.nonpass){
+                        // 미구현 적이면 넉백되어야함
+                    }
+
+                }
+            }
+
+            if(beforeY != unit.y){
+                swapUnitPoint(unit, beforeY, unit.y)
+            }
             
-            // 마찰이라고 칩시다
-            sprite.xForce /= 1.4
-            sprite.yForce /= 1.4
+            // 마찰력 주기
+            unit.xForce /= 1.4
+            unit.yForce /= 1.4
 
-            if(Math.abs(sprite.xForce) < 10){
-                sprite.xForce = 0
+            if(Math.abs(unit.xForce) < 10){
+                unit.xForce = 0
             } 
-            if(Math.abs(sprite.yForce) < 10){
-                sprite.yForce = 0
+            if(Math.abs(unit.yForce) < 10){
+                unit.yForce = 0
             } 
 
             // console.log(sprite.xForce, sprite.yForce)

@@ -4,8 +4,8 @@ import Unit from "../Unit.js";
 import HitBoxType from '/resources/js/constant/HitBoxType.js';
 
 export default class Enemy extends Unit {
-    constructor(x,y,collisionList, hitBoxType, animationImageList, hp){
-        super(x,y,collisionList, hitBoxType, animationImageList, hp)
+    constructor(x,y,collisionList, hitBoxType, animationImageList, hp, size){
+        super(x,y,collisionList, hitBoxType, animationImageList, hp, size)
 
         this.type.push('Enemy')
     }

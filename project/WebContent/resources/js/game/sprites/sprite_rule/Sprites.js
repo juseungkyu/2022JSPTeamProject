@@ -16,19 +16,29 @@
 import DefaultValue from '../../../constant/DefaultValue.js';
 
 export default class Sprites {
-    constructor(x,y, collisionList, hitBoxType, animationImageList, animationspeed){
+    constructor(x,y, collisionList, hitBoxType, animationImageList, size){
         this.x = x
         this.y = y
+        this.size = size
         this.collisionList = collisionList
+        
+        for(let x of this.collisionList) {
+            x.setSprite(this)
+        }
+
         this.hitBoxType = hitBoxType
         this.animationImageList = animationImageList
-        this.animationspeed = animationspeed
+        this.animationspeed = 1
 
         this.type = []
 
         this.image = DefaultValue.DEFAULT_IMAGE
 
         this.animationInit()
+    }
+
+    setAnimationSpeed = (animationspeed)=>{
+        this.animationspeed = animationspeed
     }
 
     animationInit() {
