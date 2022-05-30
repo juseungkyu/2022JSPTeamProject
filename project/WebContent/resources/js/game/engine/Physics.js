@@ -32,14 +32,35 @@ export default class Physics {
                 const spriteX2 = sprite.x + spriteHitbox.vertexList[1].x
                 const spriteY2 = sprite.y + spriteHitbox.vertexList[1].y
                 
-                if(!(x1 < spriteX2 || x2 > spriteX1 
+                if(!(x2 < spriteX1 || x1 > spriteX2 
                   ||y1 > spriteY2 || y2 < spriteY1)){
-                    return true
+                    return {spriteX1, spriteY1, spriteX2, spriteY2,unitHitbox}
                 }
             }
         }
 
         return false
+    }
+    
+    hitDirectionCheck(unit, beforeX, beforeY, {spriteX1, spriteY1, spriteX2, spriteY2, unitHitbox}){
+        let x1 = beforeX + unitHitbox.vertexList[0].x
+        let x2 = beforeX + unitHitbox.vertexList[1].x
+        
+        console.log(x1 < spriteX2, x1, spriteX2)
+        
+        // x좌표가 beforeX 일때 충돌함 = x축 문제
+        if(x2 < spriteX1 || x1 > spriteX2){
+            unit.x = beforeX
+            unit.xForce = 0
+        }
+        
+        let y1 = beforeY + unitHitbox.vertexList[0].y
+        let y2 = beforeY + unitHitbox.vertexList[1].y
+        
+        if(y1 > spriteY2 || y2 < spriteY1){
+        	unit.y = beforeY
+            unit.yForce = 0
+        }
     }
 
     // Unit의 힘을 바탕으로 이동
@@ -69,11 +90,7 @@ export default class Physics {
                 if(isContact){
                     // 넘어갈 수 없는 스프라이트 일때
                     if((sprite.hitBoxType & HitBoxType.nonpass) == HitBoxType.nonpass){
-                        unit.x = beforeX
-                        unit.y = beforeY
-
-                        unit.xForce = 0
-                        unit.yForce = 0
+                    	this.hitDirectionCheck.bind(this)(unit, beforeX, beforeY, isContact)
                     }
 
                     // 넘어갈 수 있는 스프라이트 일때
