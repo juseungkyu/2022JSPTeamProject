@@ -73,8 +73,8 @@ export default class Physics {
             const beforeY = unit.y
             const beforeX = unit.x
 
-            unit.x += parseInt(unit.xForce * timeStamp * 0.008)
-            unit.y += parseInt(unit.yForce * timeStamp * 0.008)
+            unit.x += parseInt(unit.xForce * timeStamp * 0.004)
+            unit.y += parseInt(unit.yForce * timeStamp * 0.004)
 
             // 충돌처리
             for(let sprite  of spriteList){

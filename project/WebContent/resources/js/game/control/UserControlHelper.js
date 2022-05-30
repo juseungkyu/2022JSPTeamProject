@@ -37,12 +37,24 @@ export default class UserControlHelper {
         const x = this.inputKey['ArrowRight'] ? 1 : (this.inputKey['ArrowLeft'] ? -1 : 0)
         const y = this.inputKey['ArrowUp'] ? -1 : (this.inputKey['ArrowDown'] ? 1 : 0)
 
-        if(x == 0 && y == 0){
+        if(x === 0 && y === 0){
+        	this.sprite.setAnimationSpeed(300)
+        	this.sprite.animationTypeChange('default')
             this.sprite.stopMoving()
         } else {
+        	this.setAnimationDirection.bind(this)(x, y)
+        	
             this.sprite.changeDirection(x, y)
         }
     }   
+    
+    setAnimationDirection(x,y){
+    	if(this.sprite.animationType !== 'moveRight' && x > 0 && y === 0){
+			this.sprite.setAnimationSpeed(100)
+        	this.sprite.animationTypeChange('moveRight')
+		}
+
+    }
     
 
 }

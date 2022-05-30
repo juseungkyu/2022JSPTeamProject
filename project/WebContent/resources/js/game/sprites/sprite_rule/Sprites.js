@@ -25,7 +25,7 @@ export default class Sprites {
 
         this.hitBoxType = hitBoxType
         this.animationImageList = animationImageList
-        this.animationspeed = 500
+        this.animationspeed = 200
 
         this.type = []
 
@@ -45,25 +45,27 @@ export default class Sprites {
     imageChange() {
         this.animationIndex++
 
-        if(this.animationIndex >= this.animationLength) {
+        if(this.animationIndex >= this.currentAnimation.length) {
             this.animationIndex = 0
         }
         
         this.image = this.currentAnimation[this.animationIndex]
         
-        if(this.animationLength <= 1) {
-        	return
-        }
         this.animationTimer = setTimeout(this.imageChange.bind(this), this.animationspeed);
     }
 
     animationTypeChange = (type)=>{
         clearTimeout(this.animationTimer)
         
+        this.animationType = type
+        
         this.animationIndex = 0
     	this.currentAnimation = this.animationImageList[type]
-        this.animationLength = this.currentAnimation.length
-
+        
+        if(this.currentAnimation.length <= 1) {
+        	this.image = this.currentAnimation[this.animationIndex]
+        	return
+        }
         
         this.imageChange.bind(this)();
     }

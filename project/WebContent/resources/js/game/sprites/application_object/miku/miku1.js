@@ -5,6 +5,10 @@ import Collision from "../../sprite_rule/Collision.js";
 
 const Miku1Animation = {
     'default' : [await getImage('/resources/image/miku/mikuStandTemporary1.png'), await getImage('/resources/image/miku/mikuStandTemporary2.png')],
+    'moveRight' : [await getImage('/resources/image/miku/move/mikuStandTemporaryBehind1.png'), 
+    			   await getImage('/resources/image/miku/move/mikuStandTemporaryBehind2.png'),
+    			   await getImage('/resources/image/miku/move/mikuStandTemporaryBehind3.png'),
+    			   await getImage('/resources/image/miku/move/mikuStandTemporaryBehind4.png')],
 }
 
 
