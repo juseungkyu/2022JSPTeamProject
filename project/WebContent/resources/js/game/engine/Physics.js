@@ -46,8 +46,6 @@ export default class Physics {
         let x1 = beforeX + unitHitbox.vertexList[0].x
         let x2 = beforeX + unitHitbox.vertexList[1].x
         
-        console.log(x1 < spriteX2, x1, spriteX2)
-        
         // x좌표가 beforeX 일때 충돌함 = x축 문제
         if(x2 < spriteX1 || x1 > spriteX2){
             unit.x = beforeX
