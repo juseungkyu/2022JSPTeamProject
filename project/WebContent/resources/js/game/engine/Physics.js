@@ -6,14 +6,12 @@ export default class Physics {
     constructor(){
         this.init()
 
-        this.canvas = document.createElement('canvas')
-        this.ctx = this.canvas.getContext('2d')
         document.querySelector('body').appendChild(this.canvas)
     }
 
     init(){
-        this.dateTime = new Date().getTime()
-        this.physicsTimer = setInterval(this.moveControl.bind(this), 20)
+        this.canvas = document.createElement('canvas')
+        this.ctx = this.canvas.getContext('2d')
     }
 
     hitBoxCheck(unit, sprite){
@@ -47,7 +45,7 @@ export default class Physics {
     // Unit의 힘을 바탕으로 이동
     // 인터벌로 하니까 자꾸 순서 밀려서 슬로우 먹히길래
     // 인터벌 사이의 시간 측정해서 곱해줌
-    moveControl(){
+    moveControl = (timeStamp) => {
         
         const unitList = getUnitList()
         const spriteList = getSpriteList()
@@ -56,9 +54,8 @@ export default class Physics {
             const beforeY = unit.y
             const beforeX = unit.x
 
-            unit.x += parseInt(unit.xForce * this.dateTime * 0.1)
-            unit.y += parseInt(unit.yForce * this.dateTime * 0.1)
-
+            unit.x += parseInt(unit.xForce * timeStamp * 0.008)
+            unit.y += parseInt(unit.yForce * timeStamp * 0.008)
 
             // 충돌처리
             for(let sprite  of spriteList){
@@ -104,8 +101,5 @@ export default class Physics {
 
             // console.log(sprite.xForce, sprite.yForce)
         }
-
-
-        this.dateTime = new Date().getTime() * 0.000000000001
     }
 }

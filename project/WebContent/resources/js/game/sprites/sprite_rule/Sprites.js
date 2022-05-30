@@ -1,9 +1,6 @@
 // x : x좌표
 // y : y좌표
 
-
-
-// 원래 sizeX,Y로 조절했는데 다각형
 // hitBoxType : 히트박스 종류
 // type : 자신의 종류 (플레이어라면 InteractionSprites->Unit->Friendly)
 
