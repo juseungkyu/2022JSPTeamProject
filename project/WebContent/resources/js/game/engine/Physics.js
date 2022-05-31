@@ -15,10 +15,6 @@ export default class Physics {
     }
 
     hitBoxCheck(unit, sprite){
-        if(unit == sprite){
-            return
-        }
-        
         for(let unitHitbox of unit.collisionList){
             const x1 = unit.x + unitHitbox.vertexList[0].x
             const y1 = unit.y + unitHitbox.vertexList[0].y
@@ -34,7 +30,7 @@ export default class Physics {
                 
                 if(!(x2 < spriteX1 || x1 > spriteX2 
                   ||y1 > spriteY2 || y2 < spriteY1)){
-                    return {spriteX1, spriteY1, spriteX2, spriteY2,unitHitbox}
+                    return {spriteX1, spriteY1, spriteX2, spriteY2, unitHitbox, sprite}
                 }
             }
         }
@@ -82,20 +78,29 @@ export default class Physics {
                 if(sprite.hitBoxType & HitBoxType.nonIgnoreConflicts == HitBoxType.nonIgnoreConflicts){
                     continue
                 }
+                
+                // 자신과 비교하는 걸 막아줌              
+                if(unit == sprite){
+            		continue
+                }
 
                 let isContact = this.hitBoxCheck.bind(this)(unit, sprite)
 
                 if(isContact){
                     // 넘어갈 수 없는 스프라이트 일때
                     if((sprite.hitBoxType & HitBoxType.nonpass) == HitBoxType.nonpass){
+                    	// 넘어가지는 걸 막고                    	
                     	this.hitDirectionCheck.bind(this)(unit, beforeX, beforeY, isContact)
                     }
 
                     // 넘어갈 수 있는 스프라이트 일때
                     if((sprite.hitBoxType & HitBoxType.nonpass) == HitBoxType.nonpass){
-                        // 미구현 적이면 넉백되어야함
+                        // 미구현 같은 타입이 아니면 넉백되어야함
                     }
-
+                    
+                    // 각자 충돌처리를 해줌
+                	unit.onCollisionEnter()
+                	sprite.onCollisionEnter()
                 }
             }
 

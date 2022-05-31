@@ -1,5 +1,3 @@
-// 피아식별 기능 추가
-
 import Terrain from "../../sprite_rule/interaction_sprites/terrain/Terrain.js"
 import Collision from "../../sprite_rule/Collision.js"
 
