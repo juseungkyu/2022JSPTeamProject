@@ -37,6 +37,8 @@ export default class UserControlHelper {
         const x = this.inputKey['ArrowRight'] ? 1 : (this.inputKey['ArrowLeft'] ? -1 : 0)
         const y = this.inputKey['ArrowUp'] ? -1 : (this.inputKey['ArrowDown'] ? 1 : 0)
 
+        
+
         if(x === 0 && y === 0){
         	this.sprite.setAnimationSpeed(300)
         	this.sprite.animationTypeChange('default')
@@ -55,6 +57,4 @@ export default class UserControlHelper {
 		}
 
     }
-    
-
 }

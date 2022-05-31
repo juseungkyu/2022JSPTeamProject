@@ -104,8 +104,8 @@ export default class Physics {
             }
             
             // 마찰력 주기
-            unit.xForce /= 1.4
-            unit.yForce /= 1.4
+            unit.xForce /= 1+ timeStamp * 0.01
+            unit.yForce /= 1+ timeStamp * 0.01
 
             if(Math.abs(unit.xForce) < 10){
                 unit.xForce = 0

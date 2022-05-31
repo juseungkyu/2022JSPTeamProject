@@ -13,9 +13,16 @@ export default class Enigne {
         this.basicPhysics.moveControl(timeStamp - this.before)
         this.graph.drawSprite()
         
-        window.requestAnimationFrame(this.frame.bind(this));
-    	
     	this.before = timeStamp
+        window.requestAnimationFrame(this.frame.bind(this));
+    }
+
+    setMap = (map)=>{
+        for(let sprite of map.sprites){
+            pushSpriteList(sprite, sprite.y)
+        }
+        
+        this.graph.drawMap(map)
     }
 }
 

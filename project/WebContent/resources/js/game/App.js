@@ -2,6 +2,8 @@ import Enigne from "./engine/Engine.js";
 
 import UserControlHelper from "./control/UserControlHelper.js"
 
+import DefaultMap from "./map/state1/DefaultMap.js";
+
 import Miku1 from "./sprites/application_object/miku/Miku1.js";
 import Wall1 from "./sprites/application_object/wall/Wall1.js";
 
@@ -15,15 +17,20 @@ class App {
         const miku = new Miku1()
         pushUnitList(miku, miku.y)
 
-        const wall1 = new Wall1()
-        pushSpriteList(wall1, wall1.y)
+        const defaultMap = new DefaultMap()
+
+        this.engine.setMap(defaultMap)
 
         // 유저의 입력을 받기 시작함       
         this.user = new UserControlHelper(miku)
     }
 }
 
+window.imageObject = {}
+
 window.addEventListener('load', async ()=>{
-    await imageSetting();
+    const imageUrls = ['/resources/image/test.png', '/resources/image/miku/mikuStandTemporary1.png', '/resources/image/background/sprite0002.png']
+
+    await imageSetting(imageUrls);
 	new App()
 })

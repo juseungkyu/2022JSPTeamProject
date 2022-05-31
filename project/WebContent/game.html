@@ -10,6 +10,18 @@
     	img {
   			image-rendering: pixelated;
 		}
+
+        #gameBox {
+            width: 1024px;
+            height: 800px;
+            position: relative;            
+        }
+
+        #gameBox>* {
+            position: absolute;
+            left: 0;
+            top: 0;            
+        }
     </style>
 
     <!-- 자료구조 -->
@@ -25,10 +37,6 @@
     <script src="/resources/js/game/App.js" type='module'></script>
 </head>
 <body>
-
-    <canvas></canvas>
-
-
-    <canvas id="c2"></canvas>
+    <div id="gameBox"></div>
 </body>
 </html>

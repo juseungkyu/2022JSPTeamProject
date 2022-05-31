@@ -8,7 +8,7 @@ const wall1Image = {
 }
 
 export default class Wall1 extends Terrain {
-    constructor(){
-        super(150, 150, [new Collision([{x:-50, y:-100}, {x:50, y:0}])], wall1Image, [100, 50])
+    constructor(x, y){
+        super(x, y, [new Collision([{x:-50, y:-100}, {x:50, y:0}])], wall1Image, [100, 50])
     }
 }

@@ -46,14 +46,11 @@ async function getDotImage(url, scale = 3) {
     return resultCanvas
 }
 
-const imageUrls = ['/resources/image/test.png']
-const imageObject = {}
-
-async function imageSetting(){
+async function imageSetting(imageUrls){
 	for(let url of imageUrls){
 		const urls = url.split('/')
 		const name = urls[urls.length-1].split('.')[0]
 		
-		imageObject[name] = await getDotImage(url)
+		window.imageObject[name] = await getDotImage(url)
 	}
 }
