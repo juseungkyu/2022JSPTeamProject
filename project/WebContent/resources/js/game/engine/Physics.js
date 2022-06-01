@@ -30,7 +30,7 @@ export default class Physics {
                 
                 if(!(x2 < spriteX1 || x1 > spriteX2 
                   ||y1 > spriteY2 || y2 < spriteY1)){
-                    return {x1, y1, x2, y2, spriteX1, spriteY1, spriteX2, spriteY2, unitHitbox, sprite}
+                    return {x1, y1, x2, y2, spriteX1, spriteY1, spriteX2, spriteY2, unitHitbox, spriteHitbox}
                 }
             }
         }
@@ -79,7 +79,6 @@ export default class Physics {
                 if(sprite.hitBoxType & HitBoxType.nonIgnoreConflicts == HitBoxType.nonIgnoreConflicts){
                     continue
                 }
-                
                 // 자신과 비교하는 걸 막아줌              
                 if(unit == sprite){
             		continue
@@ -88,21 +87,15 @@ export default class Physics {
                 let isContact = this.hitBoxCheck.bind(this)(unit, sprite)
 
                 if(isContact){
-
                     // 넘어갈 수 없는 스프라이트 일때
-                    if((sprite.hitBoxType & HitBoxType.nonpass) == HitBoxType.nonpass){
-                    	// 넘어가지는 걸 막고                    	
+                    if((sprite.hitBoxType & HitBoxType.pass) != HitBoxType.pass){
+                    	// 넘어가지는 걸 막음        	
                     	this.hitDirectionCheck.bind(this)(unit, beforeX, beforeY, isContact)
                     }
-
-                    // 넘어갈 수 있는 스프라이트 일때
-                    if((sprite.hitBoxType & HitBoxType.nonpass) == HitBoxType.nonpass){
-                        // 미구현 같은 타입이 아니면 넉백되어야함
-                    }
                     
-                    // 각자 충돌처리를 해줌
-                	unit.onCollisionEnter()
-                	sprite.onCollisionEnter()
+                    // 각자 충돌처리를 해줌 (충돌한 상대, 충돌한 히트박스 전달)
+                	unit.onCollisionEnter(sprite, isContact.unitHitbox)
+                	sprite.onCollisionEnter(unit, isContact.spriteHitbox)
                 }
             }
 
@@ -114,10 +107,10 @@ export default class Physics {
             unit.xForce /= 1+ timeStamp * 0.01
             unit.yForce /= 1+ timeStamp * 0.01
 
-            if(Math.abs(unit.xForce) < 10){
+            if(Math.abs(unit.xForce) < 5){
                 unit.xForce = 0
             } 
-            if(Math.abs(unit.yForce) < 10){
+            if(Math.abs(unit.yForce) < 5){
                 unit.yForce = 0
             } 
 

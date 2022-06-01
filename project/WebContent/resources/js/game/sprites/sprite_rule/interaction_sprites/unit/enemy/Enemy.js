@@ -9,7 +9,7 @@ export default class Enemy extends Unit {
         this.type.push('Enemy')
     }
 
-    onCollisionEnter = (obj)=>{
+    onCollisionEnter = (sprite, collision)=>{
         // if(obj.sprites.type.includes('Friendly')){
         //     this.onCollisionByEnemyFriendly()
         // }

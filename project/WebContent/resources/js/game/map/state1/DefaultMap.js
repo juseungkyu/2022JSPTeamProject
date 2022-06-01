@@ -36,7 +36,7 @@ export default class DefaultMap extends Map {
         sprites.push(new Wall1(...this.gridhelper(12, 15)))
         sprites.push(new Wall1(...this.gridhelper(12, 16)))
 
-        // sprites.push(new Slime(...this.gridhelper(20, 20)))
+        sprites.push(new Slime(...this.gridhelper(20, 20)))
 
 
         this.init(background, sprites)

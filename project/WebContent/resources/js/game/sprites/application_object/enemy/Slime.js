@@ -7,7 +7,7 @@ import Collision from "../../sprite_rule/Collision.js";
 export default class Slime extends Enemy {
     constructor(){
         super(400,400, 
-            [new Collision([{x:-20, y:-60}, {x:30, y:-30}])],
+            [new Collision([{x:-20, y:-80}, {x:30, y:-30}])],
             {
                 'default' : [window.imageObject.test, 
                              window.imageObject.mikuStandTemporary2],
