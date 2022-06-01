@@ -4,7 +4,7 @@ window.spriteList = new SpriteList(800)
 // 유닛 리스트
 function pushUnitList (sprite, y){
     window.unitList.push(sprite, y)
-    window.spriteList.push(sprite, y)
+    pushSpriteList(sprite, y)
 }
 
 function swapUnitPoint (sprite, beforeY, newY){

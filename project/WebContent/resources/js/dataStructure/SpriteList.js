@@ -22,7 +22,7 @@ class SpriteList {
     delete = (sprite, beforeY)=>{
         try {
             const list = this.list.get(parseInt(beforeY))
-            list.splice(list.indexOf(sprite))
+            return list.splice(list.indexOf(sprite), 1)
         } catch{}
     }
 

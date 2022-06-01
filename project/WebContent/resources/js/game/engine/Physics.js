@@ -70,8 +70,8 @@ export default class Physics {
             const beforeY = unit.y
             const beforeX = unit.x
 
-            unit.x += parseInt(unit.xForce * timeStamp * 0.004)
-            unit.y += parseInt(unit.yForce * timeStamp * 0.004)
+            unit.x += parseInt(unit.xForce * timeStamp * 0.005)
+            unit.y += parseInt(unit.yForce * timeStamp * 0.005)
 
             // 충돌처리
             for(let sprite  of spriteList){
@@ -110,7 +110,7 @@ export default class Physics {
                 swapUnitPoint(unit, beforeY, unit.y)
             }
             
-            // 마찰력 주기
+            // 마찰력
             unit.xForce /= 1+ timeStamp * 0.01
             unit.yForce /= 1+ timeStamp * 0.01
 

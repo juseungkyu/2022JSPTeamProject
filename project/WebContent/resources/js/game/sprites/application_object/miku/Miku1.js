@@ -1,4 +1,5 @@
-// 피아식별 기능 추가
+// 플레이어 캐릭터
+// Friendly 상속하고 Collision으로 히트박스 구현
 
 import Friendly from "../../sprite_rule/interaction_sprites/unit/friendly/Friendly.js";
 import Collision from "../../sprite_rule/Collision.js";
@@ -6,7 +7,7 @@ import Collision from "../../sprite_rule/Collision.js";
 export default class Miku1 extends Friendly {
     constructor(){
         super(400,400, 
-            [new Collision([{x:-10, y:-40}, {x:15, y:-20}])],
+            [new Collision([{x:-10, y:-30}, {x:15, y:-15}])],
             {
                 'default' : [window.imageObject.mikuStandTemporary1, 
                              window.imageObject.mikuStandTemporary2],
@@ -15,6 +16,6 @@ export default class Miku1 extends Friendly {
                                window.imageObject.mikuStandTemporaryBehind3,
                                window.imageObject.mikuStandTemporaryBehind4,]
             }, 
-            100, 40, 100, [50, 50])
+            100, 10, 100, [50, 50])
     }
 }

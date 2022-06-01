@@ -26,8 +26,8 @@ export default class Unit extends InteractionSprites {
     }
 
     stopMoving = ()=>{
-        this.isMoving = false
         clearInterval(this.moveTimer)
+        this.isMoving = false
     }
 
     startMoving = ()=>{
@@ -45,25 +45,9 @@ export default class Unit extends InteractionSprites {
     }
 
     move = ()=>{
-        if(this.xDirection == 1 && this.yDirection == 1){
-            this.xForce += this.speed/2
-            this.yForce += this.speed/2
-        } else if(this.xDirection == -1 && this.yDirection == -1 ){
-            this.xForce += this.speed/2
-            this.yForce += this.speed/2
-        } 
         
-        if(this.xDirection == 1){
-            this.xForce += this.speed
-        } else if(this.xDirection == -1){
-            this.xForce -= this.speed
-        }
-
-        if(this.yDirection == 1) {
-            this.yForce += this.speed
-        } else if(this.yDirection == -1){
-            this.yForce -= this.speed
-        }
+        this.xForce += this.speed * this.xDirection
+        this.yForce += this.speed * this.yDirection
 
         const currentSpeed = getForce(this.xForce, this.yForce)
 

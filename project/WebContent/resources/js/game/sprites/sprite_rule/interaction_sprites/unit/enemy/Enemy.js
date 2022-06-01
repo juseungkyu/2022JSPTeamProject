@@ -1,23 +1,18 @@
 // 피아식별 기능 추가
 
 import Unit from "../Unit.js";
-import HitBoxType from '/resources/js/constant/HitBoxType.js';
 
 export default class Enemy extends Unit {
-    constructor(x,y,collisionList, hitBoxType, animationImageList, hp, size){
-        super(x,y,collisionList, hitBoxType, animationImageList, hp, size)
+    constructor(x,y,collisionList, animationImageList, hp, speed, maxSpeed, size){
+        super(x,y,collisionList, animationImageList, hp, speed, maxSpeed, size)
 
         this.type.push('Enemy')
     }
 
     onCollisionEnter = (obj)=>{
-        if(obj.sprites.type.includes('Unit')){
-            this.onCollisionEnterByUnit()
-        }
-    }
-
-    onCollisionEnterByUnit = (obj)=>{
-
+        // if(obj.sprites.type.includes('Friendly')){
+        //     this.onCollisionByEnemyFriendly()
+        // }
     }
 
     onCollisionByEnemyFriendly = (obj)=>{

@@ -5,6 +5,7 @@
 import Map from '../Map.js';
 import Tile1 from '../../sprites/application_object/background/tile/Tile1.js';
 import Wall1 from '../../sprites/application_object/wall/Wall1.js';
+import Slime from '../../sprites/application_object/enemy/Slime.js';
 
 export default class DefaultMap extends Map {
     constructor() {
@@ -34,6 +35,8 @@ export default class DefaultMap extends Map {
         sprites.push(new Wall1(...this.gridhelper(11, 15)))
         sprites.push(new Wall1(...this.gridhelper(12, 15)))
         sprites.push(new Wall1(...this.gridhelper(12, 16)))
+
+        // sprites.push(new Slime(...this.gridhelper(20, 20)))
 
 
         this.init(background, sprites)
