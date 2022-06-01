@@ -21,16 +21,16 @@ export default class Physics {
             const x2 = unit.x + unitHitbox.vertexList[1].x
             const y2 = unit.y + unitHitbox.vertexList[1].y
 
-
             for(let spriteHitbox of sprite.collisionList){
                 const spriteX1 = sprite.x + spriteHitbox.vertexList[0].x
                 const spriteY1 = sprite.y + spriteHitbox.vertexList[0].y
                 const spriteX2 = sprite.x + spriteHitbox.vertexList[1].x
                 const spriteY2 = sprite.y + spriteHitbox.vertexList[1].y
                 
+                
                 if(!(x2 < spriteX1 || x1 > spriteX2 
                   ||y1 > spriteY2 || y2 < spriteY1)){
-                    return {spriteX1, spriteY1, spriteX2, spriteY2, unitHitbox, sprite}
+                    return {x1, y1, x2, y2, spriteX1, spriteY1, spriteX2, spriteY2, unitHitbox, sprite}
                 }
             }
         }
@@ -41,7 +41,7 @@ export default class Physics {
     hitDirectionCheck(unit, beforeX, beforeY, {spriteX1, spriteY1, spriteX2, spriteY2, unitHitbox}){
         let x1 = beforeX + unitHitbox.vertexList[0].x
         let x2 = beforeX + unitHitbox.vertexList[1].x
-        
+
         // x좌표가 beforeX 일때 충돌함 = x축 문제
         if(x2 < spriteX1 || x1 > spriteX2){
             unit.x = beforeX
@@ -87,6 +87,8 @@ export default class Physics {
                 let isContact = this.hitBoxCheck.bind(this)(unit, sprite)
 
                 if(isContact){
+                    console.log(isContact)
+
                     // 넘어갈 수 없는 스프라이트 일때
                     if((sprite.hitBoxType & HitBoxType.nonpass) == HitBoxType.nonpass){
                     	// 넘어가지는 걸 막고                    	

@@ -31,7 +31,7 @@ export default class GraphicControl {
         this.ctx.clearRect(0,0, 1024, 800)
         for(let sprite of list){
             if(sprite.image){
-                this.ctx.drawImage(sprite.image, sprite.x, sprite.y, sprite.size[0], sprite.size[1])
+                this.ctx.drawImage(sprite.image, sprite.x - sprite.size[0]/2, sprite.y - sprite.size[1], sprite.size[0], sprite.size[1])
             }
         }
     }

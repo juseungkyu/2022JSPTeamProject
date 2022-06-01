@@ -18,13 +18,23 @@ export default class DefaultMap extends Map {
             }
         }
 
-        const wall1 = new Wall1(0, 0)
-        const wall2 = new Wall1(50, 0)
-        const wall3 = new Wall1(100, 0)
-        const wall4 = new Wall1(150, 0)
-        const wall5 = new Wall1(200, 0)
+        const sprites = []
 
-        const sprites = [wall1, wall2, wall3, wall4, wall5]
+        for(let i = 0; i < 32; i++){
+            sprites.push(new Wall1(...this.gridhelper(i, 0)))
+            sprites.push(new Wall1(...this.gridhelper(i, 24)))
+        }
+
+        for(let i = 1; i < 24; i++){
+            sprites.push(new Wall1(...this.gridhelper(0, i)))
+            sprites.push(new Wall1(...this.gridhelper(31, i)))
+        }
+
+        sprites.push(new Wall1(...this.gridhelper(10, 15)))
+        sprites.push(new Wall1(...this.gridhelper(11, 15)))
+        sprites.push(new Wall1(...this.gridhelper(12, 15)))
+        sprites.push(new Wall1(...this.gridhelper(12, 16)))
+
 
         this.init(background, sprites)
     }

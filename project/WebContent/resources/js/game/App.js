@@ -29,7 +29,16 @@ class App {
 window.imageObject = {}
 
 window.addEventListener('load', async ()=>{
-    const imageUrls = ['/resources/image/test.png', '/resources/image/miku/mikuStandTemporary1.png', '/resources/image/background/sprite0002.png']
+    const imageUrls = ['/resources/image/test.png', 
+
+    '/resources/image/miku/mikuStandTemporary1.png',
+    '/resources/image/miku/mikuStandTemporary2.png',
+    '/resources/image/miku/move/mikuStandTemporaryBehind1.png',
+    '/resources/image/miku/move/mikuStandTemporaryBehind2.png',
+    '/resources/image/miku/move/mikuStandTemporaryBehind3.png',
+    '/resources/image/miku/move/mikuStandTemporaryBehind4.png',
+
+    '/resources/image/background/sprite0002.png']
 
     await imageSetting(imageUrls);
 	new App()
