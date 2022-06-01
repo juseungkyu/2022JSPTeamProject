@@ -42,16 +42,17 @@ export default class Physics {
         let x1 = beforeX + unitHitbox.vertexList[0].x
         let x2 = beforeX + unitHitbox.vertexList[1].x
 
-        // x좌표가 beforeX 일때 충돌함 = x축 문제
-        if(x2 < spriteX1 || x1 > spriteX2){
+        let y1 = beforeY + unitHitbox.vertexList[0].y
+        let y2 = beforeY + unitHitbox.vertexList[1].y
+
+        // x좌표가 beforeX 일때 충돌 안함 & y축은 이미 충돌 했었음  = x축 문제
+        if((x2 < spriteX1 || x1 > spriteX2) & !(y1 > spriteY2 || y2 < spriteY1)){
             unit.x = beforeX
             unit.xForce = 0
         }
         
-        let y1 = beforeY + unitHitbox.vertexList[0].y
-        let y2 = beforeY + unitHitbox.vertexList[1].y
-        
-        if(y1 > spriteY2 || y2 < spriteY1){
+        // y좌표가 beforeY 일때 충돌 안함 & x축은 이미 충돌 했었음  = y축 문제
+        if((y1 > spriteY2 || y2 < spriteY1) & !(x2 < spriteX1 || x1 > spriteX2)){
         	unit.y = beforeY
             unit.yForce = 0
         }
@@ -87,7 +88,6 @@ export default class Physics {
                 let isContact = this.hitBoxCheck.bind(this)(unit, sprite)
 
                 if(isContact){
-                    console.log(isContact)
 
                     // 넘어갈 수 없는 스프라이트 일때
                     if((sprite.hitBoxType & HitBoxType.nonpass) == HitBoxType.nonpass){

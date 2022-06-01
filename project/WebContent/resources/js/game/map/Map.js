@@ -14,7 +14,7 @@ export default class Map {
         this.sprites = sprites
     }
 
-    gridhelper = (x,y)=>{
-        return [x*32+16, y*32 + 32]
+    gridhelper = (x,y, size=32)=>{
+        return [x*size+size/2, y*size + size]
     }
 }
