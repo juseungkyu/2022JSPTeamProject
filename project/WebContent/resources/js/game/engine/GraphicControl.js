@@ -21,11 +21,9 @@ export default class GraphicControl {
         this.backgroundCtx = this.setCanvas.bind(this)()
         this.ctx = this.setCanvas.bind(this)()
         this.UICtx = this.setCanvas.bind(this)()
-    
-        this.graphTimer = setInterval(this.drawSprite.bind(this), 10)
     }
 
-    drawSprite = () => {
+    drawSprite = (time) => {
         const list = getSpriteList()
         
         this.ctx.clearRect(0,0, 1024, 800)
@@ -36,9 +34,20 @@ export default class GraphicControl {
             	}
             	
             	if(sprite.isNoHitTime){
-            		this.ctx.globalAlpha = 0.5;
+            		sprite.isAlphaTime += parseInt(time)
+//            		console.log(sprite.isAlphaTime, time)
+            		
+                    if(sprite.isAlphaTime > 100) {
+                        this.ctx.globalAlpha = 0.5;
+                        
+                        if(sprite.isAlphaTime > 200){
+                        	sprite.isAlphaTime = 0
+                        }
+                    } else {
+                        this.ctx.globalAlpha = 0.1;
+                    }
             	} else {
-            		this.ctx.globalAlpha = 1;
+                    this.ctx.globalAlpha = 1;
             	}
             	
                 this.ctx.drawImage(sprite.image, sprite.x - sprite.size[0]/2, sprite.y - sprite.size[1], sprite.size[0], sprite.size[1])

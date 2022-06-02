@@ -8,6 +8,9 @@ const INPUT_ABLE_KEY = [
 export default class UserControlHelper {
     constructor(playerSprite){
         this.sprite = playerSprite
+
+        window.playerSprite = playerSprite
+
         this.init()
     }
 

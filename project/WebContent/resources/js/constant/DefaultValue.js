@@ -4,5 +4,5 @@ export default class DefaultValue {
     static STANDARD_HITBOX = [
     ]
 
-    static noHitTime = 2.5 * 1000
+    static noHitTime = 1 * 1000
 } 

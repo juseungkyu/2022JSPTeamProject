@@ -19,6 +19,8 @@ export default class Sprites {
         this.size = size
         this.collisionList = collisionList
         
+        this.isAlphaTime = 0
+        
         for(let x of this.collisionList) {
             x.setSprite(this)
         }
