@@ -38,6 +38,11 @@ window.addEventListener('load', async ()=>{
     '/resources/image/miku/move/mikuStandTemporaryBehind3.png',
     '/resources/image/miku/move/mikuStandTemporaryBehind4.png',
 
+    '/resources/image/enemy/crab/crab1.png',
+    '/resources/image/enemy/crab/crab2.png',
+    '/resources/image/enemy/crab/crab3.png',
+    '/resources/image/enemy/crab/crab4.png',
+
     '/resources/image/background/sprite0002.png']
 
     await imageSetting(imageUrls);

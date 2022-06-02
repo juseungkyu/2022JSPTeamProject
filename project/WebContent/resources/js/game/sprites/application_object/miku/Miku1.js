@@ -14,7 +14,11 @@ export default class Miku1 extends Friendly {
                 'moveRight' : [window.imageObject.mikuStandTemporaryBehind1,
                                window.imageObject.mikuStandTemporaryBehind2,
                                window.imageObject.mikuStandTemporaryBehind3,
-                               window.imageObject.mikuStandTemporaryBehind4,]
+                               window.imageObject.mikuStandTemporaryBehind4,],
+                'hit' : [window.imageObject.mikuStandTemporaryBehind1,
+                                window.imageObject.mikuStandTemporaryBehind2,
+                                window.imageObject.mikuStandTemporaryBehind3,
+                                window.imageObject.mikuStandTemporaryBehind4,]
             }, 
             100, 10, 100, [50, 50])
     }

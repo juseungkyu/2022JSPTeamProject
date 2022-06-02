@@ -6,7 +6,7 @@ import Map from '../Map.js';
 import Tile1 from '../../sprites/application_object/background/tile/Tile1.js';
 import Wall1 from '../../sprites/application_object/wall/Wall1.js';
 import Slime from '../../sprites/application_object/enemy/Slime.js';
-
+import Crab from '../../sprites/application_object/enemy/Crab.js';
 export default class DefaultMap extends Map {
     constructor() {
         super()
@@ -37,6 +37,7 @@ export default class DefaultMap extends Map {
         sprites.push(new Wall1(...this.gridhelper(12, 16)))
 
         sprites.push(new Slime(...this.gridhelper(20, 20)))
+        sprites.push(new Crab(...this.gridhelper(10, 10)))
 
 
         this.init(background, sprites)

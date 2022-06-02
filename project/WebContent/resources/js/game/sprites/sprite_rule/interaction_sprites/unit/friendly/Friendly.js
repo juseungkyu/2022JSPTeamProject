@@ -1,10 +1,13 @@
 // 피아식별 기능 추가
 
 import Unit from "../Unit.js";
+import DefaultValue from "../../../../../../constant/DefaultValue.js";
 
 export default class Friendly extends Unit {
     constructor(x,y,collisionList, animationImageList, hp, speed, maxSpeed, size){
         super(x,y,collisionList, animationImageList, hp, speed, maxSpeed, size)
+        this.isNoHitTime = false
+        this.isHit = false
 
         this.type.push('Friendly')
     }
@@ -16,7 +19,18 @@ export default class Friendly extends Unit {
     }
 
     onCollisionByEnemy= (sprite)=>{
-        this.x += (this.x - sprite.x)*2
-        this.y += (this.y - sprite.y)*2
-    }
+        this.isNoHitTime = true
+        this.isHit = true
+
+        clearTimeout(this.noHitTimer)
+        clearTimeout(this.hitTimer)
+
+        this.hitTimer = setTimeout(()=>{
+            this.isHit = false
+        }, DefaultValue.noHitTime) 
+
+        this.noHitTimer = setTimeout(()=>{
+            this.isNoHitTime = false
+        }, DefaultValue.noHitTime) 
+    } 
 }

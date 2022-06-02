@@ -5,8 +5,8 @@ import Enemy from "../../sprite_rule/interaction_sprites/unit/enemy/Enemy.js";
 import Collision from "../../sprite_rule/Collision.js";
 
 export default class Slime extends Enemy {
-    constructor(){
-        super(400,400, 
+    constructor(x, y){
+        super(x, y, 
             [new Collision([{x:-20, y:-80}, {x:30, y:-30}])],
             {
                 'default' : [window.imageObject.test, 

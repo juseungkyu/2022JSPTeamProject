@@ -91,11 +91,16 @@ export default class Physics {
                     if((sprite.hitBoxType & HitBoxType.pass) != HitBoxType.pass){
                     	// 넘어가지는 걸 막음        	
                     	this.hitDirectionCheck.bind(this)(unit, beforeX, beforeY, isContact)
+                    	
+                    	unit.onCollisionEnter(sprite, isContact.unitHitbox)
+                    	sprite.onCollisionEnter(unit, isContact.spriteHitbox)
+                    } else {
+                        // 각자 충돌처리를 해줌 (충돌한 상대, 충돌한 히트박스 전달)
+                    	if(!unit.isNoHitTime && !sprite.isNoHitTime) {
+                    		unit.onCollisionEnter(sprite, isContact.unitHitbox)
+                        	sprite.onCollisionEnter(unit, isContact.spriteHitbox)
+                    	}
                     }
-                    
-                    // 각자 충돌처리를 해줌 (충돌한 상대, 충돌한 히트박스 전달)
-                	unit.onCollisionEnter(sprite, isContact.unitHitbox)
-                	sprite.onCollisionEnter(unit, isContact.spriteHitbox)
                 }
             }
 
