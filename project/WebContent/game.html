@@ -7,39 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>제목</title>
 
-    <style type="text/css">
-        img {
-            image-rendering: pixelated;
-        }
-
-        .align-center {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #game {
-            display: flex;
-        }
-
-        #ui {
-            border: 1px solid black;
-            width: 350px;
-        }
-
-        #gameBox {
-            width: 1024px;
-            height: 800px;
-            position: relative;
-        }
-
-        #gameBox>* {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="./resources/css/style.css">
 
     <!-- 자료구조 -->
     <script src="/resources/js/dataStructure/SpriteList.js"></script>
@@ -58,11 +26,34 @@
     <div class="align-center">
         <section id="game">
             <div id="ui">
-                <div>
+                <div id="play-state">
+                    <div class="weapon"> 
+                        <img src="./resources/image/ui/miku/미쿠 스텐딩 일러스트 도트용2.png" alt="alt" title="image">
+                    </div>
+                    <div>
+                        <div class="hp">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="count">
+                            <span>534발</span>
+                        </div>
+                    </div>
+                    <!-- <div class="">
 
+                    </div>
+                    <div class="hp">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="weapon">
+                        <div class="count"></div>
+                    </div> -->
                 </div>
-                <div>
-
+                <div id="miku">   
+                    <img src="./resources/image/ui/miku/미쿠 스텐딩 일러스트 도트용2.png" alt="image" title="image">
                 </div>
             </div>
             <div id="gameBox"></div>
