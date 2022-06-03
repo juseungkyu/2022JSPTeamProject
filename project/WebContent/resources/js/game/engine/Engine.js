@@ -7,6 +7,12 @@ export default class Enigne {
         this.graph = new GraphicControl()
         this.before = 0
         window.requestAnimationFrame(this.frame.bind(this));
+        
+        this.uiSet()
+    }
+    
+    uiSet = () => {
+    	
     }
 
     frame(timeStamp) {
