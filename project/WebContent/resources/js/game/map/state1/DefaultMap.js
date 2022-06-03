@@ -4,7 +4,11 @@
 
 import Map from '../Map.js';
 import Tile1 from '../../sprites/application_object/background/tile/Tile1.js';
-import Wall1 from '../../sprites/application_object/wall/Wall1.js';
+// import Wall1 from '../../sprites/application_object/wall/Wall1.js';
+import CenterWall1 from '../../sprites/application_object/wall/wall1/CenterWall1.js';
+import LeftWall1 from '../../sprites/application_object/wall/wall1/LeftWall1.js';
+import RightWall1 from '../../sprites/application_object/wall/wall1/RightWall1.js';
+
 import Slime from '../../sprites/application_object/enemy/Slime.js';
 import Crab from '../../sprites/application_object/enemy/Crab.js';
 export default class DefaultMap extends Map {
@@ -22,19 +26,19 @@ export default class DefaultMap extends Map {
         const sprites = []
 
         for(let i = 0; i < 32; i++){
-            sprites.push(new Wall1(...this.gridhelper(i, 0)))
-            sprites.push(new Wall1(...this.gridhelper(i, 24)))
+            sprites.push(new CenterWall1(...this.gridhelper(i, 0)))
+            sprites.push(new CenterWall1(...this.gridhelper(i, 24)))
         }
 
         for(let i = 1; i < 24; i++){
-            sprites.push(new Wall1(...this.gridhelper(0, i)))
-            sprites.push(new Wall1(...this.gridhelper(31, i)))
+            sprites.push(new RightWall1(...this.gridhelper(0, i)))
+            sprites.push(new CenterWall1(...this.gridhelper(31, i)))
         }
 
-        sprites.push(new Wall1(...this.gridhelper(10, 15)))
-        sprites.push(new Wall1(...this.gridhelper(11, 15)))
-        sprites.push(new Wall1(...this.gridhelper(12, 15)))
-        sprites.push(new Wall1(...this.gridhelper(12, 16)))
+        // sprites.push(new Wall1(...this.gridhelper(10, 15)))
+        // sprites.push(new Wall1(...this.gridhelper(11, 15)))
+        // sprites.push(new Wall1(...this.gridhelper(12, 15)))
+        // sprites.push(new Wall1(...this.gridhelper(12, 16)))
 
         const units = []
         

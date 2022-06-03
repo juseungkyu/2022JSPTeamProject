@@ -6,13 +6,39 @@ export default class Enigne {
         this.basicPhysics = new Physics()
         this.graph = new GraphicControl()
         this.before = 0
+        this.currentWeapon
+
+        this.ui = document.querySelector('#play-state')
+
         window.requestAnimationFrame(this.frame.bind(this));
         
         this.uiSet()
+
+        window.uiSettingFunc = this.uiSet
     }
     
     uiSet = () => {
-    	
+    	this.ui.querySelector('.weapon').innerHTML = `
+            <img src="./resources/image/ui/miku/${this.currentWeapon}.png" alt="${this.currentWeapon}" title="${this.currentWeapon}">
+        `
+
+        if(window.playerSprite.hp <= 0){
+            
+        }
+
+        let hp = ''
+
+        for(let i = 0; i < window.playerSprite.hp; i++){
+            hp += '<div></div>'
+        }
+
+    	this.ui.querySelector('.hp').innerHTML = `
+            ${hp}
+        `
+
+    	this.ui.querySelector('.count').innerHTML = `
+            <span>${window.playerSprite.weaponCount} 발</span>
+        `
     }
 
     frame(timeStamp) {

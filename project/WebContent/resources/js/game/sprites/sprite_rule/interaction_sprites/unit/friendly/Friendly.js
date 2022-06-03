@@ -19,8 +19,11 @@ export default class Friendly extends Unit {
     }
 
     onCollisionByEnemy= (sprite)=>{
+        this.hp--
         this.isNoHitTime = true
         this.isHit = true
+
+        window.uiSettingFunc()
 
         clearTimeout(this.noHitTimer)
         clearTimeout(this.hitTimer)

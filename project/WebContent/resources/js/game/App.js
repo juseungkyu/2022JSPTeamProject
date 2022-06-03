@@ -11,18 +11,19 @@ class App {
     constructor() {
         console.log('app start')
         
-        // 물리엔진, 그래픽 렌더링 시작
-        this.engine = new Enigne()
-
         const miku = new Miku1()
         pushUnitList(miku, miku.y)
+
+        // 유저의 입력을 받기 시작함       
+        this.user = new UserControlHelper(miku)
+
+        // 물리엔진, 그래픽 렌더링 시작
+        this.engine = new Enigne()
 
         const defaultMap = new DefaultMap()
 
         this.engine.setMap(defaultMap)
 
-        // 유저의 입력을 받기 시작함       
-        this.user = new UserControlHelper(miku)
     }
 }
 
@@ -42,6 +43,10 @@ window.addEventListener('load', async ()=>{
     '/resources/image/enemy/crab/crab2.png',
     '/resources/image/enemy/crab/crab3.png',
     '/resources/image/enemy/crab/crab4.png',
+
+    '/resources/image/terrain/center_wall1.png',
+    '/resources/image/terrain/left_wall1.png',
+    '/resources/image/terrain/right_wall1.png',
 
     '/resources/image/background/sprite0002.png']
 

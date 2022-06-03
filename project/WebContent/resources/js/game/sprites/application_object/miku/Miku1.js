@@ -21,5 +21,7 @@ export default class Miku1 extends Friendly {
                                 window.imageObject.mikuStandTemporaryBehind4,]
             }, 
             3, 10, 100, [50, 50])
+
+        this.weaponCount = '∞'
     }
 }
