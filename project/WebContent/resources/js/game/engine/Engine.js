@@ -7,6 +7,12 @@ export default class Enigne {
         this.graph = new GraphicControl()
         this.before = 0
         window.requestAnimationFrame(this.frame.bind(this));
+        
+        this.uiSet()
+    }
+    
+    uiSet = () => {
+    	
     }
 
     frame(timeStamp) {
@@ -22,6 +28,10 @@ export default class Enigne {
     setMap = (map)=>{
         for(let sprite of map.sprites){
             pushSpriteList(sprite, sprite.y)
+        }
+        
+        for(let unit of map.units){
+        	pushUnitList(unit, unit.y)
         }
         
         this.graph.drawMap(map)

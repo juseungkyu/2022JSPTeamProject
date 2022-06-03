@@ -10,7 +10,7 @@ export default class Miku1 extends Friendly {
             [new Collision([{x:-10, y:-30}, {x:15, y:-15}])],
             {
                 'default' : [window.imageObject.mikuStandTemporary1, 
-                             window.imageObject.mikuStandTemporary2],
+                             window.imageObject.mikuStandTemporary3],
                 'moveRight' : [window.imageObject.mikuStandTemporaryBehind1,
                                window.imageObject.mikuStandTemporaryBehind2,
                                window.imageObject.mikuStandTemporaryBehind3,
@@ -20,6 +20,6 @@ export default class Miku1 extends Friendly {
                                 window.imageObject.mikuStandTemporaryBehind3,
                                 window.imageObject.mikuStandTemporaryBehind4,]
             }, 
-            100, 10, 100, [50, 50])
+            3, 10, 100, [50, 50])
     }
 }

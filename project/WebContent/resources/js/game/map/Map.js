@@ -6,12 +6,14 @@ export default class Map {
     constructor() {
         this.background = []
         this.sprites = []
+        this.units = []
     }
 
     // 스프라이트
-    init = (background, sprites)=>{
+    init = (background, sprites, units)=>{
         this.background = background
         this.sprites = sprites
+        this.units = units
     }
 
     gridhelper = (x,y, size=32)=>{

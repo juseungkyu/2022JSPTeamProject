@@ -32,7 +32,7 @@ window.addEventListener('load', async ()=>{
     const imageUrls = ['/resources/image/test.png', 
 
     '/resources/image/miku/mikuStandTemporary1.png',
-    '/resources/image/miku/mikuStandTemporary2.png',
+    '/resources/image/miku/mikuStandTemporary3.png',
     '/resources/image/miku/move/mikuStandTemporaryBehind1.png',
     '/resources/image/miku/move/mikuStandTemporaryBehind2.png',
     '/resources/image/miku/move/mikuStandTemporaryBehind3.png',
