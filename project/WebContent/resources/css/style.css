@@ -4,7 +4,6 @@
     padding: 0;
 }
 
-
 img {
     image-rendering: pixelated;
 }
@@ -114,4 +113,21 @@ img {
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.front-ground {
+    background-color: rgba(136, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.front-ground.active {
+    visibility: visible;
+    opacity: 1;
 }

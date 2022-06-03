@@ -12,8 +12,10 @@ export default class Enigne {
 
         window.requestAnimationFrame(this.frame.bind(this));
         
-        this.uiSet()
+        this.redGround = document.querySelector('.front-ground')
+        this.beforeHp = window.playerSprite.hp
 
+        this.uiSet()
         window.uiSettingFunc = this.uiSet
     }
     
@@ -21,6 +23,19 @@ export default class Enigne {
     	this.ui.querySelector('.weapon').innerHTML = `
             <img src="./resources/image/ui/miku/${this.currentWeapon}.png" alt="${this.currentWeapon}" title="${this.currentWeapon}">
         `
+
+        if(this.beforeHp !== window.playerSprite.hp){
+            this.redGround.classList.add('active')
+            setTimeout(() => {
+                this.redGround.style.transition = '0.5s'
+                this.redGround.classList.remove('active')
+            }, 0);
+            setTimeout(() => {
+                this.redGround.style.transition = '0s'
+            }, 500);
+        }
+
+        this.beforeHp = window.playerSprite.hp
 
         if(window.playerSprite.hp <= 0){
             
