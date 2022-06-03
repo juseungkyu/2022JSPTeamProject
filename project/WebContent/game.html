@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>제목</title>
-    
+
     <style type="text/css">
-    	img {
-  			image-rendering: pixelated;
-		}
+        img {
+            image-rendering: pixelated;
+        }
+
+        .align-center {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #game {
+            display: flex;
+        }
+
+        #ui {
+            border: 1px solid black;
+            width: 350px;
+        }
 
         #gameBox {
             width: 1024px;
             height: 800px;
-            position: relative;            
+            position: relative;
         }
 
         #gameBox>* {
             position: absolute;
             left: 0;
-            top: 0;            
+            top: 0;
         }
     </style>
 
@@ -36,7 +53,21 @@
     <!-- 앱 시작 -->
     <script src="/resources/js/game/App.js" type='module'></script>
 </head>
+
 <body>
-    <div id="gameBox"></div>
+    <div class="align-center">
+        <section id="game">
+            <div id="ui">
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div id="gameBox"></div>
+        </section>
+    </div>
 </body>
+
 </html>

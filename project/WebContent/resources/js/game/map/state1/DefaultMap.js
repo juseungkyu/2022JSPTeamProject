@@ -36,10 +36,12 @@ export default class DefaultMap extends Map {
         sprites.push(new Wall1(...this.gridhelper(12, 15)))
         sprites.push(new Wall1(...this.gridhelper(12, 16)))
 
-        sprites.push(new Slime(...this.gridhelper(20, 20)))
-        sprites.push(new Crab(...this.gridhelper(10, 10)))
+        const units = []
+        
+        units.push(new Slime(...this.gridhelper(20, 20)))
+        units.push(new Crab(...this.gridhelper(10, 10)))
 
 
-        this.init(background, sprites)
+        this.init(background, sprites, units)
     }
 }

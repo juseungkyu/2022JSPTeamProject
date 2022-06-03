@@ -45,9 +45,13 @@ export default class Unit extends InteractionSprites {
     }
 
     move = ()=>{
+    	console.log(this.xDirection, this.yDirection)
+    	
         this.xForce += this.speed * this.xDirection
         this.yForce += this.speed * this.yDirection
 
+        console.log(this.xForce)
+        
         const currentSpeed = getForce(this.xForce, this.yForce)
 
         if(currentSpeed >= this.maxSpeed) {

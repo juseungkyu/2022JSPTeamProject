@@ -24,6 +24,10 @@ export default class Enigne {
             pushSpriteList(sprite, sprite.y)
         }
         
+        for(let unit of map.units){
+        	pushUnitList(unit, unit.y)
+        }
+        
         this.graph.drawMap(map)
     }
 }

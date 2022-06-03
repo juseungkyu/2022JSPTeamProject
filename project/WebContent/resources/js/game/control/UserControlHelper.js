@@ -47,17 +47,17 @@ export default class UserControlHelper {
         	this.sprite.animationTypeChange('default')
             this.sprite.stopMoving()
         } else {
-        	// this.setAnimationDirection.bind(this)(x, y)
+        	 this.setAnimationDirection.bind(this)(x, y)
         	
             this.sprite.changeDirection(x, y)
         }
     }   
     
     setAnimationDirection(x,y){
-    	// if(this.sprite.animationType !== 'moveRight' && x > 0 && y === 0){
-		// 	this.sprite.setAnimationSpeed(100)
-        // 	this.sprite.animationTypeChange('moveRight')
-		// }
+    	 if(this.sprite.animationType !== 'moveRight' && x > 0 && y === 0){
+		 	this.sprite.setAnimationSpeed(100)
+         	this.sprite.animationTypeChange('moveRight')
+		 }
 
     }
 }

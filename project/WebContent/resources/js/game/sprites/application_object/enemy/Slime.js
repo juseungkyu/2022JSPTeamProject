@@ -10,8 +10,8 @@ export default class Slime extends Enemy {
             [new Collision([{x:-20, y:-80}, {x:30, y:-30}])],
             {
                 'default' : [window.imageObject.test, 
-                             window.imageObject.mikuStandTemporary2],
+                             window.imageObject.mikuStandTemporary3],
             }, 
-            100, 40, 100, [100, 100])
+            5, 40, 100, [100, 100])
     }
 }
