@@ -12,8 +12,9 @@ function swapUnitPoint (sprite, beforeY, newY){
     swapSpritePoint(sprite, beforeY, newY)
 }
 
-function deleteUnitList (y){
-    window.unitList.delete(y)
+function deleteUnitList (sprite, y){
+    window.unitList.delete(sprite, y)
+    deleteSpriteList(sprite, y)
 }
 
 function getUnitList(){
@@ -29,8 +30,8 @@ function pushSpriteList (sprite, y){
     window.spriteList.push(sprite, y)
 }
 
-function deleteSpriteList (y){
-    window.spriteList.delete(y)
+function deleteSpriteList (sprite, y){
+    window.spriteList.delete(sprite, y)
 }
 
 function swapSpritePoint (sprite, beforeY, newY){

@@ -67,6 +67,11 @@ export default class Physics {
         const spriteList = getSpriteList()
 
         for(let unit of unitList){
+            if(unit.deleted){
+                deleteUnitList(unit, unit.y)
+                continue
+            }
+
             const beforeY = unit.y
             const beforeX = unit.x
 

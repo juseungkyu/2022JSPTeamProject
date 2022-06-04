@@ -2,7 +2,8 @@ const INPUT_ABLE_KEY = [
     'ArrowUp',
     'ArrowDown',
     'ArrowRight',
-    'ArrowLeft'
+    'ArrowLeft',
+    'KeyA'
 ] 
 
 export default class UserControlHelper {
@@ -39,8 +40,10 @@ export default class UserControlHelper {
     onInputChange() {
         const x = this.inputKey['ArrowRight'] ? 1 : (this.inputKey['ArrowLeft'] ? -1 : 0)
         const y = this.inputKey['ArrowUp'] ? -1 : (this.inputKey['ArrowDown'] ? 1 : 0)
-
         
+        if(this.inputKey['KeyA']){
+            this.sprite.attack()
+        }
 
         if(x === 0 && y === 0){
         	this.sprite.setAnimationSpeed(300)

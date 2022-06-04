@@ -3,6 +3,8 @@
 
 import Friendly from "../../sprite_rule/interaction_sprites/unit/friendly/Friendly.js";
 import Collision from "../../sprite_rule/Collision.js";
+import PlayerBullet from "../bullet/friendly/PlayerBullet.js";
+
 
 export default class Miku1 extends Friendly {
     constructor(){
@@ -23,5 +25,9 @@ export default class Miku1 extends Friendly {
             3, 10, 100, [50, 50])
 
         this.weaponCount = '∞'
+    }
+
+    attack = ()=>{
+        pushUnitList(new PlayerBullet(this.x, this.y, [this.xDirection, this.yDirection]), this.y)
     }
 }
