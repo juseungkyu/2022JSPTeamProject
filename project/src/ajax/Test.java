@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.JDBCUtil;
+import common.SQLcommand;
 
 
 @WebServlet("/Test")
@@ -29,6 +30,7 @@ public class Test extends HttpServlet {
 		int score = 0;
 		String player_id = null;
 		Date date = new Date(0);
+		
 		
 		try {
 			request.setCharacterEncoding("UTF-8");
@@ -51,7 +53,8 @@ public class Test extends HttpServlet {
 			conn = JDBCUtil.getConnection();
 			try {
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, score);
+				pstmt.setInt(1, SQLcommand.autoInc("id", "Ranking"));
+				pstmt.setString(2, player_id);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
