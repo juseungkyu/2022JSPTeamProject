@@ -4,6 +4,7 @@
 import Friendly from "../../sprite_rule/interaction_sprites/unit/friendly/Friendly.js";
 import Collision from "../../sprite_rule/Collision.js";
 import PlayerBullet from "../bullet/friendly/PlayerBullet.js";
+import DefaultValue from "../../../../constant/DefaultValue.js";
 
 
 export default class Miku1 extends Friendly {
@@ -25,9 +26,18 @@ export default class Miku1 extends Friendly {
             3, 10, 100, [50, 50])
 
         this.weaponCount = '∞'
+        this.beforeAttackTime = 0
     }
 
-    attack = ()=>{
-        pushUnitList(new PlayerBullet(this.x, this.y-15, [this.xDirection, this.yDirection]), this.y-15)
+    attack = (x,y)=>{
+        const currentTime = new Date().getTime()
+
+        if(currentTime - this.beforeAttackTime < DefaultValue.attackDelay){
+            return
+        }
+
+        this.beforeAttackTime = currentTime
+
+        pushUnitList(new PlayerBullet(this.x, this.y-15, [x, y]), this.y-15)
     }
 }

@@ -3,7 +3,10 @@ const INPUT_ABLE_KEY = [
     'ArrowDown',
     'ArrowRight',
     'ArrowLeft',
-    'KeyA'
+    'KeyA',
+    'KeyS',
+    'KeyD',
+    'KeyW',
 ] 
 
 export default class UserControlHelper {
@@ -18,6 +21,8 @@ export default class UserControlHelper {
     init() {
         this.inputKey = {}
         this.readKeyInput.bind(this)()
+
+        this.pressingKeyEvent = setInterval(this.onInput.bind(this), 50);
     }
 
     readKeyInput() {
@@ -25,6 +30,7 @@ export default class UserControlHelper {
             if(!INPUT_ABLE_KEY.includes(e.code)){
                 return
             }
+
             e.preventDefault()
 
             this.inputKey[e.code] = true
@@ -37,13 +43,16 @@ export default class UserControlHelper {
         });
     }
 
+    onInput() {
+        const x = this.inputKey['KeyD'] ? 1 : (this.inputKey['KeyA'] ? -1 : 0)
+        const y = this.inputKey['KeyW'] ? -1 : (this.inputKey['KeyS'] ? 1 : 0)
+
+        this.sprite.attack(x, y)
+    }
+
     onInputChange() {
         const x = this.inputKey['ArrowRight'] ? 1 : (this.inputKey['ArrowLeft'] ? -1 : 0)
         const y = this.inputKey['ArrowUp'] ? -1 : (this.inputKey['ArrowDown'] ? 1 : 0)
-        
-        if(this.inputKey['KeyA']){
-            this.sprite.attack()
-        }
 
         if(x === 0 && y === 0){
         	this.sprite.setAnimationSpeed(300)

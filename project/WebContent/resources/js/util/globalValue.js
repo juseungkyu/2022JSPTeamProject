@@ -31,7 +31,7 @@ function pushSpriteList (sprite, y){
 }
 
 function deleteSpriteList (sprite, y){
-    console.log(window.spriteList.delete(sprite, y))
+    window.spriteList.delete(sprite, y)
 }
 
 function swapSpritePoint (sprite, beforeY, newY){

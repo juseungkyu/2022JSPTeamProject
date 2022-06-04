@@ -20,9 +20,7 @@ class SpriteList {
 
     // y값과 스프라이트 주소로 위치 찾고 삭제
     delete = (sprite, beforeY)=>{
-        console.log(beforeY)
         const list = this.list.get(parseInt(beforeY))
-        console.log(list)
         return list.splice(list.indexOf(sprite), 1)
     }
 

@@ -5,4 +5,5 @@ export default class DefaultValue {
     ]
 
     static noHitTime = 1 * 1000
+    static attackDelay = 0.1 * 1000
 } 
