@@ -23,8 +23,14 @@ export default class FriendlyBullet extends Friendly {
         this.xForce = 0
         this.yForce = 0
 
+        this.setEffectSize.bind(this)()
+
         setTimeout(()=>{
             this.deleted = true
         }, 500)
+    }
+
+    setEffectSize (){
+
     }
 }

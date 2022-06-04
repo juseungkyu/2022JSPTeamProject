@@ -13,15 +13,23 @@ export default class Crab extends Enemy {
                             window.imageObject.crab2, 
                             window.imageObject.crab3, 
                             window.imageObject.crab4],
+                'die' : [window.imageObject.crab1, 
+                             window.imageObject.crab2, 
+                             window.imageObject.crab3, 
+                             window.imageObject.crab4],
             }, 
-            20, 10, 500, [50, 50])
+            20, 3, 1000, [50, 50])
 
         this.setDirectionTimer = setInterval(() => {
             const x = (this.x - window.playerSprite.x) > 0 ? -1 : 1
             const y = (this.y - window.playerSprite.y) > 0 ? -1 : 1
             
             this.changeDirection(x, y)    
-        }, 500);
+        }, 10);
+    }
+
+    custemReset() {
+        clearInterval(this.setDirectionTimer)
     }
 
 }

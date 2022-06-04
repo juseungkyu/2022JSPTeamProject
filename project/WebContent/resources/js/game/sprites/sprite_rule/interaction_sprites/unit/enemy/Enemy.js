@@ -26,5 +26,28 @@ export default class Enemy extends Unit {
         this.hitTimer = setTimeout(()=>{
             this.isHit = false
         }, DefaultValue.hitAnimationTime) 
+
+        
+        if(this.hp <= 0){
+            this.die()
+        }
+    }
+
+    die = () => {
+        this.animationTypeChange('die')
+        this.stopMoving()
+        this.xForce = 0
+        this.yForce = 0
+        this.isNoHitTime = true
+
+        setTimeout(()=>{
+            this.deleted = true
+        }, 500)
+
+        this.custemReset.bind(this)()
+    }
+
+    custemReset() {
+        
     }
 }

@@ -30,6 +30,12 @@ class App {
 window.imageObject = {}
 
 window.addEventListener('load', async ()=>{
+    await initGameImage()
+	new App()
+})
+
+async function initGameImage(){
+    // 이미지 로딩
     const imageUrls = ['/resources/image/test.png', 
 
     '/resources/image/miku/mikuStandTemporary1.png',
@@ -48,8 +54,16 @@ window.addEventListener('load', async ()=>{
     '/resources/image/terrain/left_wall1.png',
     '/resources/image/terrain/right_wall1.png',
 
-    '/resources/image/background/sprite0002.png']
+    '/resources/image/background/sprite0002.png',
+
+    '/resources/image/effect/disappearBullet/disappearBullet1.png',
+    '/resources/image/effect/disappearBullet/disappearBullet2.png',
+    '/resources/image/effect/disappearBullet/disappearBullet3.png',
+    '/resources/image/effect/disappearBullet/disappearBullet4.png',
+    '/resources/image/effect/disappearBullet/disappearBullet5.png',
+    '/resources/image/effect/disappearBullet/disappearBullet6.png',
+    '/resources/image/effect/disappearBullet/disappearBullet7.png',
+    ]
 
     await imageSetting(imageUrls);
-	new App()
-})
+}

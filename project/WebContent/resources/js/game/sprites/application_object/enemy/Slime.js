@@ -9,8 +9,9 @@ export default class Slime extends Enemy {
         super(x, y, 
             [new Collision([{x:-20, y:-80}, {x:30, y:-30}])],
             {
-                'default' : [window.imageObject.test, 
+                'default' : [
                              window.imageObject.mikuStandTemporary3],
+                'die' : [window.imageObject.mikuStandTemporary3],
             }, 
             5, 40, 100, [100, 100])
     }

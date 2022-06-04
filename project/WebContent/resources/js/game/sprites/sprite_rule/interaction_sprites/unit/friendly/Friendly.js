@@ -35,7 +35,5 @@ export default class Friendly extends Unit {
         this.noHitTimer = setTimeout(()=>{
             this.isNoHitTime = false
         }, DefaultValue.noHitTime) 
-
-        // if(this.OnCollision)
     } 
 }
