@@ -9,8 +9,6 @@ import CenterWall1 from '../../sprites/application_object/wall/wall1/CenterWall1
 import LeftWall1 from '../../sprites/application_object/wall/wall1/LeftWall1.js';
 import RightWall1 from '../../sprites/application_object/wall/wall1/RightWall1.js';
 
-import Slime from '../../sprites/application_object/enemy/Slime.js';
-import Crab from '../../sprites/application_object/enemy/Crab.js';
 export default class DefaultMap extends Map {
     constructor() {
         super()
@@ -41,10 +39,6 @@ export default class DefaultMap extends Map {
         sprites.push(new CenterWall1(...this.gridhelper(12, 16)))
 
         const units = []
-        
-        units.push(new Slime(...this.gridhelper(20, 20)))
-        units.push(new Crab(...this.gridhelper(10, 10)))
-
 
         this.init(background, sprites, units)
     }

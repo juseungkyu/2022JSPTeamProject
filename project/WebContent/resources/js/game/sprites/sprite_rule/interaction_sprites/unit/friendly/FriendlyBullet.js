@@ -6,6 +6,8 @@ export default class FriendlyBullet extends Friendly {
     constructor(x,y,collisionList, animationImageList, hp, speed, maxSpeed, size, damage){
         super(x,y,collisionList, animationImageList, hp, speed, maxSpeed, size)
         this.damage = damage
+
+        this.type.push('FriendlyBullet')
     }
 
     onCollisionEnter = (sprite, collision)=>{

@@ -46,8 +46,11 @@ export default class UserControlHelper {
     onInput() {
         const x = this.inputKey['KeyD'] ? 1 : (this.inputKey['KeyA'] ? -1 : 0)
         const y = this.inputKey['KeyW'] ? -1 : (this.inputKey['KeyS'] ? 1 : 0)
-
-        this.sprite.attack(x, y)
+        
+        if(x != 0 || y != 0){
+            this.sprite.attack(x, y)
+        }
+        
     }
 
     onInputChange() {

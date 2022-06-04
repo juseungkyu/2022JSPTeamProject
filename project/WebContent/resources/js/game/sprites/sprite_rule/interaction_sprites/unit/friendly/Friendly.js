@@ -14,11 +14,11 @@ export default class Friendly extends Unit {
 
     onCollisionEnter = (sprite, collision)=>{
         if(sprite.type.includes('Enemy')){
-            this.onCollisionByEnemy(sprite)
+            this.underAttack(sprite)
         }
     }
 
-    onCollisionByEnemy= (sprite)=>{
+    underAttack = (sprite)=>{
         this.hp--
         this.isNoHitTime = true
         this.isHit = true
@@ -30,7 +30,7 @@ export default class Friendly extends Unit {
 
         this.hitTimer = setTimeout(()=>{
             this.isHit = false
-        }, DefaultValue.noHitTime) 
+        }, DefaultValue.hitAnimationTime) 
 
         this.noHitTimer = setTimeout(()=>{
             this.isNoHitTime = false
