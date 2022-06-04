@@ -20,20 +20,21 @@ class SpriteList {
 
     // y값과 스프라이트 주소로 위치 찾고 삭제
     delete = (sprite, beforeY)=>{
-        try {
-            const list = this.list.get(parseInt(beforeY))
-            return list.splice(list.indexOf(sprite), 1)
-        } catch{}
+        console.log(beforeY)
+        const list = this.list.get(parseInt(beforeY))
+        console.log(list)
+        return list.splice(list.indexOf(sprite), 1)
     }
 
     // push와 delete 실행으로 위치 바꾸기
     swap = (sprite, beforeY, newY) => {
+        this.delete(sprite, beforeY)
+
         if(newY < 0 || newY > this.maxY){
             return
         }
 
         this.push(sprite, newY)
-        this.delete(sprite, beforeY)
     }
 
     // 배열로 바꿔줌

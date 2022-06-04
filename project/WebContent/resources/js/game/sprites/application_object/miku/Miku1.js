@@ -28,6 +28,6 @@ export default class Miku1 extends Friendly {
     }
 
     attack = ()=>{
-        pushUnitList(new PlayerBullet(this.x, this.y, [this.xDirection, this.yDirection]), this.y)
+        pushUnitList(new PlayerBullet(this.x, this.y-15, [this.xDirection, this.yDirection]), this.y-15)
     }
 }

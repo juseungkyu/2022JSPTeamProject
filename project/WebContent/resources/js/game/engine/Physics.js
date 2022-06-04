@@ -68,7 +68,11 @@ export default class Physics {
 
         for(let unit of unitList){
             if(unit.deleted){
-                deleteUnitList(unit, unit.y)
+                if(unit.deleted === true){
+                    unit.deleted = 1
+                    deleteUnitList(unit, unit.y)
+                }
+                
                 continue
             }
 
