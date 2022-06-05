@@ -8,6 +8,7 @@ export default class FriendlyBullet extends Friendly {
         this.damage = damage
 
         this.type.push('FriendlyBullet')
+        this.type.push('Bullet')
     }
 
     onCollisionEnter = (sprite, collision)=>{

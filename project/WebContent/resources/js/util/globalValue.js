@@ -41,4 +41,3 @@ function swapSpritePoint (sprite, beforeY, newY){
 function getSpriteList(){
     return window.spriteList.getList()
 }
-

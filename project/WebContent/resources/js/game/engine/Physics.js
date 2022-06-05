@@ -76,59 +76,87 @@ export default class Physics {
                 continue
             }
 
-            const beforeY = unit.y
-            const beforeX = unit.x
+            this.moving.bind(this)(timeStamp, unit, spriteList)
 
-            unit.x += parseInt(unit.xForce * timeStamp * 0.005)
-            unit.y += parseInt(unit.yForce * timeStamp * 0.005)
-
-            // 충돌처리
-            for(let sprite  of spriteList){
-                // 배경 등 상호작용이 없는 스프라이트는 무시
-                if(sprite.hitBoxType & HitBoxType.nonIgnoreConflicts == HitBoxType.nonIgnoreConflicts){
-                    continue
-                }
-                // 자신과 비교하는 걸 막아줌              
-                if(unit == sprite){
-            		continue
-                }
-
-                let isContact = this.hitBoxCheck.bind(this)(unit, sprite)
-
-                if(isContact){
-                    // 넘어갈 수 없는 스프라이트 일때
-                    if((sprite.hitBoxType & HitBoxType.pass) != HitBoxType.pass){
-                    	// 넘어가지는 걸 막음        	
-                    	this.hitDirectionCheck.bind(this)(unit, beforeX, beforeY, isContact)
-                    	
-                    	unit.onCollisionEnter(sprite, isContact.unitHitbox)
-                    	sprite.onCollisionEnter(unit, isContact.spriteHitbox)
-                    } else {
-                        // 각자 충돌처리를 해줌 (충돌한 상대, 충돌한 히트박스 전달)
-                    	if(!unit.isNoHitTime && !sprite.isNoHitTime) {
-                    		unit.onCollisionEnter(sprite, isContact.unitHitbox)
-                        	sprite.onCollisionEnter(unit, isContact.spriteHitbox)
-                    	}
-                    }
+            if(unit.type.includes('Boss')){
+                for(let enemy of unit.enemyList){
+                    this.moving.bind(this)(timeStamp, enemy.sprite, spriteList)
                 }
             }
+        }
+    }
 
-            if(beforeY != unit.y){
-                swapUnitPoint(unit, beforeY, unit.y)
+    checkCollisionWithAll(unit, sprite, beforeX, beforeY) {
+        // 배경 등 상호작용이 없는 스프라이트는 무시
+        if(sprite.hitBoxType & HitBoxType.nonIgnoreConflicts == HitBoxType.nonIgnoreConflicts){
+            return
+        }
+        // 자신과 비교하는 걸 막아줌              
+        if(unit == sprite){
+            return
+        }
+
+        let isContact = this.hitBoxCheck.bind(this)(unit, sprite)
+
+        if(isContact){
+            // 넘어갈 수 없는 스프라이트 일때
+            if((sprite.hitBoxType & HitBoxType.pass) != HitBoxType.pass){
+                // 넘어가지는 걸 막음        	
+                this.hitDirectionCheck.bind(this)(unit, beforeX, beforeY, isContact)
+                
+                unit.onCollisionEnter(sprite, isContact.unitHitbox)
+                sprite.onCollisionEnter(unit, isContact.spriteHitbox)
+            } else {
+                // 각자 충돌처리를 해줌 (충돌한 상대, 충돌한 히트박스 전달)
+                if(!unit.isNoHitTime && !sprite.isNoHitTime) {
+                    unit.onCollisionEnter(sprite, isContact.unitHitbox)
+                    sprite.onCollisionEnter(unit, isContact.spriteHitbox)
+                }
             }
-            
-            // 마찰력
-            unit.xForce /= 1+ timeStamp * 0.01
-            unit.yForce /= 1+ timeStamp * 0.01
+        }
+    }
 
-            if(Math.abs(unit.xForce) < 5){
-                unit.xForce = 0
-            } 
-            if(Math.abs(unit.yForce) < 5){
-                unit.yForce = 0
-            } 
+    moving (timeStamp, unit, spriteList){
+        const beforeY = unit.y
+        const beforeX = unit.x
 
-            // console.log(sprite.xForce, sprite.yForce)
+        const increaseX = parseInt(unit.xForce * timeStamp * 0.005)
+        const increaseY = parseInt(unit.yForce * timeStamp * 0.005)
+
+        unit.x += increaseX
+        unit.y += increaseY
+
+        // 충돌처리
+        for(let sprite of spriteList){
+            this.checkCollisionWithAll.bind(this)(unit, sprite, beforeX, beforeY)
+
+            if(sprite.type.includes('Boss')){
+                for(let enemy of sprite.enemyList){
+                    this.checkCollisionWithAll.bind(this)(unit, enemy.sprite, beforeX, beforeY)
+                }
+            }
+        }
+
+        if(beforeY != unit.y){
+            swapUnitPoint(unit, beforeY, unit.y)
+
+            if(unit.type.includes('Boss')){
+                for(let enemy of unit.enemyList){
+                    enemy.sprite.x = unit.x + enemy.x
+                    enemy.sprite.y = unit.y + enemy.y
+                }
+            }
+        }
+        
+        // 마찰력
+        unit.xForce /= 1+ timeStamp * 0.01
+        unit.yForce /= 1+ timeStamp * 0.01
+
+        if(Math.abs(unit.xForce) < 5){
+            unit.xForce = 0
+        } 
+        if(Math.abs(unit.yForce) < 5){
+            unit.yForce = 0
         }
     }
 }

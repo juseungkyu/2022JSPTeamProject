@@ -29,7 +29,7 @@ export default class PlayerBullet extends FriendlyBullet {
     }
 
     setEffectSize(){
-        this.setAnimationSpeed(100)
+        this.setAnimationSpeed(50)
         this.size = [50, 50]
     }
 }

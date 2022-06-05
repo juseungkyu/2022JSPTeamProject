@@ -39,6 +39,7 @@ export default class Enemy extends Unit {
         this.xForce = 0
         this.yForce = 0
         this.isNoHitTime = true
+        this.isDie = true
 
         setTimeout(()=>{
             this.deleted = true

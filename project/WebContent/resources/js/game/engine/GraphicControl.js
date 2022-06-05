@@ -26,38 +26,52 @@ export default class GraphicControl {
         return ctx
     }
 
-    drawSprite = (time) => {
+    drawSprites = (time) => {
         const list = getSpriteList()
         
         this.ctx.clearRect(0,0, 1024, 800)
         for(let sprite of list){
-            if(sprite.image){
-                let image = sprite.image
-
-            	if(sprite.isHit){
-            		this.imageToHitImage.bind(this)(sprite.image)
-
-                    image = this.bufferCanvas
-            	}
-            	
-            	if(sprite.isNoHitTime){
-            		sprite.isAlphaTime += parseInt(time)
-            		
-                    if(sprite.isAlphaTime > 100) {
-                        this.ctx.globalAlpha = 0.5;
-                        
-                        if(sprite.isAlphaTime > 200){
-                        	sprite.isAlphaTime = 0
-                        }
-                    } else {
-                        this.ctx.globalAlpha = 0.1;
-                    }
-            	} else {
-                    this.ctx.globalAlpha = 1;
-            	}
-            	
-                this.ctx.drawImage(image, sprite.x - sprite.size[0]/2, sprite.y - sprite.size[1], sprite.size[0], sprite.size[1])
+            this.drawSprite.bind(this)(sprite, time)
+            
+            if(sprite.type.includes('Boss')){
+                for(let enemy of sprite.enemyList){
+                    this.drawSprite.bind(this)(enemy.sprite, time)
+                }
             }
+        }
+    }
+
+    drawSprite(sprite, time) {
+        if(sprite.image){
+            let image = sprite.image
+
+            if(sprite.isHit){
+                this.imageToHitImage.bind(this)(sprite.image)
+
+                image = this.bufferCanvas
+            }
+            
+            this.drawEffect.bind(this)(sprite, time)
+            
+            this.ctx.drawImage(image, sprite.x - sprite.size[0]/2, sprite.y - sprite.size[1], sprite.size[0], sprite.size[1])
+        }
+    }
+
+    drawEffect(sprite, time) {
+        if(sprite.isNoHitTime){
+            sprite.isAlphaTime += parseInt(time)
+            
+            if(sprite.isAlphaTime > 100) {
+                this.ctx.globalAlpha = 0.5;
+                
+                if(sprite.isAlphaTime > 200){
+                    sprite.isAlphaTime = 0
+                }
+            } else {
+                this.ctx.globalAlpha = 0.1;
+            }
+        } else {
+            this.ctx.globalAlpha = 1;
         }
     }
 

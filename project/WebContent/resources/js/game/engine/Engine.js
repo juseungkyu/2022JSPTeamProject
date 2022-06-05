@@ -60,7 +60,7 @@ export default class Enigne {
     	const time = timeStamp - this.before
     	
         this.basicPhysics.moveControl(time)
-        this.graph.drawSprite(time)
+        this.graph.drawSprites(time)
         
     	this.before = timeStamp
         window.requestAnimationFrame(this.frame.bind(this));
