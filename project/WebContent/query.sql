@@ -32,3 +32,7 @@ CREATE TABLE Ranking(
 
 drop table Users;
 
+select * from Ranking;
+delete from Ranking where id=1;
+
+insert into Users values('test', 'ttt', 'tttt', '222@mail.com', '1234');
