@@ -22,7 +22,7 @@ export default class GraphicControl {
         canvas.width = 1024
         canvas.height = 800
 
-        this.gameBox.appendChild(canvas)
+        gameBox.appendChild(canvas)
 
         return ctx
     }

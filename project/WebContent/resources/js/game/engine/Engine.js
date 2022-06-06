@@ -4,6 +4,8 @@ import Physics from './Physics.js';
 
 // 맵 임포트
 import DefaultMap from '../map/state1/DefaultMap.js';
+// 맵 임포트
+import Map1 from '../map/state1/Map1.js';
 
 export default class Enigne {
     constructor() {
@@ -22,15 +24,17 @@ export default class Enigne {
         window.uiSettingFunc = this.uiSet
         window.uiSettingFunc()
 
+        window.nextStage = this.nextStage
+
 
         this.gameControl()
     }
 
     gameControl() {
-        // const defaultMap = new DefaultMap()
-        // this.setMap(defaultMap)
+        const defaultMap = new Map1()
+        this.setMap(defaultMap)
 
-        this.nextStage()
+        // this.nextStage()
     }
 
     nextStage = () => {
@@ -51,15 +55,16 @@ export default class Enigne {
                 map = new DefaultMap()
                 break;
             case 3:
-                map = new DefaultMap()
+                map = new Map1()
                 break;
             case 4:
-                map = new DefaultMap()
+                map = new Map1()
                 break;
             default:
-                map = new DefaultMap()
+                map = new Map1()
                 break;
         }
+        setClearState(false)
         this.setMap(map)
     }
 
@@ -120,6 +125,9 @@ export default class Enigne {
         }
 
         this.graph.drawMap(map)
+
+        window.playerSprite.x = 80
+        window.playerSprite.y = 420
 
         pushUnitList(window.playerSprite, window.playerSprite.y)
     }
