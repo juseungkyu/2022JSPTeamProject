@@ -7,6 +7,7 @@ const INPUT_ABLE_KEY = [
     'KeyS',
     'KeyD',
     'KeyW',
+    'Space',
 ] 
 
 export default class UserControlHelper {
@@ -38,6 +39,13 @@ export default class UserControlHelper {
         })
 
         window.addEventListener("keyup", (e) => {
+            if(e.code == 'Space' && isClear()
+               && this.sprite.x > 900
+               && this.sprite.y > 370
+               && this.sprite.y < 470){
+                window.nextStage()
+            }
+
             delete this.inputKey[e.code]
             this.onInputChange.bind(this)()
         });

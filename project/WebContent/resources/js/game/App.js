@@ -49,8 +49,14 @@ async function initGameImage(){
     '/resources/image/terrain/center_wall1.png',
     '/resources/image/terrain/left_wall1.png',
     '/resources/image/terrain/right_wall1.png',
+    '/resources/image/terrain/box1.png',
 
     '/resources/image/background/sprite0002.png',
+    
+    '/resources/image/background/background1_1.png',
+
+    '/resources/image/background/background2_1.png',
+    '/resources/image/background/background2_2.png',
 
     '/resources/image/effect/disappearBullet/disappearBullet1.png',
     '/resources/image/effect/disappearBullet/disappearBullet2.png',

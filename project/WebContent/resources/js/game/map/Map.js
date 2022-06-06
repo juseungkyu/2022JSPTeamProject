@@ -16,6 +16,10 @@ export default class Map {
         this.units = units
     }
 
+    backgroundGridhelper = (x,y, size=32)=>{
+        return [x*size, y*size]
+    }
+
     gridhelper = (x,y, size=32)=>{
         return [x*size+size/2, y*size + size]
     }

@@ -1,26 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <link rel="stylesheet" href="/resources/css/style.css">
+    <link rel="stylesheet" href="/resources/css/basic.css">
 </head>
+
 <body>
+    <!-- 헤더 -->
     <header>
-        <a href="#">LOGO</a>
-        <div>
-           <ul>
-                <li><a href="#">게임시작</a></li>
-                <li><a href="#">게시판</a></li>
-           </ul> 
-           <ul>
-                <li><a href="#">로그인</a></li>
-                <li><a href="#">회원가입</a></li>
-           </ul>
+        <div class="container just-between">
+            <a href="#">LOGO</a>
+            <div class="d-flex nav">
+                <ul>
+                    <li><a href="#">게임시작</a></li>
+                    <li><a href="#">메인메뉴</a></li>
+                    <li><a href="#">게시판</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                </ul>
+            </div>
         </div>
     </header>
+    <!-- 헤더 -->
+
+    <!-- 메인 컨텐츠 -->
+    <div class="design-helper container">
+        <!-- 게시판 -->
+        <section id="board">
+            <table>
+                <thead>
+                    <tr>
+                        <th>글번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>조회</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>디자인 제목</td>
+                        <td>작성자</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>디자인 제목</td>
+                        <td>작성자</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>디자인 제목</td>
+                        <td>작성자</td>
+                        <td>1000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- 게시판 -->
+
+        <!-- 회원정보 -->
+        <section id="login">
+
+        </section>
+        <!-- 회원정보 -->
+    </div>
+    <!-- 메인 컨텐츠 -->
 </body>
+
 </html>
