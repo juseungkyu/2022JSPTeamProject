@@ -1,5 +1,34 @@
+// 전역변수 제어를 도와줌
+
 window.unitList = new SpriteList(800)
 window.spriteList = new SpriteList(800)
+window.gameState = {
+    'clear' : false,
+    'level' : 0
+}
+
+// 게임 상황
+function setClearState(value) {
+    window.gameState.clear = value
+}
+function isClear() {
+    return window.gameState.clear
+}
+function getLevel() {
+    return window.gameState.level
+}
+
+function checkClear() {
+    const list = getUnitList()
+
+    for(let unit of list) {
+        if(unit.type.includes('Enemy') || unit.type.includes('Boss')){
+            setClearState(false)
+        }
+    }
+
+    setClearState(true)
+}
 
 // 유닛 리스트
 function pushUnitList (sprite, y){
@@ -13,16 +42,18 @@ function swapUnitPoint (sprite, beforeY, newY){
 }
 
 function deleteUnitList (sprite, y){
-    console.log(window.unitList.delete(sprite, y))
+    window.unitList.delete(sprite, y)
     deleteSpriteList(sprite, y)
+
+    checkClear()
 }
 
 function getUnitList(){
     return window.unitList.getList()
 }
 
-function getUnit(id){
-    return window.unitList[id]
+function clearUnitList(){
+    window.unitList.reset()
 }
 
 // 스프라이트 리스트
@@ -40,4 +71,8 @@ function swapSpritePoint (sprite, beforeY, newY){
 
 function getSpriteList(){
     return window.spriteList.getList()
+}
+
+function clearSpriteList(){
+    window.spriteList.reset()
 }

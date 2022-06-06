@@ -36,6 +36,10 @@ export default class Unit extends InteractionSprites {
     }
 
     changeDirection = (x,y)=>{
+        if(this.isDie){
+            return
+        }
+
         if(!this.isMoving){
             this.startMoving()
         }

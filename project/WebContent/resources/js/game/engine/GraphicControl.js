@@ -9,12 +9,13 @@ export default class GraphicControl {
 
         this.gameBox = document.querySelector('#gameBox')
 
-        this.backgroundCtx = this.setCanvas.bind(this)()
-        this.ctx = this.setCanvas.bind(this)()
-        this.UICtx = this.setCanvas.bind(this)()
+        this.backgroundCtx = this.setCanvas(gameBox)
+        this.ctx = this.setCanvas(gameBox)
+        this.UICtx = this.setCanvas(gameBox)
     }
 
-    setCanvas() {
+    // 캔버스 로딩
+    setCanvas(gameBox) {
         const canvas = document.createElement('canvas')
         const ctx = canvas.getContext('2d')
         
@@ -26,6 +27,7 @@ export default class GraphicControl {
         return ctx
     }
 
+    // 배경을 제외한 화면을 로딩
     drawSprites = (time) => {
         const list = getSpriteList()
         
@@ -41,6 +43,7 @@ export default class GraphicControl {
         }
     }
 
+    // 스프라이트를 화면에 그려움
     drawSprite(sprite, time) {
         if(sprite.image){
             let image = sprite.image
@@ -57,6 +60,7 @@ export default class GraphicControl {
         }
     }
 
+    // 깜박이는 효과 등 여러가지 효과를 제어
     drawEffect(sprite, time) {
         if(sprite.isNoHitTime){
             sprite.isAlphaTime += parseInt(time)
@@ -75,6 +79,7 @@ export default class GraphicControl {
         }
     }
 
+    // 맵이 로딩될때 백그라운드를 그려줌
     drawMap = (map)=>{
         this.backgroundCtx.clearRect(0,0, 1024, 800)
 

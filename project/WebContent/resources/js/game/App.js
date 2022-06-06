@@ -17,13 +17,8 @@ class App {
         // 유저의 입력을 받기 시작함       
         this.user = new UserControlHelper(miku)
 
-        // 물리엔진, 그래픽 렌더링 시작
+        // 게임 엔진 시작 시작
         this.engine = new Enigne()
-
-        const defaultMap = new DefaultMap()
-
-        this.engine.setMap(defaultMap)
-
     }
 }
 

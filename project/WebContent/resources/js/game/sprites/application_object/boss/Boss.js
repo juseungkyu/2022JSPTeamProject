@@ -34,8 +34,12 @@ export default class Boss extends Unit{
                 return
             }
         }
-        console.log('hi')
+        
+        setTimeout(()=>{
+            this.deleted = true
+        }, 500)
 
-        deleteUnitList(this, this.y)
+        this.stopMoving()
+        this.custemReset.bind(this)()
     }
 }

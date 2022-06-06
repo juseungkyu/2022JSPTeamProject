@@ -14,6 +14,37 @@ export default class Physics {
         this.ctx = this.canvas.getContext('2d')
     }
 
+
+    // Unit의 힘을 바탕으로 이동
+    // 인터벌로 하니까 자꾸 순서 밀려서 슬로우 먹히길래
+    // 인터벌 사이의 시간 측정해서 곱해줌
+    moveControl = (timeStamp) => {
+        
+        const unitList = getUnitList()
+        const spriteList = getSpriteList()
+
+        for(let unit of unitList){
+            // 무슨 비동기 실행이 먼저 돌아갈지 정확하게 알 수 없기에
+            // 삭제 요청한 스프라이트를 한번만 삭제하게 함
+            if(unit.deleted){
+                if(unit.deleted === true){
+                    unit.deleted = 1
+                    deleteUnitList(unit, unit.y)
+                }
+                
+                continue
+            }
+
+            this.moving.bind(this)(timeStamp, unit, spriteList)
+
+            if(unit.type.includes('Boss')){
+                for(let enemy of unit.enemyList){
+                    this.moving.bind(this)(timeStamp, enemy.sprite, spriteList)
+                }
+            }
+        }
+    }
+    
     hitBoxCheck(unit, sprite){
         for(let unitHitbox of unit.collisionList){
             const x1 = unit.x + unitHitbox.vertexList[0].x
@@ -55,34 +86,6 @@ export default class Physics {
         if((y1 > spriteY2 || y2 < spriteY1) & !(x2 < spriteX1 || x1 > spriteX2)){
         	unit.y = beforeY
             unit.yForce = 0
-        }
-    }
-
-    // Unit의 힘을 바탕으로 이동
-    // 인터벌로 하니까 자꾸 순서 밀려서 슬로우 먹히길래
-    // 인터벌 사이의 시간 측정해서 곱해줌
-    moveControl = (timeStamp) => {
-        
-        const unitList = getUnitList()
-        const spriteList = getSpriteList()
-
-        for(let unit of unitList){
-            if(unit.deleted){
-                if(unit.deleted === true){
-                    unit.deleted = 1
-                    deleteUnitList(unit, unit.y)
-                }
-                
-                continue
-            }
-
-            this.moving.bind(this)(timeStamp, unit, spriteList)
-
-            if(unit.type.includes('Boss')){
-                for(let enemy of unit.enemyList){
-                    this.moving.bind(this)(timeStamp, enemy.sprite, spriteList)
-                }
-            }
         }
     }
 

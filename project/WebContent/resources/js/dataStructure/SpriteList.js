@@ -6,7 +6,12 @@ class SpriteList {
     constructor(maxY) {
         this.list = new Map()
         this.maxY = maxY
-        for(let i = -50; i <= maxY+50; i++){
+        this.reset()
+    }
+
+    // 초기화
+    reset = () => {
+        for(let i = -50; i <= this.maxY+50; i++){
             this.list.set(i, [])
         }
     }
