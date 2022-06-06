@@ -6,7 +6,7 @@ class SpriteList {
     constructor(maxY) {
         this.list = new Map()
         this.maxY = maxY
-        for(let i = 0; i <= maxY; i++){
+        for(let i = -50; i <= maxY+50; i++){
             this.list.set(i, [])
         }
     }
@@ -28,7 +28,7 @@ class SpriteList {
     swap = (sprite, beforeY, newY) => {
         this.delete(sprite, beforeY)
 
-        if(newY < 0 || newY > this.maxY){
+        if(newY < -50 || newY > this.maxY+50){
             return
         }
 

@@ -13,7 +13,7 @@ function swapUnitPoint (sprite, beforeY, newY){
 }
 
 function deleteUnitList (sprite, y){
-    window.unitList.delete(sprite, y)
+    console.log(window.unitList.delete(sprite, y))
     deleteSpriteList(sprite, y)
 }
 

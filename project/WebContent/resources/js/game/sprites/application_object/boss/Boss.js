@@ -11,7 +11,7 @@ import Collision from "../../sprite_rule/Collision.js"
 export default class Boss extends Unit{
     constructor(x,y, enemyList, speed, maxSpeed){
         super(x,y,
-            [new Collision([{x:-5, y:-5}, {x:5, y:-5}])],
+            [new Collision([{x:-20, y:-40}, {x:20, y:0}])],
             {
                 'default' : [window.imageObject.test]
             }, 10000, speed, maxSpeed, [1, 1]
@@ -31,11 +31,11 @@ export default class Boss extends Unit{
 
         for(let enemy of this.enemyList){
             if(!enemy.sprite.isDie){
-                console.log('hi')
                 return
             }
         }
-        
+        console.log('hi')
+
         deleteUnitList(this, this.y)
     }
 }

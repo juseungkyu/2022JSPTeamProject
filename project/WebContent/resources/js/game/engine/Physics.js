@@ -101,6 +101,7 @@ export default class Physics {
         if(isContact){
             // 넘어갈 수 없는 스프라이트 일때
             if((sprite.hitBoxType & HitBoxType.pass) != HitBoxType.pass){
+
                 // 넘어가지는 걸 막음        	
                 this.hitDirectionCheck.bind(this)(unit, beforeX, beforeY, isContact)
                 
@@ -118,7 +119,7 @@ export default class Physics {
 
     moving (timeStamp, unit, spriteList){
         const beforeY = unit.y
-        const beforeX = unit.x
+        const beforeX = unit.x 
 
         const increaseX = parseInt(unit.xForce * timeStamp * 0.005)
         const increaseY = parseInt(unit.yForce * timeStamp * 0.005)
@@ -139,12 +140,12 @@ export default class Physics {
 
         if(beforeY != unit.y){
             swapUnitPoint(unit, beforeY, unit.y)
+        }
 
-            if(unit.type.includes('Boss')){
-                for(let enemy of unit.enemyList){
-                    enemy.sprite.x = unit.x + enemy.x
-                    enemy.sprite.y = unit.y + enemy.y
-                }
+        if(unit.type.includes('Boss')){
+            for(let enemy of unit.enemyList){
+                enemy.sprite.x = unit.x + enemy.x
+                enemy.sprite.y = unit.y + enemy.y
             }
         }
         
