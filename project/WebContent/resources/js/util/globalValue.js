@@ -24,6 +24,7 @@ function checkClear() {
     for(let unit of list) {
         if(unit.type.includes('Enemy') || unit.type.includes('Boss')){
             setClearState(false)
+            return
         }
     }
 
