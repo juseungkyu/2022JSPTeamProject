@@ -73,7 +73,7 @@ export default class Enigne {
             <img src="./resources/image/ui/miku/${this.currentWeapon}.png" alt="${this.currentWeapon}" title="${this.currentWeapon}">
         `
 
-        if (this.beforeHp !== window.playerSprite.hp) {
+        if (this.beforeHp !== window.playerSprite.hp && !window.playerSprite.isDie) {
             this.hitEffect.classList.add('active')
             setTimeout(() => {
                 this.hitEffect.style.transition = '0.8s'
@@ -104,33 +104,33 @@ export default class Enigne {
             <span>${window.playerSprite.weaponCount} 발</span>
         `
     }
-
+    
     frame(timeStamp) {
         const time = timeStamp - this.before
-
+    
         this.basicPhysics.moveControl(time)
         this.graph.drawSprites(time)
-
+    
         this.before = timeStamp
         window.requestAnimationFrame(this.frame.bind(this));
     }
-
+    
     setMap = (map) => {
         for (let sprite of map.sprites) {
             pushSpriteList(sprite, sprite.y)
         }
-
+    
         for (let unit of map.units) {
             pushUnitList(unit, unit.y)
         }
-
+        
         this.graph.drawMap(map)
-
+    
         window.playerSprite.x = 80
         window.playerSprite.y = 420
-
+        
         pushUnitList(window.playerSprite, window.playerSprite.y)
     }
-}
-
+}   
+    
 

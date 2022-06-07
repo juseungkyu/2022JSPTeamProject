@@ -8,13 +8,7 @@ img {
     image-rendering: pixelated;
 }
 
-.align-center {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
+/* 게임 요소*/
 #game {
     display: flex;
 }
@@ -131,3 +125,10 @@ img {
     visibility: visible;
     opacity: 0.8;
 }
+
+/* 게임 요소*/
+
+
+/* 게임 외 요소 */
+
+/* 게임 외 요소 */
