@@ -26,14 +26,75 @@ export default class Enigne {
 
         window.nextStage = this.nextStage
 
-        // this.gameStart()
+        this.gameSelect()
     }
 
-    gameStart() {
-        const defaultMap = new Map1()
-        this.setMap(defaultMap)
+    gameSelect(){
+        const basicMode = document.querySelector('.basic-mode')
+        const bossMode = document.querySelector('.boss-mode')
+        const gameEx = document.querySelector('.game-ex')
 
-        // this.nextStage()
+        this.isStart = false
+
+        basicMode.addEventListener('click', this.setBasicMode.bind(this))
+        bossMode.addEventListener('click', ()=>{
+            if(this.isStart){
+                return
+            }
+
+            this.isStart = true
+        })
+        gameEx.addEventListener('click', ()=>{
+            if(isStart){
+                return
+            }
+
+            this.isStart = true
+        })
+    }
+
+    setBasicMode(){
+        if(this.isStart){
+            return
+        }
+
+        this.isStart = true
+        this.gameStart = ()=>{
+            this.nextStage()
+        }
+        this.nextStage = () => {
+            clearUnitList()
+            clearSpriteList()
+    
+            // 똑같은 맵 많이 나올까봐 무작위 대신 시간으로
+            const r = new Date().getTime() % 5
+            let map = null
+            switch (r) {
+                case 0:
+                    map = new DefaultMap()
+                    break;
+                case 1:
+                    map = new DefaultMap()
+                    break;
+                case 2:
+                    map = new DefaultMap()
+                    break;
+                case 3:
+                    map = new Map1()
+                    break;
+                case 4:
+                    map = new Map1()
+                    break;
+                default:
+                    map = new Map1()
+                    break;
+            }
+            setClearState(false)
+            this.setMap(map)
+        }
+        this.gameStart()
+
+        document.querySelector('.select-game').style.display = 'none'
     }
 
     nextStage = () => {
