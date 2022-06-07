@@ -26,11 +26,10 @@ export default class Enigne {
 
         window.nextStage = this.nextStage
 
-
-        this.gameControl()
+        // this.gameStart()
     }
 
-    gameControl() {
+    gameStart() {
         const defaultMap = new Map1()
         this.setMap(defaultMap)
 
