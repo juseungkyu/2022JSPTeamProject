@@ -7,10 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/project/Test" method="post">
-		<input type="text" name="score">
-		<input type="text" name="player_id">
+
+	<form action="/project/join" method="post">
+		<input type="text" name="id">
+		<input type="text" name="name">
+		<input type="text" name="nick">
+		<input type="text" name="email">
+		<input type="password" name="password">
 		<input type="submit">
 	</form>
+
 </body>
 </html>

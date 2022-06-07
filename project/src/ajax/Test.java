@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.servlet.ServletException;
@@ -31,15 +32,14 @@ public class Test extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		int score = 0;
 		String player_id = null;
 		Date date = new Date(0);
 		int id = -1;
 		
 		try {
-			request.setCharacterEncoding("UTF-8");
-			response.setContentType("text/html; charset=UTF-8");
-			
 			score = (Integer) Integer.parseInt(request.getParameter("score"));
 			player_id = request.getParameter("player_id");
 			date = new Date(System.currentTimeMillis());
@@ -81,7 +81,7 @@ public class Test extends HttpServlet {
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			while(rs.next()){
+			while(rs.next()) {
 				out.print(rs.getString("player_id") + " : " + rs.getInt("score") + "<br>");
 			}
 			
