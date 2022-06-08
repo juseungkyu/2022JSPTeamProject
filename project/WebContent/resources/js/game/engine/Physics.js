@@ -5,15 +5,7 @@ import HitBoxType from '/resources/js/constant/HitBoxType.js';
 export default class Physics {
     constructor(){
         this.init()
-
-        document.querySelector('body').appendChild(this.canvas)
     }
-
-    init(){
-        this.canvas = document.createElement('canvas')
-        this.ctx = this.canvas.getContext('2d')
-    }
-
 
     // Unit의 힘을 바탕으로 이동
     // 인터벌로 하니까 자꾸 순서 밀려서 슬로우 먹히길래
