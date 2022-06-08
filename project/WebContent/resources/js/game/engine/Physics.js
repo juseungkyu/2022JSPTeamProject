@@ -4,7 +4,7 @@ import HitBoxType from '/resources/js/constant/HitBoxType.js';
 
 export default class Physics {
     constructor(){
-        this.init()
+        
     }
 
     // Unit의 힘을 바탕으로 이동
