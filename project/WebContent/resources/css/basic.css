@@ -100,47 +100,51 @@ header a {
     width: 70%;
 }
 
-#board>table {
+.board {
     width: 100%;
+    min-height: 250px;
+    border: 1px solid #aaaaaa;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
-#board>table>thead {
-    font-size: 15px;
-    width: 100%;
-    color: white;
-    background-color: rgba(30, 30, 200, 0.7);
+.board>.title {
+    height: 70px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #aaaaaa;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#board>table>thead th {
-    padding: 5px;
-    border-right: 1px solid rgb(255, 255, 255);
+.board>.title>h3 {
+    font-size: 20px;
+    padding-left: 20px;
+    max-width: 70%;
 }
 
-#board>table>thead th:nth-child(1) {
-    width: 10%;
-}
-#board>table>thead th:nth-child(2) {
-    width: 40%;
-}
-#board>table>thead th:nth-child(3) {
-    width: 15%;
-}
-#board>table>thead th:nth-child(4) {
-    width: 10%;
-}
-#board>table>thead th:nth-child(5) {
-    width: 5%;
+.board>.title>.info {
+    border-left: 1px solid #aaaaaa;
+    width: 30%;
+    font-size: 14px;
+    height: 100%;
 }
 
-#board>table>tbody td {
-    font-size: 12px;
-    padding: 5px;
-    border-bottom: 1px solid black;
-    border-right: 1px solid rgb(230, 230, 230);
+.board>.title>.info>div {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
 }
 
-#board>table>tbody tr {
-    border-bottom: 1px solid black;
+.board>.title>.info>div:nth-child(1) {
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.board>.body {
+    font-size: 14px;
+    padding: 20px;
+    word-break: break-all;
 }
 
 #login {

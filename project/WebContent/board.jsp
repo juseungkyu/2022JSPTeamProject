@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="format.Board"%>
 <%@page import="dao.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -25,10 +26,18 @@
         	for(int index = 0; index < boardList.size(); index++){
         		Board board = boardList.get(index);
         	%>
-            	<div>
-                	<h3><%=board.title%></h3>
-                	<p><%=board.content%></p>
-            	</div>
+			<div class="board">
+				<div class="title">
+					<h3><%=board.getTitle()%></h3>
+					<div class="info">
+						<div><p>작성자 : <%=board.getUserId()%></p></div>
+						<div><p>작성일 : <%=board.getUploadAt()%></p></div>
+					</div>
+				</div>
+				<div class="body">
+					<%=board.getContent()%>
+				</div>
+			</div>
  			<%
         	}
  			%>

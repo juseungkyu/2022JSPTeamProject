@@ -9,10 +9,10 @@ public class User {
 		this.nickname = nickname;
 	}
 
-	boolean isLogin;
-	String id;
-	String name;
-	String nickname;
+	private boolean isLogin;
+	private String id;
+	private String name;
+	private String nickname;
 	
 	public boolean isLogin() {
 		return isLogin;
