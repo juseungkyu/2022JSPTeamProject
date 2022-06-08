@@ -9,14 +9,13 @@ import java.util.ArrayList;
 
 import common.JDBCUtil;
 import format.Board;
-import format.User;
 
 public class BoardDao {
 	public BoardDao() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ArrayList<Board> getBoardList(int start, int end) {
+	public ArrayList<Board> getBoardList(int start, int count) {
 		ArrayList<Board> boardList = new ArrayList<Board>();
 		
 		Connection conn = null;
@@ -28,7 +27,7 @@ public class BoardDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, start);
-			pstmt.setInt(2, end);
+			pstmt.setInt(2, count);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				int id = rs.getInt("id");
