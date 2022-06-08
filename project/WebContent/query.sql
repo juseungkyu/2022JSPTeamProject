@@ -1,29 +1,19 @@
-CREATE table Users(
+CREATE table users(
 	id VARCHAR(15) NOT NULL PRIMARY KEY,
 	name VARCHAR(20) NOT NULL,
 	nick VARCHAR(40) NOT NULL,
-	email VARCHAR(40) NOT NULL UNIQUE,
 	password VARCHAR(80) NOT NULL
 );
 
-CREATE TABLE Notice(
+CREATE TABLE board(
 	id NUMBER NOT NULL PRIMARY KEY,
 	user_id VARCHAR(15) NOT NULL REFERENCES Users(id),
-	title VARCHAR(100),
-	contents VARCHAR(2000),
+	title VARCHAR(30),
+	contents VARCHAR(255),
 	upload_at DATE
 );
 
-CREATE TABLE Community(
-	id NUMBER NOT NULL PRIMARY KEY,
-	user_id VARCHAR(15) NOT NULL REFERENCES Users(id),
-	title VARCHAR(100),
-	category VARCHAR(20) NOT NULL,
-	contents VARCHAR(2000),
-	upload_at DATE
-);
-
-CREATE TABLE Ranking(
+CREATE TABLE ranking(
 	id NUMBER NOT NULL PRIMARY KEY,
 	player_id VARCHAR(15) NOT NULL REFERENCES Users(id),
 	score NUMBER NOT NULL,
