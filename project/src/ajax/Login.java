@@ -27,30 +27,39 @@ public class Login extends HttpServlet {
 		
 		userdao = new UserDao();
 	}
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
 		String id = null;
 		String password = null;
 		PrintWriter out = response.getWriter();
+		
 		try {
 			id = request.getParameter("id");
 			password = request.getParameter("password");
-			System.out.println(password);
 		} catch (Exception e) {
-			System.out.println("데이터 불러오기 오류");
 			out.print("<script>alert('로그인 실패')</script>");
 			out.print("<script>window.location = './login.jsp' </script>");
+			return;
 		}
 
 		if (id == null || password == null) {
+			out.print("<script>alert('로그인 실패')</script>");
+			out.print("<script>window.location = './login.jsp' </script>");
 			return;
 		}
 		User user = this.userdao.loginCheck(id, password);
 		if(user != null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("LoginOK", user);	
-		} 
+			session.setAttribute("LoginOK", user);
+		} else {
+			out.print("<script>alert('로그인 실패')</script>");
+			out.print("<script>window.location = './login.jsp' </script>");
+			return;
+		}
 		
 
 	}
