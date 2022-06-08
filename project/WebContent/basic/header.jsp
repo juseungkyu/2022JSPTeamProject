@@ -1,3 +1,4 @@
+<%@page import="format.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,8 +24,20 @@
                     <li><a href="#">게시판</a></li>
                 </ul>
                 <ul>
+<%
+				User user = (User) session.getAttribute("LoginOK");
+				if(user.isLogin()) {
+%>                
                     <li><a href="#">로그인</a></li>
                     <li><a href="#">회원가입</a></li>
+<%				
+				} else {
+%>                    
+					<li><a href="#">로그아웃</a></li>
+                    <li><a href="#">회원정보</a></li>
+<% 
+				}
+%>                    
                 </ul>
             </div>
         </div>

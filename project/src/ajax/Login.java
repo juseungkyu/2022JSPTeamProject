@@ -1,6 +1,7 @@
 package ajax;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,54 +15,44 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import common.JDBCUtil;
+import dao.UserDao;
+import format.User;
 
 @WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public Login() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private UserDao userdao;
+	public Login() {
+		super();
+		
+		userdao = new UserDao();
+	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String id = null;
 		String password = null;
-		
+		PrintWriter out = response.getWriter();
 		try {
 			id = request.getParameter("id");
 			password = request.getParameter("password");
 			System.out.println(password);
 		} catch (Exception e) {
 			System.out.println("데이터 불러오기 오류");
-			e.printStackTrace();
+			out.print("<script>alert('로그인 실패')</script>");
+			out.print("<script>window.location = './login.jsp' </script>");
 		}
-		
-		if (id != null && password != null) {
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			String sql = "select password from Users where id=?";
-			
-			conn = JDBCUtil.getConnection();
-			try {
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, id);
-				rs = pstmt.executeQuery();
-				if(rs.next()) {
-					String pwd = rs.getString("password");
-					if(pwd.equals(password)) {
-						System.out.println(1);
-						HttpSession session = request.getSession();
-						session.setAttribute("LoginOK", id);
-					}
-				}
-			} catch (SQLException e) {
-				System.out.println("로그인 오류");
-				e.printStackTrace();
-			}
+
+		if (id == null || password == null) {
+			return;
 		}
+		User user = this.userdao.loginCheck(id, password);
+		if(user != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("LoginOK", user);	
+		} 
 		
+
 	}
 
 }
