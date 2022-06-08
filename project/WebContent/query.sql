@@ -1,21 +1,21 @@
 CREATE table users(
-	id VARCHAR(15) NOT NULL PRIMARY KEY,
-	name VARCHAR(20) NOT NULL,
-	nick VARCHAR(40) NOT NULL,
-	password VARCHAR(80) NOT NULL
+	id VARCHAR2(15) NOT NULL PRIMARY KEY,
+	name VARCHAR2(20) NOT NULL,
+	nick VARCHAR2(40) NOT NULL,
+	password VARCHAR2(80) NOT NULL
 );
 
 CREATE TABLE board(
 	id NUMBER NOT NULL PRIMARY KEY,
-	user_id VARCHAR(15) NOT NULL REFERENCES Users(id),
-	title VARCHAR(30),
-	contents VARCHAR(255),
+	user_id VARCHAR2(15) NOT NULL REFERENCES Users(id),
+	title VARCHAR2(30 char),
+	contents VARCHAR2(255 char),
 	upload_at DATE
 );
 
 CREATE TABLE ranking(
 	id NUMBER NOT NULL PRIMARY KEY,
-	player_id VARCHAR(15) NOT NULL REFERENCES Users(id),
+	player_id VARCHAR2(15) NOT NULL REFERENCES Users(id),
 	score NUMBER NOT NULL,
 	play_at DATE
 );
