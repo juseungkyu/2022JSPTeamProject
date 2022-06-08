@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/resources/css/basic.css">
+    <style>
+        .join-container {
+            width: 1400px;
+            margin: 0 auto;
+        }
+        .join-container > h2{
+            font-size: 40px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            margin-left: 5px;
+        }
+        .join-container > h2 > span {
+            font-size: 30px;
+            color: #808080;
+        }
+        .joinForm {
+            padding: 10px;
+            padding-top: 20px;
+        }
+        .joinForm p {
+            margin: 0 auto;
+            margin-bottom: 6px;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        .joinForm input {
+            padding-left: 12px;
+            width: 100%;
+            background: #ececec;
+            border: none;
+            height: 35px;
+            border-radius: 8px;
+        }
+        .joinForm input.joinBtn {
+            width: 100px;
+            padding: 0;
+            background: rgb(139, 209, 255);
+            color: rgb(241, 241, 241);
+            font-weight: bold;
+        }
+        .joinForm input.cancelBtn {
+            width: 100px;
+            padding: 0;
+        }
+        .joinForm .inp-box {
+            margin-bottom: 20px;
+        }
+        .joinForm .btn-box {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="join-container">
+        <h2>회원가입 <span>Sign up</span></h2>
+        <hr>
+        <form class="joinForm">
+            <div class="inp-box">
+                <p>아이디</p>
+                <input type="text" name="id" id="" placeholder="아이디">
+            </div>
+            <div class="inp-box">
+                <p>비밀번호</p>
+                <input type="password" name="password" id="" placeholder="비밀번호">
+            </div>
+            <div class="inp-box">
+                <p>이름</p>
+                <input type="text" name="name" id="" placeholder="이름">
+            </div>
+            <div class="inp-box">
+                <p>닉네임</p>
+                <input type="text" name="nick" id="" placeholder="닉네임">
+            </div>
+            <div class="btn-box">
+                <input type="submit" value="가입완료" class="joinBtn">
+                <input type="button" value="취소하기" class="cancelBtn">
+            </div>
+
+        </form>
+    </div>
+    
+</body>
+</html>
