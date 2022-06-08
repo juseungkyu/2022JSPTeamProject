@@ -8,8 +8,10 @@
 </head>
 <body>
 
-	<form action="/login" method="post">
+	<form action="/join" method="post">
 		<input type="text" name="id">
+		<input type="text" name="name">
+		<input type="text" name="nick">
 		<input type="password" name="password">
 		<input type="submit">
 	</form>
