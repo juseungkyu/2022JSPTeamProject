@@ -12,11 +12,11 @@
         <section id="board">
         	<%
         	BoardDao boardDao = new BoardDao();
-        	Object idx = request.getAttribute("idx");
+        	String idx = (String) request.getParameter("idx");
         	int i = 0;
         	
         	try{
-        		i = (int)idx; 
+        		i = Integer.parseInt(idx); 
         	} catch(Exception e) {
         		i = 0;
         	}
@@ -44,17 +44,21 @@
             
             <div class="pagecontroller">
                 <div>
-                    <!-- 뒤로가기 -->
-                    <a href="#" class="btn-1">〈</a>
-                
                 	<%
-                	for(int index = i%10; index < i%10+10 && index < i%10 + boardList.size(); i++){
-                		%><a href="<%=index%>" class="btn-1"><%=index+1%></a><%
-                	}
+                		if(i-1 >= 0){	
                 	%>
-                
-                    <!-- 앞으로 가기 -->
-                    <a href="#" class="btn-1">〉</a>
+                		<a href="/board.jsp?idx=<%=i-1%>" class="btn-1">뒤로가기</a>
+                	<%
+                		}
+                	%>
+                	
+                	<%
+                		if(i+1 <= boardDao.getCount() / 10){	
+                	%>
+                		<a href="/board.jsp?idx=<%=i+1%>" class="btn-1">앞으로가기</a>
+                	<%
+                		}
+                	%>
                 </div>
             </div>
         </section>
