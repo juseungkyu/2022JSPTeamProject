@@ -212,6 +212,10 @@ header a {
     color: rgb(241, 241, 241);
     font-weight: bold;
 }
+.joinForm input.joinBtn:hover {
+	background: rgb(99, 169, 215);
+	cursor: pointer;
+}
 .joinForm input.cancelBtn {
     width: 100px;
     padding: 0;
@@ -220,6 +224,64 @@ header a {
     margin-bottom: 20px;
 }
 .joinForm .btn-box {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* 로그인 */
+.login-container {
+	width: 1175px;
+	margin: 0 auto;
+	
+}
+.login-container > h2{
+	margin-top: 40px;
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+.login-container > h2 > span {
+    font-size: 30px;
+    color: #808080;
+}
+.loginForm {
+    padding: 10px;
+    padding-top: 20px;
+}
+.loginForm p {
+    margin: 0 auto;
+    margin-bottom: 6px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+.loginForm input {
+    padding-left: 12px;
+    width: 100%;
+    background: #ececec;
+    border: none;
+    height: 35px;
+    border-radius: 8px;
+}
+.loginForm input.loginBtn {
+    width: 100px;
+    padding: 0;
+    background: rgb(139, 209, 255);
+    color: rgb(241, 241, 241);
+    font-weight: bold;
+}
+.loginForm input.loginBtn:hover {
+	background: rgb(99, 169, 215);
+	cursor: pointer;
+}
+.loginForm input.cancelBtn {
+    width: 100px;
+    padding: 0;
+}
+.loginForm .inp-box {
+    margin-bottom: 20px;
+}
+.loginForm .btn-box {
     margin-top: 30px;
     text-align: center;
 }
