@@ -160,7 +160,7 @@ export default class Enigne {
                     <img src="./resources/image/player/1.png" alt="alt" title="image">
                     `
                 
-                }, 300);
+                }, 1000);
                 } else if(window.playerSprite.hp==2){
                     setTimeout(() => {
                         console.log("hp2 img print")
@@ -168,7 +168,7 @@ export default class Enigne {
                         <img src="./resources/image/player/2.png" alt="alt" title="image">
                         `
                     
-                    }, 300);
+                    }, 1000);
                 } else if(window.playerSprite.hp==1){
                     setTimeout(() => {
                         console.log("hp1 img print")
@@ -176,7 +176,7 @@ export default class Enigne {
                         <img src="./resources/image/player/3.png" alt="alt" title="image">
                         `
                     
-                    }, 300);
+                    }, 1000);
                 }
             
         }
