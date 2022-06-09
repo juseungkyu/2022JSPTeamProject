@@ -8,7 +8,7 @@ CREATE table users(
 CREATE TABLE board(
 	id NUMBER NOT NULL PRIMARY KEY,
 	user_id VARCHAR2(15) NOT NULL REFERENCES Users(id),
-	title VARCHAR2(30 char),
+	title VARCHAR2(20 char),
 	contents VARCHAR2(255 char),
 	upload_at DATE
 );
@@ -20,9 +20,12 @@ CREATE TABLE ranking(
 	play_at DATE
 );
 
-drop table Users;
+SELECT * FROM board;
+SELECT * FROM board WHERE ROWNUM >= 0 AND ROWNUM <= 0+10;
 
-select * from Users;
-delete from Ranking where id=1;
+(SELECT MAX(id) FROM board)
 
-insert into Users values('test', 'ttt', 'tttt', '222@mail.com', '1234');
+INSERT INTO users values('id', 'pw', 'nick', 'password');
+INSERT INTO board(title, contents, user_id, upload_at, id) values(?,?,?,?, NVL((SELECT MAX(id) FROM board), 0)+1 )
+
+SELECT * FROM BOARD
