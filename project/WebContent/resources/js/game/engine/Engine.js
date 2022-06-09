@@ -132,9 +132,13 @@ export default class Enigne {
         this.ui.querySelector('.weapon').innerHTML = `
             <img src="./resources/image/ui/miku/${this.currentWeapon}.png" alt="${this.currentWeapon}" title="${this.currentWeapon}">
         `
+        
+        
+            
 
         if (this.beforeHp !== window.playerSprite.hp && !window.playerSprite.isDie) {
             this.hitEffect.classList.add('active')
+            
             setTimeout(() => {
                 this.hitEffect.style.transition = '0.8s'
                 this.hitEffect.classList.remove('active')
@@ -142,6 +146,39 @@ export default class Enigne {
             setTimeout(() => {
                 this.hitEffect.style.transition = '0s'
             }, 800);
+
+            
+                //미쿠 쳐맞는 모션
+                document.querySelector('#miku').innerHTML = `
+            <img src="./resources/image/player/4.png" alt="alt" title="image">
+            `
+                
+                if(window.playerSprite.hp==3){
+                setTimeout(() => {
+                    console.log("hp3 img print")
+                    document.querySelector('#miku').innerHTML = `
+                    <img src="./resources/image/player/1.png" alt="alt" title="image">
+                    `
+                
+                }, 300);
+                } else if(window.playerSprite.hp==2){
+                    setTimeout(() => {
+                        console.log("hp2 img print")
+                        document.querySelector('#miku').innerHTML = `
+                        <img src="./resources/image/player/2.png" alt="alt" title="image">
+                        `
+                    
+                    }, 300);
+                } else if(window.playerSprite.hp==1){
+                    setTimeout(() => {
+                        console.log("hp1 img print")
+                        document.querySelector('#miku').innerHTML = `
+                        <img src="./resources/image/player/3.png" alt="alt" title="image">
+                        `
+                    
+                    }, 300);
+                }
+            
         }
 
         this.beforeHp = window.playerSprite.hp
