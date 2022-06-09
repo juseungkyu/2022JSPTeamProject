@@ -11,15 +11,19 @@ public class JDBCUtil {
 		Connection conn = null;
 		try {
 			
+//			Class.forName("oracle.jdbc.driver.OracleDriver");
+//			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "hr", "hr");
+			
+//			xe용
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "hr", "hr");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "SYSTEM", "1234");
 		} catch (Exception e) {
 			System.out.println("DB 연결 실패");
 			e.printStackTrace();
 			
 		}
-		return conn;
 		
+		return conn;
 	}
 	
 	public static void close(Connection conn, PreparedStatement pstmt) {

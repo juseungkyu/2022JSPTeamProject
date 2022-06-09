@@ -52,9 +52,12 @@ public class Login extends HttpServlet {
 			return;
 		}
 		User user = this.userdao.loginCheck(id, password);
+		
 		if(user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("LoginOK", user);
+			out.print("<script>alert('로그인 성공')</script>");
+			out.print("<script>window.location = '/' </script>");
 		} else {
 			out.print("<script>alert('로그인 실패')</script>");
 			out.print("<script>window.location = './login.jsp' </script>");

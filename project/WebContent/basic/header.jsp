@@ -25,7 +25,7 @@
                 <ul>
 <%
 				User user = (User) session.getAttribute("LoginOK");
-				if(user != null) {
+				if(user == null) {
 %>                
                     <li><a href="/login.jsp">로그인</a></li>
                     <li><a href="/join.jsp">회원가입</a></li>
