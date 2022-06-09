@@ -66,13 +66,13 @@ public class BoardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM board WHERE ROWNUM >= ? AND ROWNUM <= ?";
+		String sql = "select * from board WHERE id BETWEEN ? AND ? ORDER BY id DESC";
 
 		conn = JDBCUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, start);
-			pstmt.setInt(2, count + start);
+			pstmt.setInt(2, count + start -1);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				int id = rs.getInt("id");
