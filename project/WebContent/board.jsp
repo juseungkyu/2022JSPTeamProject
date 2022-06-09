@@ -21,7 +21,7 @@
         		i = 0;
         	}
         	
-        	ArrayList<Board> boardList = boardDao.getBoardList(i*10, 10);
+        	ArrayList<Board> boardList = boardDao.getBoardList(i*3, 3);
         	
         	for(int index = 0; index < boardList.size(); index++){
         		Board board = boardList.get(index);
@@ -53,7 +53,7 @@
                 	%>
                 	
                 	<%
-                		if(i+1 <= boardDao.getCount() / 10){	
+                		if(i+1 <= boardDao.getCount() / 3){	
                 	%>
                 		<a href="/board.jsp?idx=<%=i+1%>" class="btn-1">앞으로가기</a>
                 	<%
