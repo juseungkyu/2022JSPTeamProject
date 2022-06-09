@@ -16,25 +16,23 @@
     <!-- 헤더 -->
     <header>
         <div class="container just-between">
-            <a href="#">LOGO</a>
+            <a href="/">LOGO</a>
             <div class="d-flex nav">
                 <ul>
-                    <li><a href="#">게임시작</a></li>
-                    <li><a href="#">메인메뉴</a></li>
-                    <li><a href="#">게시판</a></li>
+                    <li><a href="/game.html">게임시작</a></li>
+                    <li><a href="/board.jsp">게시판</a></li>
                 </ul>
                 <ul>
 <%
 				User user = (User) session.getAttribute("LoginOK");
 				if(user != null) {
 %>                
-                    <li><a href="#">로그인</a></li>
-                    <li><a href="#">회원가입</a></li>
+                    <li><a href="/login.jsp">로그인</a></li>
+                    <li><a href="/join.jsp">회원가입</a></li>
 <%				
 				} else {
 %>                    
-					<li><a href="#">로그아웃</a></li>
-                    <li><a href="#">회원정보</a></li>
+					<li><a href="/logout">로그아웃</a></li>
 <% 
 				}
 %>                    

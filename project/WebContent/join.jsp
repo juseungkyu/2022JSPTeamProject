@@ -9,19 +9,23 @@
         <form class="joinForm" action="/join" method="post">
             <div class="inp-box">
                 <p>아이디</p>
-                <input type="text" name="id" id="" placeholder="아이디">
+                <input type="text" name="id" id="" placeholder="아이디" required>
             </div>
             <div class="inp-box">
                 <p>비밀번호</p>
-                <input type="password" name="password" id="" placeholder="비밀번호">
+                <input type="password" name="password" id="" placeholder="비밀번호" required>
+            </div>
+            <div class="inp-box">
+                <p>비밀번호 확인</p>
+                <input type="password" name="re-password" id="" placeholder="비밀번호 확인" required>
             </div>
             <div class="inp-box">
                 <p>이름</p>
-                <input type="text" name="name" id="" placeholder="이름">
+                <input type="text" name="name" id="" placeholder="이름" required>
             </div>
             <div class="inp-box">
                 <p>닉네임</p>
-                <input type="text" name="nick" id="" placeholder="닉네임">
+                <input type="text" name="nick" id="" placeholder="닉네임" required>
             </div>
             <div class="btn-box">
                 <input type="submit" value="가입완료" class="joinBtn">

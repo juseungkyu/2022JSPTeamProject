@@ -36,12 +36,19 @@ public class Join extends HttpServlet {
 		String name = null;
 		String nick = null;
 		String password = null;
+		String passwordRe = null;
 		
 		try {
 			id = request.getParameter("id");
 			name = request.getParameter("name");
 			nick = request.getParameter("nick");
 			password = request.getParameter("password");
+			passwordRe = request.getParameter("re-password");
+			if(password != passwordRe) {
+				out.print("<script>alert('회원가입 실패')</script>");
+				out.print("<script>window.location = './join.jsp' </script>");
+				return;
+			}
 			
 			
 		} catch (Exception e) {
