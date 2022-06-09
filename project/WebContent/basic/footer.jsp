@@ -3,8 +3,38 @@
 
     <!-- 푸터 -->
     <footer>
-        <div class="container">
-            푸터푸터푸터푸터
+        <div class="container" >
+            <div class="footer-container">
+                <div class="footer-info-box">
+                    <div class="img"></div>
+                    <p class="footer-info">
+                        상호 : (주) 가나다라마바사 | 대표자명 : 홍길동 <br>
+                        사업자등록번호 : 000-0000 | 연락처 : 010-0000-0000 <br>
+                        주소 : 서울특별시 마포구 등교로 192 혜원빌딩 2F
+                    </p>
+                    <hr>
+                </div>
+                <div class="footer-list first">
+                    <p>SHOP</p>
+                    <p>REVIEW</p>
+                    <p>DOREMI</p>
+                    <p>COMMUNITY</p>
+                    <p>ABOUT</p>
+                </div>
+                <div class="footer-list">
+                    <p>이용약관</p>
+                    <p style="color: white; font-weight: bold;">개인정보처리방침</p>
+                    <p>운영정책</p>
+                    <p>고객지원</p>
+                </div>
+                <div>
+                </div>
+            </div>
+            <div class="footer-container">
+                <div class="copyRight-container">
+                    <p class="copyRight">&copy; 2022. (주)Seungkyu Co. all rights reserved.</p>
+                </div>
+            </div>
         </div>
     </footer>
     <!-- 푸터 -->
