@@ -35,8 +35,9 @@ SELECT * FROM board
 SELECT * FROM board WHERE ROWNUM > 1 AND ROWNUM <= 3 ORDER BY id DESC
 SELECT * FROM board WHERE ROWNUM > 3 AND ROWNUM <= 6 ORDER BY id DESC
 
-
+select * from board WHERE id BETWEEN 1 AND 3 ORDER BY id DESC
 select * from board WHERE id BETWEEN 0 AND 2 ORDER BY id
+select * from board WHERE id BETWEEN 4 AND 2 ORDER BY id DESC
 
 SELECT *
 FROM (SELECT rownum, id, user_id, title, contents, upload_at

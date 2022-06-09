@@ -67,12 +67,14 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "select * from board WHERE id BETWEEN ? AND ? ORDER BY id DESC";
-
+		
+		int maxCount = this.getCount(); 
+		
 		conn = JDBCUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, count + start -1);
+			pstmt.setInt(1, maxCount-(count + start - 1));
+			pstmt.setInt(2, maxCount-start);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				int id = rs.getInt("id");

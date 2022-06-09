@@ -52,13 +52,16 @@
                 		}
                 	%>
                 	
+                	<a href="/boardwrite.jsp" class="btn-1">글 쓰기</a>
+                	
                 	<%
-                		if(i+1 <= boardDao.getCount() / 3){	
+                		if(i < (boardDao.getCount() / 3) - 1){	
                 	%>
                 		<a href="/board.jsp?idx=<%=i+1%>" class="btn-1">앞으로가기</a>
                 	<%
                 		}
                 	%>
+                	
                 </div>
             </div>
         </section>
