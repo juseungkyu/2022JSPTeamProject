@@ -82,5 +82,14 @@ export default class UserControlHelper {
          	this.sprite.animationTypeChange('moveRight')
 		 }
 
+         if(this.sprite.animationType !== 'moveLeft' && x < 0 && y === 0){
+            this.sprite.setAnimationSpeed(100)
+            this.sprite.animationTypeChange('moveLeft')
+        }
+        if(this.sprite.animationType !== 'moveUp' && x === 0 && y < 0){
+            this.sprite.setAnimationSpeed(100)
+            this.sprite.animationTypeChange('moveUp')
+        }
+
     }
 }

@@ -36,6 +36,11 @@ async function initGameImage(){
 
     '/resources/image/miku/mikuStandTemporary1.png',
     '/resources/image/miku/mikuStandTemporary3.png',
+    '/resources/image/miku/mikuStandTemporary4.png',
+    '/resources/image/miku/mikuStandTemporary5.png',
+    '/resources/image/miku/mikuStandTemporary6.png',
+    '/resources/image/miku/mikuStandTemporary7.png',
+
     '/resources/image/miku/move/mikuStandTemporaryBehind1.png',
     '/resources/image/miku/move/mikuStandTemporaryBehind2.png',
     '/resources/image/miku/move/mikuStandTemporaryBehind3.png',
