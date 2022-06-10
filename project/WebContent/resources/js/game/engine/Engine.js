@@ -158,7 +158,7 @@ export default class Enigne {
             // document.querySelector('#miku').innerHTML = `
             // <img src="./resources/image/player/4-2.png" alt="alt" title="image">
             // `
-            // 2안
+            // 2안 맞을 때 클로즈업
                 
                 if(window.playerSprite.hp==3){
                 setTimeout(() => {

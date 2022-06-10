@@ -11,6 +11,7 @@ const INPUT_ABLE_KEY = [
 ] 
 
 export default class UserControlHelper {
+    
     constructor(playerSprite){
         this.sprite = playerSprite
 
@@ -52,6 +53,7 @@ export default class UserControlHelper {
     }
 
     onInput() {
+        
         const x = this.inputKey['KeyD'] ? 1 : (this.inputKey['KeyA'] ? -1 : 0)
         const y = this.inputKey['KeyW'] ? -1 : (this.inputKey['KeyS'] ? 1 : 0)
         
@@ -59,9 +61,11 @@ export default class UserControlHelper {
             this.sprite.attack(x, y)
         }
         
+        
     }
 
     onInputChange() {
+
         const x = this.inputKey['ArrowRight'] ? 1 : (this.inputKey['ArrowLeft'] ? -1 : 0)
         const y = this.inputKey['ArrowUp'] ? -1 : (this.inputKey['ArrowDown'] ? 1 : 0)
 
@@ -74,6 +78,8 @@ export default class UserControlHelper {
         	
             this.sprite.changeDirection(x, y)
         }
+        
+    
     }   
     
     setAnimationDirection(x,y){
