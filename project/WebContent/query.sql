@@ -28,6 +28,7 @@ SELECT * FROM board WHERE ROWNUM >= 0 AND ROWNUM <= 0+10;
 INSERT INTO users values('id', 'pw', 'nick', 'password');
 INSERT INTO board(title, contents, user_id, upload_at, id) values(?,?,?,?, NVL((SELECT MAX(id) FROM board), 0)+1 )
 
+INSERT INTO ranking(id, player_id, score, play_at) VALUES(NVL((SELECT MAX(id) FROM ranking),0)+1, 'id', 10, '2022-06-10');
 
 INSERT INTO board(title, contents, user_id, upload_at, id) values('title','content','id','2022-06-10', NVL((SELECT MAX(id) FROM board), 0)+1 )
 
