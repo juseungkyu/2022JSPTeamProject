@@ -42,13 +42,13 @@ public class Login extends HttpServlet {
 			password = request.getParameter("password");
 		} catch (Exception e) {
 			out.print("<script>alert('로그인 실패')</script>");
-			out.print("<script>window.location = './login.jsp' </script>");
+			out.print("<script>window.location.href = './login.jsp' </script>");
 			return;
 		}
 
 		if (id == null || password == null) {
 			out.print("<script>alert('로그인 실패')</script>");
-			out.print("<script>window.location = './login.jsp' </script>");
+			out.print("<script>window.location.href = './login.jsp' </script>");
 			return;
 		}
 		User user = this.userdao.loginCheck(id, password);
@@ -57,10 +57,10 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("LoginOK", user);
 			out.print("<script>alert('로그인 성공')</script>");
-			out.print("<script>window.location = '/' </script>");
+			out.print("<script>window.location.href = '/' </script>");
 		} else {
 			out.print("<script>alert('로그인 실패')</script>");
-			out.print("<script>window.location = './login.jsp' </script>");
+			out.print("<script>window.location.href = './login.jsp' </script>");
 			return;
 		}
 		

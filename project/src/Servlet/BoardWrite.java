@@ -33,7 +33,7 @@ public class BoardWrite extends HttpServlet {
 		
 		if(user == null) {
 			out.print("<script>alert('로그인 후 이용해주세요')</script>");
-			out.print("<script>window.location = '/login.jsp' </script>");
+			out.print("<script>window.location.href = '/login.jsp' </script>");
 			return;
 		}
 		
@@ -69,7 +69,7 @@ public class BoardWrite extends HttpServlet {
 		
 		if(this.boardDao.addBoard(title, contents, (User) user)) {
 			out.print("<script>alert('글 쓰기 성공')</script>");
-			out.print("<script>window.location = '/board.jsp' </script>");
+			out.print("<script>window.location.href = '/board.jsp' </script>");
 			return;
 		}
 		

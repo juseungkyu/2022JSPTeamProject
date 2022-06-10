@@ -32,10 +32,10 @@ public class Logout extends HttpServlet {
 			
 			session.removeAttribute("LoginOK");
 			out.print("<script>alert('로그아웃이 완료되었습니다.')</script>");
-			out.print("<script>window.location = './login.jsp' </script>");
+			out.print("<script>window.location.href = './login.jsp' </script>");
 		} else {
 			out.print("<script>alert('잘못된 접근')</script>");
-			out.print("<script>window.location = './login.jsp' </script>");
+			out.print("<script>window.location.href = './login.jsp' </script>");
 		}
 	}
 
