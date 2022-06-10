@@ -18,6 +18,10 @@ export default class Miku1 extends Friendly {
                 window.imageObject.mikuStandTemporaryBehind2,
                 window.imageObject.mikuStandTemporaryBehind3,
                 window.imageObject.mikuStandTemporaryBehind4,],
+                'moveLeft': [window.imageObject.mikuStandTemporary4,
+                    window.imageObject.mikuStandTemporary5,],
+                'moveUp': [window.imageObject.mikuStandTemporary6,
+                    window.imageObject.mikuStandTemporary7,],
                 'hit': [window.imageObject.mikuStandTemporaryBehind1,
                 window.imageObject.mikuStandTemporaryBehind2,
                 window.imageObject.mikuStandTemporaryBehind3,
@@ -25,7 +29,7 @@ export default class Miku1 extends Friendly {
                 'die': [window.imageObject.mikuStandTemporary1,
                     window.imageObject.mikuStandTemporary3],
             },
-            3, 10, 100, [50, 50])
+            3, 8, 120, [50, 50])
 
         this.weaponCount = '∞'
         this.beforeAttackTime = 0
