@@ -7,7 +7,6 @@ import Miku1 from "./sprites/application_object/miku/Miku1.js";
 import Wall1 from "./sprites/application_object/wall/Wall1.js";
 
 
-
 class App {
     constructor() {
         console.log('app start')
