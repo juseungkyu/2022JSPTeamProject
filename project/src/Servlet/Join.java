@@ -46,7 +46,7 @@ public class Join extends HttpServlet {
 			passwordRe = request.getParameter("re-password");
 			if(!password.equals(passwordRe)) {
 				out.print("<script>alert('비밀번호 확인을 확인해주십시오')</script>");
-				out.print("<script>window.location = './join.jsp' </script>");
+				out.print("<script>window.location.href = './join.jsp' </script>");
 				return;
 			}
 			
@@ -54,22 +54,22 @@ public class Join extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			out.print("<script>alert('회원가입 실패')</script>");
-			out.print("<script>window.location = './join.jsp' </script>");
+			out.print("<script>window.location.href = './join.jsp' </script>");
 			return;
 		}
 		
 		if (id == null || name == null || nick == null || password == null) {
 			out.print("<script>alert('필수 입력값이 누락되었습니다.')</script>");
-			out.print("<script>window.location = './join.jsp' </script>");
+			out.print("<script>window.location.href = './join.jsp' </script>");
 			return;
 		}
 		if (this.userdao.join(id, name, nick, password)) {
 			out.print("<script>alert('회원가입 성공')</script>");
-			out.print("<script>window.location = '/' </script>");
+			out.print("<script>window.location.href = '/' </script>");
 			return;
 		} else {
 			out.print("<script>alert('회원가입 실패')</script>");
-			out.print("<script>window.location = './join.jsp' </script>");
+			out.print("<script>window.location.href = './join.jsp' </script>");
 			return;
 		}
 		
