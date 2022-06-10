@@ -152,6 +152,13 @@ export default class Enigne {
                 document.querySelector('#miku').innerHTML = `
             <img src="./resources/image/player/4.png" alt="alt" title="image">
             `
+            //1안
+
+
+            // document.querySelector('#miku').innerHTML = `
+            // <img src="./resources/image/player/4-2.png" alt="alt" title="image">
+            // `
+            // 2안
                 
                 if(window.playerSprite.hp==3){
                 setTimeout(() => {
