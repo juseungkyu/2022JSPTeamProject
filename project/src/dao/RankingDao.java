@@ -47,7 +47,7 @@ public class RankingDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from ranking";
+		String sql = "select * from ranking ORDER BY score DESC";
 		
 		conn = JDBCUtil.getConnection();
 		try {

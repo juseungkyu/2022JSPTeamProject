@@ -20,8 +20,12 @@ CREATE TABLE ranking(
 	play_at DATE
 );
 
+select * from users;
+
 SELECT * FROM board;
 SELECT * FROM board WHERE ROWNUM >= 0 AND ROWNUM <= 0+10;
+
+select id from users where id = '123'
 
 (SELECT MAX(id) FROM board)
 

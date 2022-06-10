@@ -5,7 +5,7 @@ import Friendly from "../../sprite_rule/interaction_sprites/unit/friendly/Friend
 import Collision from "../../sprite_rule/Collision.js";
 import PlayerBullet from "../bullet/friendly/PlayerBullet.js";
 import DefaultValue from "../../../../constant/DefaultValue.js";
-
+import RankingView from "../../../../util/RankingView.js";
 
 export default class Miku1 extends Friendly {
     constructor() {
@@ -29,9 +29,8 @@ export default class Miku1 extends Friendly {
 
         this.weaponCount = '∞'
         this.beforeAttackTime = 0
+        this.rankingViewer = new RankingView();
     }
-
-
 
     attack = (x, y) => {
         if(this.isDie){
@@ -47,16 +46,22 @@ export default class Miku1 extends Friendly {
         this.beforeAttackTime = currentTime
 
         pushUnitList(new PlayerBullet(this.x, this.y - 15, [x, y]), this.y - 15)
+        
     }
 
     custemReset() {
         this.isDie = true
         const hitEffect = document.querySelector('.front-ground')
 
-        setTimeout(() => {
+        setTimeout(async () => {
             hitEffect.style.transition = '5s'
             hitEffect.classList.add('active')
             hitEffect.style.opacity = '0.9'
+            
+            await this.rankingViewer.add()
+            const data = await this.rankingViewer.view().data
+
+            console.log(data)
         }, 1000);
     }
 }

@@ -182,11 +182,7 @@ export default class Enigne {
         }
 
         this.beforeHp = window.playerSprite.hp
-
-        if (window.playerSprite.hp <= 0) {
-
-        }
-
+        
         let hp = ''
 
         for (let i = 0; i < window.playerSprite.hp; i++) {

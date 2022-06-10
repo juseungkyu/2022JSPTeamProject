@@ -1,11 +1,12 @@
 import Enigne from "./engine/Engine.js";
-
 import UserControlHelper from "./control/UserControlHelper.js"
 
 import DefaultMap from "./map/state1/DefaultMap.js";
 
 import Miku1 from "./sprites/application_object/miku/Miku1.js";
 import Wall1 from "./sprites/application_object/wall/Wall1.js";
+
+
 
 class App {
     constructor() {
@@ -30,6 +31,7 @@ window.addEventListener('load', async ()=>{
 })
 
 async function initGameImage(){
+
     // 이미지 로딩
     const imageUrls = [
     '/resources/image/test.png', 
