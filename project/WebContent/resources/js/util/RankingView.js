@@ -1,4 +1,4 @@
-import AjaxHelper from "./AjaxHelper"
+import AjaxHelper from "./AjaxHelper.js"
 
 export default class RankingView {
     constructor(){
