@@ -145,6 +145,10 @@ export default class Physics {
         }
         
         // 마찰력
+        if(unit.type.includes('Bullet')){
+            return
+        }
+
         unit.xForce /= 1+ timeStamp * 0.01
         unit.yForce /= 1+ timeStamp * 0.01
 
