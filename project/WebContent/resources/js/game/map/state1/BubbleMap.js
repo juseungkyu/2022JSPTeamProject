@@ -5,8 +5,6 @@
 import Map from '../Map.js';
 import Background2_1 from '../../sprites/application_object/background/tile/Background2_1.js';
 import Background2_2 from '../../sprites/application_object/background/tile/Background2_2.js';
-import EdgeWall1Downside from '../../sprites/application_object/background/tile/edgeWall1/EdgeWall1Downside.js';
-import EdgeWall1Left from '../../sprites/application_object/background/tile/edgeWall1/EdgeWall1Left.js';
 
 // import Wall1 from '../../sprites/application_object/wall/Wall1.js';
 import Box1 from '../../sprites/application_object/wall/Box1.js';
@@ -17,11 +15,7 @@ import Crab from '../../sprites/application_object/enemy/Crab.js';
 import Seastar from '../../sprites/application_object/enemy/Seastar.js';
 
 import Bubble from '../../sprites/application_object/enemy/Bubble.js';
-
-
 import TestBoss from '../../sprites/application_object/boss/bossTest/TestBoss.js';
-import EdgeWall1Upside from '../../sprites/application_object/background/tile/edgeWall1/EdgeWall1Upside.js';
-import EdgeWall1Right from '../../sprites/application_object/background/tile/edgeWall1/EdgeWall1Right.js';
 
 export default class DefaultMap extends Map {
     constructor() {
@@ -51,77 +45,11 @@ export default class DefaultMap extends Map {
             sprites.push(new InvisibleBox(...this.gridhelper(1, i)))
             sprites.push(new InvisibleBox(...this.gridhelper(30, i)))
         }
-
-        // let a = 10
-        // let b = 10
-        // sprites.push(new Box1(...this.gridhelper(a, b)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+1)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+2)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+3)))
-        // sprites.push(new Box1(...this.gridhelper(a+1, b)))
-        // sprites.push(new Box1(...this.gridhelper(a+2, b)))
-        // sprites.push(new Box1(...this.gridhelper(a+3, b)))
-
-        // a = 5
-        // b = 5
-        // sprites.push(new Box1(...this.gridhelper(a, b)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+1)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+2)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+3)))
-        // sprites.push(new Box1(...this.gridhelper(a+1, b)))
-        // sprites.push(new Box1(...this.gridhelper(a+2, b)))
-        // sprites.push(new Box1(...this.gridhelper(a+3, b)))
-
-        // a = 10
-        // b = 20
-        // sprites.push(new Box1(...this.gridhelper(a, b)))
-        // sprites.push(new Box1(...this.gridhelper(a, b-1)))
-        // sprites.push(new Box1(...this.gridhelper(a, b-2)))
-        // sprites.push(new Box1(...this.gridhelper(a, b-3)))
-        // sprites.push(new Box1(...this.gridhelper(a+1, b)))
-        // sprites.push(new Box1(...this.gridhelper(a+2, b)))
-        // sprites.push(new Box1(...this.gridhelper(a+3, b)))
-
-        // a = 20
-        // b = 20
-        // sprites.push(new Box1(...this.gridhelper(a, b)))
-        // sprites.push(new Box1(...this.gridhelper(a, b-1)))
-        // sprites.push(new Box1(...this.gridhelper(a, b-2)))
-        // sprites.push(new Box1(...this.gridhelper(a, b-3)))
-        // sprites.push(new Box1(...this.gridhelper(a-1, b)))
-        // sprites.push(new Box1(...this.gridhelper(a-2, b)))
-        // sprites.push(new Box1(...this.gridhelper(a-3, b)))
-
-        // a = 20
-        // b = 10
-        // sprites.push(new Box1(...this.gridhelper(a, b)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+1)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+2)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+3)))
-        // sprites.push(new Box1(...this.gridhelper(a-1, b)))
-        // sprites.push(new Box1(...this.gridhelper(a-2, b)))
-        // sprites.push(new Box1(...this.gridhelper(a-3, b)))
-
-        // a = 25
-        // b = 5
-        // sprites.push(new Box1(...this.gridhelper(a, b)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+1)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+2)))
-        // sprites.push(new Box1(...this.gridhelper(a, b+3)))
-        // sprites.push(new Box1(...this.gridhelper(a-1, b)))
-        // sprites.push(new Box1(...this.gridhelper(a-2, b)))
-        // sprites.push(new Box1(...this.gridhelper(a-3, b)))
-
-        
         
 
         const units = []
         units.push(new Bubble(...this.gridhelper(10, 10)))
 
         this.init(background, sprites, units)
-        background.push(new EdgeWall1Upside(...this.backgroundGridhelper(0, 0, 64)))
-        background.push(new EdgeWall1Downside(...this.backgroundGridhelper(0, 12, 64)))
-        background.push(new EdgeWall1Left(...this.backgroundGridhelper(0, 0, 64)))
-        background.push(new EdgeWall1Right(...this.backgroundGridhelper(15, 0, 64)))
-    }
+    }        
 }

@@ -1,5 +1,4 @@
 // 전역변수 제어를 도와줌
-
 window.unitList = new SpriteList(800)
 window.spriteList = new SpriteList(800)
 window.gameState = {
@@ -17,16 +16,25 @@ function isClear() {
 function getLevel() {
     return window.gameState.level
 }
-
+function upLevel(){
+    window.gameState.level++
+}
 function checkClear() {
     const list = getUnitList()
 
     for(let unit of list) {
         if(unit.type.includes('Enemy') || unit.type.includes('Boss')){
+
             setClearState(false)
             return
         }
     }
+    window.rightdoor.setAnimationSpeed(150)
+    window.rightdoor.animationTypeChange('opening')
+
+    setTimeout(() => {
+        window.rightdoor.animationTypeChange('open')
+    }, 150*2);
 
     setClearState(true)
 }
