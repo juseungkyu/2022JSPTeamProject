@@ -26,7 +26,7 @@ export default class Bubble extends Enemy {
         }
 
         const currentTime = new Date().getTime()
-        if(currentTime - this.beforeShotTime < 2000){
+        if(currentTime - this.beforeShotTime < 1000){
             return
         }
         this.beforeShotTime = new Date().getTime()

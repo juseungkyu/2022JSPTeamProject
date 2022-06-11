@@ -1,3 +1,13 @@
+import EdgeWall1Upside from '../sprites/application_object/background/edgeWall1/EdgeWall1Upside.js';
+import EdgeWall1Right from '../sprites/application_object/background/edgeWall1/EdgeWall1Right.js';
+import EdgeWall1Downside from '../sprites/application_object/background/edgeWall1/EdgeWall1Downside.js';
+import EdgeWall1Left from '../sprites/application_object/background/edgeWall1/EdgeWall1Left.js';
+
+import EdgeWall1DoorLeft from '../sprites/application_object/background/edgeWall1/EdgeWall1DoorLeft.js';
+import EdgeWall1DoorRight from '../sprites/application_object/background/edgeWall1/EdgeWall1DoorRight.js';
+
+import Map from '../map/Map.js';
+
 export default class GraphicControl {
     constructor() {
         this.init()
@@ -12,6 +22,20 @@ export default class GraphicControl {
         this.backgroundCtx = this.setCanvas(gameBox)
         this.ctx = this.setCanvas(gameBox)
         this.UICtx = this.setCanvas(gameBox)
+
+        const map = new Map()
+
+        window.leftdoor = new EdgeWall1DoorLeft(...map.backgroundGridhelper(0, 6, 64)),
+        window.rightdoor = new EdgeWall1DoorRight(...map.backgroundGridhelper(15, 6, 64)),
+
+        console.log(window.leftdoor)
+
+        this.wallList = [
+            new EdgeWall1Upside(...map.backgroundGridhelper(0, 0, 64)),
+            new EdgeWall1Downside(...map.backgroundGridhelper(0, 12, 64)),
+            new EdgeWall1Right(...map.backgroundGridhelper(15, 0, 64)),
+            new EdgeWall1Left(...map.backgroundGridhelper(0, 0, 64)),
+        ]
     }
 
     // 캔버스 로딩
@@ -27,10 +51,11 @@ export default class GraphicControl {
         return ctx
     }
 
-    // 배경을 제외한 화면을 로딩
+    // 화면을 렌더링
     drawSprites = (time) => {
         const list = getSpriteList()
         
+        // 스프라이트 렌더링
         this.ctx.clearRect(0,0, 1024, 800)
         for(let sprite of list){
             this.drawSprite.bind(this)(sprite, time)
@@ -41,6 +66,9 @@ export default class GraphicControl {
                 }
             }
         }
+
+        this.backgroundCtx.drawImage(window.rightdoor.image, window.rightdoor.x, window.rightdoor.y, window.rightdoor.size[0], window.rightdoor.size[1])
+        this.backgroundCtx.drawImage(window.leftdoor.image, window.leftdoor.x, window.leftdoor.y, window.leftdoor.size[0], window.leftdoor.size[1])
     }
 
     // 스프라이트를 화면에 그려움
@@ -86,6 +114,17 @@ export default class GraphicControl {
         for(let background of map.background){
             this.backgroundCtx.drawImage(background.image, background.x, background.y, background.size[0], background.size[1])
         }
+        for(let wall of this.wallList){
+            this.backgroundCtx.drawImage(wall.image, wall.x, wall.y, wall.size[0], wall.size[1])
+        }
+
+        window.leftdoor.setAnimationSpeed(150)
+        window.leftdoor.animationTypeChange('closing')
+        window.rightdoor.animationTypeChange('default')
+
+        setTimeout(() => {
+            window.leftdoor.animationTypeChange('close')
+        }, 150*2);
     }
 
     // 이미지 붉게 바꾸기 (피격시 효과)
