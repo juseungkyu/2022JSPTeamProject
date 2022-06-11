@@ -2,6 +2,6 @@ import Background from "../../../../sprite_rule/non_interaction_sprites/backgrou
 
 export default class EdgeWall1Upside extends Background {
     constructor(x, y) {
-        super(x, y, {'default' : [window.imageObject.edgeWall1_upside.png]}, [1024, 800])
+        super(x, y, {'default' : [window.imageObject.edgeWall1_upside]}, [1024, 64])
     }
 } 

@@ -14,7 +14,7 @@ export default class Slime extends Enemy {
                              window.imageObject.turret],
                 'die' : [window.imageObject.turret],
             }, 
-            5, 40, 100, [100, 100])
+            5, 40, 100, [100, 150])
 
             this.setDirectionTimer = setInterval(() => {
                 //1안 플레이어 위치를 정확하게 기억하여 한 발을 발사하는 방식
@@ -35,7 +35,7 @@ export default class Slime extends Enemy {
                     }, j*100)
                 }
     
-            }, 1000);
+            }, 2000);
     }
 
     custemReset() {
