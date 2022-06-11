@@ -126,6 +126,9 @@ export default class DefaultMap extends Map {
         units.push(new TestBoss(...this.gridhelper(15, 20)))
 
         this.init(background, sprites, units)
-        background.push(new EdgeWall1(...this.backgroundGridhelper(0, 0, 64)))
+        // background.push(new EdgeWall1Upside(...this.backgroundGridhelper(0, 0, 64)))
+        // background.push(new EdgeWall1Downside(...this.backgroundGridhelper(0, 10, 64)))
+        // background.push(new EdgeWall1Left(...this.backgroundGridhelper(0, 0, 64)))
+        // background.push(new EdgeWall1Right(...this.backgroundGridhelper(0, 0, 64)))
     }
 }
