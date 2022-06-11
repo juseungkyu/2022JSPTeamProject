@@ -69,10 +69,16 @@ async function initGameImage(){
     '/resources/image/background/sprite0002.png',
     
     '/resources/image/background/background1_1.png',
-
     '/resources/image/background/background2_1.png',
     '/resources/image/background/background2_2.png',
-    '/resources/image/background/edgeWalls/edgeWall1.png',
+
+    '/resources/image/background/edgeWalls/edgeWall1_1.png',
+    '/resources/image/background/edgeWalls/edgeWall1_2.png',
+    '/resources/image/background/edgeWalls/edgeWall1_3.png',
+    '/resources/image/background/edgeWalls/edgeWall1_4.png',
+    '/resources/image/background/edgeWalls/edgeWall1_5.png',
+    '/resources/image/background/edgeWalls/edgeWall1_6.png',
+    '/resources/image/background/edgeWalls/edgeWall1_7.png',
 
     '/resources/image/effect/disappearBullet/disappearBullet1.png',
     '/resources/image/effect/disappearBullet/disappearBullet2.png',
