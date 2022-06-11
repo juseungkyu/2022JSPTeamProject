@@ -48,7 +48,7 @@ export default class DefaultMap extends Map {
         
 
         const units = []
-        units.push(new Bubble(...this.gridhelper(10, 10)))
+        units.push(new Bubble(...this.gridhelper(23, 15)))
 
         this.init(background, sprites, units)
     }        

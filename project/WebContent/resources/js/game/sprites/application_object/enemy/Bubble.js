@@ -4,6 +4,8 @@
 import Enemy from "../../sprite_rule/interaction_sprites/unit/enemy/Enemy.js";
 import Collision from "../../sprite_rule/Collision.js";
 import EnemyBullet1 from "../bullet/enemy/EnemyBullet.js";
+import Crab from "./Crab.js";
+import BubbleBaby from "./BubbleBaby.js";
 
 export default class Bubble extends Enemy {
     constructor(x, y) {
@@ -83,6 +85,7 @@ export default class Bubble extends Enemy {
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, -2]), this.y - 15)
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, -1]), this.y - 15)
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
+        pushUnitList(new BubbleBaby(this.x, this.y), this.y)
     }
 
     custemReset() {
