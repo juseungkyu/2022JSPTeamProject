@@ -15,7 +15,7 @@ export default class Bubble extends Enemy {
                 'default': [window.imageObject.bubble],
                 'die': [window.imageObject.bubble],
             },
-            20, 20, 80, [100, 100])
+            25, 20, 80, [100, 100])
         this.beforeShotTime = new Date().getTime() - 10000
         this.customOnCollisionEnter({type : ['Terrain']})
     }
