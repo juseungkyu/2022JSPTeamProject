@@ -8,6 +8,6 @@ export default class EdgeWall1DoorRight extends Background {
                 window.imageObject.doorright2,
                 window.imageObject.doorright3],
             'open' : [window.imageObject.doorright3]
-        }, [64, 64])
+        }, [64, 112])
     }
 } 

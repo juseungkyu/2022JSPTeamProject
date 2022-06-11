@@ -17,7 +17,8 @@ export default class Bubble extends Enemy {
             },
             20, 20, 80, [100, 100])
         this.beforeShotTime = new Date().getTime() - 10000
-        this.customOnCollisionEnter({type : ['Terrain']})
+
+        this.changeDirection(1, 0)
     }
 
     customOnCollisionEnter = (sprite) => {
@@ -55,7 +56,7 @@ export default class Bubble extends Enemy {
         }
 
         if(y == 0 && x == 0){
-            return this(currentX, currentY)
+            return this.getRandomDirection(currentX, currentY)
         }
 
         return [x, y]
