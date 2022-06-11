@@ -12,9 +12,7 @@ export default class EnemyBullet extends Enemy {
         const ratio = maxSpeed / (Math.abs(distance[0]) + Math.abs(distance[1]))
 
         this.xForce = ratio * distance[0]
-        this.yForce = ratio * distance[1]
-
-        console.log(ratio, this.xForce, this.yForce)        
+        this.yForce = ratio * distance[1]  
     }
 
     onCollisionEnter = (sprite, collision)=>{

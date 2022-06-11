@@ -21,6 +21,9 @@ export default class FriendlyBullet extends Friendly {
         if(sprite.type.includes('Boss')){
             return
         }
+        if(sprite.type.includes('Bullet')){
+            return
+        }
         this.isNoHitTime = true
         this.animationTypeChange('hit')
         this.stopMoving()

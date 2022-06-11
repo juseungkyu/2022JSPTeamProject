@@ -16,6 +16,7 @@ export default class Friendly extends Unit {
         if(sprite.type.includes('Enemy')){
             this.underAttack(sprite)
         }
+        this.customOnCollisionEnter(sprite, collision)
     }
 
     underAttack = (sprite)=>{

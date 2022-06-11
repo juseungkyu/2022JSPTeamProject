@@ -5,7 +5,7 @@
 import Map from '../Map.js';
 import Background2_1 from '../../sprites/application_object/background/tile/Background2_1.js';
 import Background2_2 from '../../sprites/application_object/background/tile/Background2_2.js';
-import EdgeWall1 from '../../sprites/application_object/background/tile/EdgeWall1.js';
+
 // import Wall1 from '../../sprites/application_object/wall/Wall1.js';
 import Box1 from '../../sprites/application_object/wall/Box1.js';
 import InvisibleBox from '../../sprites/application_object/wall/InvisibleBox.js';
@@ -115,6 +115,6 @@ export default class DefaultMap extends Map {
         units.push(new Bubble(...this.gridhelper(10, 10)))
 
         this.init(background, sprites, units)
-        background.push(new EdgeWall1(...this.backgroundGridhelper(0, 0, 64)))
+        // background.push(new EdgeWall1(...this.backgroundGridhelper(0, 0, 64)))
     }
 }

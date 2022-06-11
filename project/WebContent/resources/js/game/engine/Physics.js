@@ -94,6 +94,8 @@ export default class Physics {
         let isContact = this.hitBoxCheck.bind(this)(unit, sprite)
 
         if(isContact){
+            // 각자 충돌처리를 해줌 (충돌한 상대, 충돌한 히트박스 전달)
+
             // 넘어갈 수 없는 스프라이트 일때
             if((sprite.hitBoxType & HitBoxType.pass) != HitBoxType.pass){
 
@@ -103,7 +105,9 @@ export default class Physics {
                 unit.onCollisionEnter(sprite, isContact.unitHitbox)
                 sprite.onCollisionEnter(unit, isContact.spriteHitbox)
             } else {
-                // 각자 충돌처리를 해줌 (충돌한 상대, 충돌한 히트박스 전달)
+            // 넘어갈 수 있는 스프라이트 일때
+
+                // 무적 시간이 아니라면 
                 if(!unit.isNoHitTime && !sprite.isNoHitTime) {
                     unit.onCollisionEnter(sprite, isContact.unitHitbox)
                     sprite.onCollisionEnter(unit, isContact.spriteHitbox)
