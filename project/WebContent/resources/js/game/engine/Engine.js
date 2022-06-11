@@ -91,7 +91,7 @@ export default class Engine {
             //         map = new Map1()
             //         break;
             // }
-            map = new BubbleMap()
+            map = new Map1()
             
             setClearState(false)
             this.setMap(map)

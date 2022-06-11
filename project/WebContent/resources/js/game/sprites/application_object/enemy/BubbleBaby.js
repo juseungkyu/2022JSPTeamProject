@@ -13,7 +13,7 @@ export default class BubbleBaby extends Enemy {
                 'die' : [window.imageObject.bubbleBaby],
             }, 
 
-            5, 3, 1000, [50, 50])
+            3, 3, 1000, [50, 50])
 
         this.setDirectionTimer = setInterval(() => {
             const x = (this.x - window.playerSprite.x) > 0 ? -1 : 1
