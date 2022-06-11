@@ -21,7 +21,7 @@ export default class EnemyBullet1 extends EnemyBullet {
             },
             1, 
             10, 
-            200, 
+            150, 
             [25, 25],
             distance
         )

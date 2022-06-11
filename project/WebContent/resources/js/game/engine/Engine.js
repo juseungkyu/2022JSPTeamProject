@@ -7,6 +7,7 @@ import DefaultMap from '../map/state1/DefaultMap.js';
 // 맵 임포트
 import Map1 from '../map/state1/Map1.js';
 import BubbleMap from '../map/state1/BubbleMap.js';
+import Map2 from '../map/state1/Map2.js';
 
 export default class Engine {
     constructor() {
@@ -70,26 +71,27 @@ export default class Engine {
             // 똑같은 맵 많이 나올까봐 무작위 대신 시간으로
             const r = new Date().getTime() % 5
             let map = null
-            switch (r) {
-                case 0:
-                    map = new DefaultMap()
-                    break;
-                case 1:
-                    map = new DefaultMap()
-                    break;
-                case 2:
-                    map = new DefaultMap()
-                    break;
-                case 3:
-                    map = new Map1()
-                    break;
-                case 4:
-                    map = new Map1()
-                    break;
-                default:
-                    map = new Map1()
-                    break;
-            }
+            // switch (r) {
+            //     case 0:
+            //         map = new DefaultMap()
+            //         break;
+            //     case 1:
+            //         map = new DefaultMap()
+            //         break;
+            //     case 2:
+            //         map = new DefaultMap()
+            //         break;
+            //     case 3:
+            //         map = new Map1()
+            //         break;
+            //     case 4:
+            //         map = new Map1()
+            //         break;
+            //     default:
+            //         map = new Map1()
+            //         break;
+            // }
+            map = new BubbleMap()
             
             setClearState(false)
             this.setMap(map)
@@ -126,6 +128,7 @@ export default class Engine {
                 map = new Map1()
                 break;
         }
+        
         setClearState(false)
         this.setMap(map)
     }
