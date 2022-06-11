@@ -5,7 +5,10 @@
 import Map from '../Map.js';
 import Background2_1 from '../../sprites/application_object/background/tile/Background2_1.js';
 import Background2_2 from '../../sprites/application_object/background/tile/Background2_2.js';
-import EdgeWall1 from '../../sprites/application_object/background/tile/EdgeWall1.js';
+import EdgeWall1Downside from '../../sprites/application_object/background/tile/edgeWall1/EdgeWall1Downside';
+import EdgeWall1Upside from '../../sprites/application_object/background/tile/edgeWall1/EdgeWall1Upside';
+import EdgeWall1Right from '../../sprites/application_object/background/tile/edgeWall1/EdgeWall1Right';
+import EdgeWall1Left from '../../sprites/application_object/background/tile/edgeWall1/EdgeWall1Left';
 // import Wall1 from '../../sprites/application_object/wall/Wall1.js';
 import Box1 from '../../sprites/application_object/wall/Box1.js';
 import InvisibleBox from '../../sprites/application_object/wall/InvisibleBox.js';
