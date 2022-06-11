@@ -29,12 +29,13 @@ function checkClear() {
             return
         }
     }
-    window.rightdoor.setAnimationSpeed(150)
+
+    window.rightdoor.setAnimationSpeed(200)
     window.rightdoor.animationTypeChange('opening')
 
     setTimeout(() => {
         window.rightdoor.animationTypeChange('open')
-    }, 150*2);
+    }, 50*2);
 
     setClearState(true)
 }

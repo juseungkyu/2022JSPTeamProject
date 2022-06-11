@@ -22,21 +22,17 @@ export default class DefaultMap extends Map {
         }
 
         const sprites = []
-
+       
         for(let i = 0; i < 32; i++){
-            sprites.push(new CenterWall1(...this.gridhelper(i, 0)))
-            sprites.push(new CenterWall1(...this.gridhelper(i, 24)))
+            sprites.push(new InvisibleBox(...this.gridhelper(i, 0)))
+            sprites.push(new InvisibleBox(...this.gridhelper(i, 1)))
+            sprites.push(new InvisibleBox(...this.gridhelper(i, 24)))
         }
 
         for(let i = 1; i < 24; i++){
-            sprites.push(new RightWall1(...this.gridhelper(0, i)))
-            sprites.push(new LeftWall1(...this.gridhelper(31, i)))
+            sprites.push(new InvisibleBox(...this.gridhelper(1, i)))
+            sprites.push(new InvisibleBox(...this.gridhelper(30, i)))
         }
-
-        sprites.push(new CenterWall1(...this.gridhelper(10, 15)))
-        sprites.push(new CenterWall1(...this.gridhelper(11, 15)))
-        sprites.push(new CenterWall1(...this.gridhelper(12, 15)))
-        sprites.push(new CenterWall1(...this.gridhelper(12, 16)))
 
         const units = []
 

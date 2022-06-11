@@ -8,6 +8,6 @@ export default class EdgeWall1DoorLeft extends Background {
                 window.imageObject.doorleft2,
                 window.imageObject.doorleft3],
             'close' : [window.imageObject.doorclose]
-        }, [64, 64])
+        }, [64, 112])
     }
 } 

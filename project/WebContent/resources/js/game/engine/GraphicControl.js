@@ -118,13 +118,13 @@ export default class GraphicControl {
             this.backgroundCtx.drawImage(wall.image, wall.x, wall.y, wall.size[0], wall.size[1])
         }
 
-        window.leftdoor.setAnimationSpeed(150)
+        window.leftdoor.setAnimationSpeed(200)
         window.leftdoor.animationTypeChange('closing')
         window.rightdoor.animationTypeChange('default')
 
         setTimeout(() => {
             window.leftdoor.animationTypeChange('close')
-        }, 150*2);
+        }, 200*2);
     }
 
     // 이미지 붉게 바꾸기 (피격시 효과)
