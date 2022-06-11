@@ -45,10 +45,11 @@ export default class Miku1 extends Friendly {
 
         if (currentTime - this.beforeAttackTime < DefaultValue.attackDelay) {
             return
-        }
+        } 
 
         this.beforeAttackTime = currentTime
 
+        
         pushUnitList(new PlayerBullet(this.x, this.y - 15, [x, y]), this.y - 15)
         
     }

@@ -6,8 +6,9 @@ import Physics from './Physics.js';
 import DefaultMap from '../map/state1/DefaultMap.js';
 // 맵 임포트
 import Map1 from '../map/state1/Map1.js';
+import BubbleMap from '../map/state1/BubbleMap.js';
 
-export default class Enigne {
+export default class Engine {
     constructor() {
         this.basicPhysics = new Physics()
         this.graph = new GraphicControl()
@@ -89,6 +90,7 @@ export default class Enigne {
                     map = new Map1()
                     break;
             }
+            
             setClearState(false)
             this.setMap(map)
         }

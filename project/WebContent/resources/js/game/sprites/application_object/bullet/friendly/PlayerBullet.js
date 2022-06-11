@@ -22,7 +22,7 @@ export default class PlayerBullet extends FriendlyBullet {
             1, 
             10, 
             200, 
-            [25, 25], 1
+            [25, 25], 10
         )
         
         this.changeDirection(direction[0], direction[1]) 

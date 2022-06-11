@@ -1,4 +1,4 @@
-import Enigne from "./engine/Engine.js";
+import Engine from "./engine/Engine.js";
 import UserControlHelper from "./control/UserControlHelper.js"
 
 import DefaultMap from "./map/state1/DefaultMap.js";
@@ -18,7 +18,7 @@ class App {
         this.user = new UserControlHelper(miku)
 
         // 게임 엔진 시작 시작
-        this.engine = new Enigne()
+        this.engine = new Engine()
     }
 }
 
@@ -52,10 +52,19 @@ async function initGameImage(){
     '/resources/image/enemy/crab/crab3.png',
     '/resources/image/enemy/crab/crab4.png',
 
+    '/resources/image/enemy/seastar/seastar1.png',
+    '/resources/image/enemy/seastar/seastar2.png ',
+
+
+    '/resources/image/enemy/bubble/bubble.png ',
+    '/resources/image/enemy/bubble/bubbleBaby.png ',
+
     '/resources/image/terrain/center_wall1.png',
     '/resources/image/terrain/left_wall1.png',
     '/resources/image/terrain/right_wall1.png',
     '/resources/image/terrain/box1.png',
+    '/resources/image/terrain/InvisibleBox.png',
+    
 
     '/resources/image/background/sprite0002.png',
     
@@ -63,6 +72,7 @@ async function initGameImage(){
 
     '/resources/image/background/background2_1.png',
     '/resources/image/background/background2_2.png',
+    '/resources/image/background/edgeWalls/edgeWall1.png',
 
     '/resources/image/effect/disappearBullet/disappearBullet1.png',
     '/resources/image/effect/disappearBullet/disappearBullet2.png',

@@ -83,19 +83,20 @@ export default class UserControlHelper {
     }   
     
     setAnimationDirection(x,y){
+        
     	 if(this.sprite.animationType !== 'moveRight' && x > 0 && y === 0){
 		 	this.sprite.setAnimationSpeed(100)
          	this.sprite.animationTypeChange('moveRight')
-		 }
-
-         if(this.sprite.animationType !== 'moveLeft' && x < 0 && y === 0){
+		 } else if(this.sprite.animationType !== 'moveLeft' && x < 0 && y === 0){
             this.sprite.setAnimationSpeed(100)
             this.sprite.animationTypeChange('moveLeft')
-        }
-        if(this.sprite.animationType !== 'moveUp' && x === 0 && y < 0){
+        } else if(this.sprite.animationType !== 'moveUp' && x === 0 && y < 0){
             this.sprite.setAnimationSpeed(100)
             this.sprite.animationTypeChange('moveUp')
         }
+
+        
+        
 
     }
 }
