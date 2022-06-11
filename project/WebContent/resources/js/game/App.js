@@ -52,6 +52,8 @@ async function initGameImage(){
     '/resources/image/enemy/crab/crab3.png',
     '/resources/image/enemy/crab/crab4.png',
 
+    '/resources/image/enemy/turret/turret.png',
+
     '/resources/image/enemy/seastar/seastar1.png',
     '/resources/image/enemy/seastar/seastar2.png ',
 
