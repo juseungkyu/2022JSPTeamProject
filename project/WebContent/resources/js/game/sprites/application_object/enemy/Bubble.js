@@ -31,8 +31,7 @@ export default class Bubble extends Enemy {
             return
         }
         this.beforeShotTime = new Date().getTime()
-        console.log('hi')
-        
+
         this.shot.bind(this)()
 
         // 방향 전환

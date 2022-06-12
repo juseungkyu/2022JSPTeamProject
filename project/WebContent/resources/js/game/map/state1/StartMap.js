@@ -10,14 +10,11 @@ import Box1 from '../../sprites/application_object/wall/Box1.js';
 import InvisibleBox from '../../sprites/application_object/wall/InvisibleBox.js';
 
 import Slime from '../../sprites/application_object/enemy/Slime.js';
-import SmallSlime from '../../sprites/application_object/enemy/SmallSlime.js';
+import Seastaronly from '../../sprites/application_object/enemy/Seastaronly.js';
 import Crab from '../../sprites/application_object/enemy/Crab.js';
 import Seastar from '../../sprites/application_object/enemy/Seastar.js';
+import HermitCrab from '../../sprites/application_object/boss/hermitCrab/HermitCrab.js';
 
-
-
-import TestBoss from '../../sprites/application_object/boss/bossTest/TestBoss.js';
-import Bubble from '../../sprites/application_object/enemy/Bubble.js';
 import BubbleBaby from '../../sprites/application_object/enemy/BubbleBaby.js';
 
 export default class StartMap extends Map {
@@ -64,7 +61,8 @@ export default class StartMap extends Map {
 
         
         const units = []
-        units.push(new BubbleBaby(...this.gridhelper(25, 16)))
+        // units.push(new BubbleBaby(...this.gridhelper(25, 16)))
+        units.push(new HermitCrab(...this.gridhelper(25, 16)))
 
         this.init(background, sprites, units)
         // background.push(new EdgeWall1Upside(...this.backgroundGridhelper(0, 0, 64)))

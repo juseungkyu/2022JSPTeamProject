@@ -23,7 +23,9 @@ export default class Boss extends Unit{
         this.y = y
         this.enemyList = enemyList
         for(let enemy of this.enemyList){
-            enemy.sprite.setBoss(this)
+            enemy.sprite.custemReset = () => {
+                this.checkBossDie(this)
+            }
         }
     }
 
