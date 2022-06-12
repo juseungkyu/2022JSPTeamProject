@@ -56,6 +56,8 @@ async function initGameImage(){
 
     '/resources/image/enemy/seastar/seastar1.png',
     '/resources/image/enemy/seastar/seastar2.png ',
+    '/resources/image/enemy/seastar/seastar3.png ',
+    '/resources/image/enemy/seastar/seastar4.png ',
 
 
     '/resources/image/enemy/bubble/bubble.png ',

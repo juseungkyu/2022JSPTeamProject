@@ -17,9 +17,10 @@ import Seastar from '../../sprites/application_object/enemy/Seastar.js';
 
 
 import TestBoss from '../../sprites/application_object/boss/bossTest/TestBoss.js';
+import Bubble from '../../sprites/application_object/enemy/Bubble.js';
 import BubbleBaby from '../../sprites/application_object/enemy/BubbleBaby.js';
 
-export default class Map2 extends Map {
+export default class StartMap extends Map {
     constructor() {
         super()
 
@@ -48,37 +49,27 @@ export default class Map2 extends Map {
             sprites.push(new InvisibleBox(...this.gridhelper(30, i)))
         }
 
+        let a = 20
+        let b = 8
+        sprites.push(new Box1(...this.gridhelper(a, b)))
+        sprites.push(new Box1(...this.gridhelper(a, b+1)))
+        sprites.push(new Box1(...this.gridhelper(a+1, b)))
+        sprites.push(new Box1(...this.gridhelper(a+1, b+1)))
 
-        let a = 5
-        let b = 5
+        b = 20
+        sprites.push(new Box1(...this.gridhelper(a, b)))
+        sprites.push(new Box1(...this.gridhelper(a, b+1)))
+        sprites.push(new Box1(...this.gridhelper(a+1, b)))
+        sprites.push(new Box1(...this.gridhelper(a+1, b+1)))
+
+        
         const units = []
-        for(let i = 5; i < 24; i++){
-            for(let j = 2; j < 23; j = j+3){
-                sprites.push(new Box1(...this.gridhelper(i, j)))
-            }
-            
-                units.push(new BubbleBaby(...this.gridhelper(25, i)))
-            
-            
-            if(i%10==0){
-                units.push(new Seastar(...this.gridhelper(26, i)))
-            }
-            
-        }
-
-        
-        
-        
-
-        
-        
-
-        
-        
-        
-
+        units.push(new BubbleBaby(...this.gridhelper(25, 16)))
 
         this.init(background, sprites, units)
-        //background.push(new EdgeWall1(...this.backgroundGridhelper(0, 0, 64)))
+        // background.push(new EdgeWall1Upside(...this.backgroundGridhelper(0, 0, 64)))
+        // background.push(new EdgeWall1Downside(...this.backgroundGridhelper(0, 10, 64)))
+        // background.push(new EdgeWall1Left(...this.backgroundGridhelper(0, 0, 64)))
+        // background.push(new EdgeWall1Right(...this.backgroundGridhelper(0, 0, 64)))
     }
 }
