@@ -9,6 +9,7 @@ import Map1 from '../map/state1/Map1.js';
 import BubbleMap from '../map/state1/BubbleMap.js';
 import Map2 from '../map/state1/Map2.js';
 import StartMap from '../map/state1/StartMap.js';
+import Map3 from '../map/state1/Map3.js';
 
 export default class Engine {
     mapListCount = 0
@@ -94,7 +95,7 @@ export default class Engine {
             //         break;
             // }
             //map = new StartMap()
-            map = new BubbleMap()
+            map = new StartMap()
             
             setClearState(false)
             this.setMap(map)
