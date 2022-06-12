@@ -11,12 +11,12 @@ import Map2 from '../map/state1/Map2.js';
 import StartMap from '../map/state1/StartMap.js';
 
 export default class Engine {
-    mapListCount = 0
     constructor() {
         this.basicPhysics = new Physics()
         this.graph = new GraphicControl()
         this.before = 0
         this.currentWeapon
+        this.mapListCount = 0
 
         this.ui = document.querySelector('#play-state')
 
@@ -27,8 +27,6 @@ export default class Engine {
 
         window.uiSettingFunc = this.uiSet
         window.uiSettingFunc()
-
-        window.nextStage = this.nextStage
 
         this.gameSelect()
     }
@@ -57,84 +55,57 @@ export default class Engine {
         })
     }
 
+    nextStage = ()=>{}
+
     setBasicMode(){
         if(this.isStart){
             return
         }
 
         this.isStart = true
+
         this.gameStart = ()=>{
             this.nextStage()
         }
         this.nextStage = () => {
             clearUnitList()
             clearSpriteList()
-    
-            // 똑같은 맵 많이 나올까봐 무작위 대신 시간으로
-            const r = new Date().getTime() % 5
-            let map = null
-            // switch (r) {
-            //     case 0:
-            //         map = new DefaultMap()
-            //         break;
-            //     case 1:
-            //         map = new DefaultMap()
-            //         break;
-            //     case 2:
-            //         map = new DefaultMap()
-            //         break;
-            //     case 3:
-            //         map = new Map1()
-            //         break;
-            //     case 4:
-            //         map = new Map1()
-            //         break;
-            //     default:
-            //         map = new Map1()
-            //         break;
-            // }
-            //map = new StartMap()
-            map = new BubbleMap()
+
+            if(this.mapListCount > 5){
+                this.mapListCount == 0
+            }
             
+            // 똑같은 맵 많이 나올까봐 무작위 대신 시간으로
+            //const r = new Date().getTime() % 5
+            let map = null
+            switch (this.mapListCount) {
+                case 0:
+                    map = new StartMap()
+                    break;
+                case 1:
+                    map = new Map1()
+                    break;
+                case 2:
+                    map = new Map2()
+                    break;
+                case 3:
+                    map = new BubbleMap()
+                    break;
+                case 4:
+                    map = new Map1()
+                    break;
+                default:
+                    map = new Map1()
+                    break;
+            }
+            this.mapListCount++
             setClearState(false)
             this.setMap(map)
         }
+        window.nextStage = this.nextStage
         this.gameStart()
 
         document.querySelector('.select-game').style.display = 'none'
-    }
-
-    nextStage = () => {
-        clearUnitList()
-        clearSpriteList()
-        this.mapListCount++
-        
-        // 똑같은 맵 많이 나올까봐 무작위 대신 시간으로
-        //const r = new Date().getTime() % 5
-        let map = null
-        switch (this.mapListCount) {
-            case 0:
-                map = new StartMap()
-                break;
-            case 1:
-                map = new Map1()
-                break;
-            case 2:
-                map = new Map2()
-                break;
-            case 3:
-                map = new BubbleMap()
-                break;
-            case 4:
-                map = new Map1()
-                break;
-            default:
-                map = new Map1()
-                break;
-        }
-        
-        setClearState(false)
-        this.setMap(map)
     }
 
     uiSet = () => {

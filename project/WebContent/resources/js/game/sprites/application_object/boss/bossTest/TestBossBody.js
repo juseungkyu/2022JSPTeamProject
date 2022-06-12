@@ -21,11 +21,5 @@ export default class TestBossBody extends Enemy {
         this.type.push('BossChild')
     }
 
-    setBoss = (bossSprite)=>{
-        this.bossSprite = bossSprite
-    }
-
-    custemReset() {
-        this.bossSprite.checkBossDie(this)
-    }
+    
 }

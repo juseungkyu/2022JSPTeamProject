@@ -10,7 +10,7 @@ import Box1 from '../../sprites/application_object/wall/Box1.js';
 import InvisibleBox from '../../sprites/application_object/wall/InvisibleBox.js';
 
 import Slime from '../../sprites/application_object/enemy/Slime.js';
-import SmallSlime from '../../sprites/application_object/enemy/SmallSlime.js';
+import Seastaronly from '../../sprites/application_object/enemy/Seastaronly.js';
 import Crab from '../../sprites/application_object/enemy/Crab.js';
 import Seastar from '../../sprites/application_object/enemy/Seastar.js';
 
@@ -109,8 +109,8 @@ export default class DefaultMap extends Map {
         const units = []
         
         units.push(new Slime(...this.gridhelper(15, 15)))
-        units.push(new SmallSlime(...this.gridhelper(7, 7)))
-        units.push(new SmallSlime(...this.gridhelper(23, 7)))
+        units.push(new Seastaronly(...this.gridhelper(7, 7)))
+        units.push(new Seastaronly(...this.gridhelper(23, 7)))
         units.push(new Crab(...this.gridhelper(15, 10)))
         units.push(new Seastar(...this.gridhelper(15, 11)))
 

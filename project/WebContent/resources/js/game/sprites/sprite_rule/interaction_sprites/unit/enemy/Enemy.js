@@ -33,7 +33,7 @@ export default class Enemy extends Unit {
             this.die()
         }
     }
-
+    
     die = () => {
         this.animationTypeChange('die')
         this.stopMoving()
@@ -47,6 +47,15 @@ export default class Enemy extends Unit {
         }, 500)
 
         this.custemReset.bind(this)()
+        if(this.myInterval){
+            this.intervalClear(list)
+        }
+    }
+
+    intervalClear(list) {
+        for(let interval of list){
+            clearInterval(interval)
+        }
     }
 
     custemReset() {
