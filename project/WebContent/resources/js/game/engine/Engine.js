@@ -65,7 +65,7 @@ export default class Engine {
         this.isStart = true
 
         this.gameStart = ()=>{
-            this.nextStage()
+            this.setMap(new StartMap())
         }
         this.nextStage = () => {
             clearUnitList()
@@ -102,6 +102,7 @@ export default class Engine {
             setClearState(false)
             this.setMap(map)
         }
+
         window.nextStage = this.nextStage
         this.gameStart()
 

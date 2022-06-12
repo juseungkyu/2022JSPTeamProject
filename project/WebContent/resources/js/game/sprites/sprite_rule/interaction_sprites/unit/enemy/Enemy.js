@@ -47,8 +47,9 @@ export default class Enemy extends Unit {
         }, 500)
 
         this.custemReset.bind(this)()
+
         if(this.myInterval){
-            this.intervalClear(list)
+            this.intervalClear(this.myInterval)
         }
     }
 
