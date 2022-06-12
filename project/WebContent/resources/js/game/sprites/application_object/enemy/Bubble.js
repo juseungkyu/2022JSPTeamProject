@@ -112,7 +112,7 @@ export default class Bubble extends Enemy {
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, -2]), this.y - 15)
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, -1]), this.y - 15)
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
-        }, 50);
+        }, 100);
         setTimeout(() => {
             pushUnitList(new EnemyBullet1(this.x, this.y - 15, [5, 0]), this.y - 15)
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [4, 1]), this.y - 15)
@@ -137,7 +137,7 @@ export default class Bubble extends Enemy {
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, -2]), this.y - 15)
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, -1]), this.y - 15)
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
-        }, 100);
+        }, 200);
     }
 
     custemReset() {
