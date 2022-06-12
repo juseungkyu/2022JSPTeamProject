@@ -64,7 +64,20 @@ export default class Map3 extends Map {
         sprites.push(new Box1(...this.gridhelper(27, 13)))
         sprites.push(new Box1(...this.gridhelper(27, 14)))
         sprites.push(new Box1(...this.gridhelper(27, 15)))
-        
+
+        sprites.push(new Box1(...this.gridhelper(13, 4)))
+        sprites.push(new Box1(...this.gridhelper(14, 4)))
+        sprites.push(new Box1(...this.gridhelper(15, 4)))
+        sprites.push(new Box1(...this.gridhelper(16, 4)))
+        sprites.push(new Box1(...this.gridhelper(17, 4)))
+
+        sprites.push(new Box1(...this.gridhelper(13, 21)))
+        sprites.push(new Box1(...this.gridhelper(14, 21)))
+        sprites.push(new Box1(...this.gridhelper(15, 21)))
+        sprites.push(new Box1(...this.gridhelper(16, 21)))
+        sprites.push(new Box1(...this.gridhelper(17, 21)))
+
+
 
         // sprites.push(new Box1(...this.gridhelper(a, b)))
         // sprates.push(new Box1(...thas.gradhelper(a, b)))
@@ -72,15 +85,8 @@ export default class Map3 extends Map {
         // sprctes.push(new Box1(...thcs.grcdhelper(a, b)))
         
 
-        units.push(new Slime2(...this.gridhelper(a,b)))
-        units.push(new Crab(...this.gridhelper(a,b-3)))
-        units.push(new Crab(...this.gridhelper(a,b+3)))
-        units.push(new Crab(...this.gridhelper(a+3,b)))
-        units.push(new Crab(...this.gridhelper(a-3,b)))
-        units.push(new Crab(...this.gridhelper(a+3,b-3)))
-        units.push(new Crab(...this.gridhelper(a-3,b-3)))
-        units.push(new Crab(...this.gridhelper(a+3,b+3)))
-        units.push(new Crab(...this.gridhelper(a-3,b+3)))
+        units.push(new Slime2(...this.gridhelper(a,b),true))
+        units.push(new Slime2(...this.gridhelper(a,b),false))
         
         
 
