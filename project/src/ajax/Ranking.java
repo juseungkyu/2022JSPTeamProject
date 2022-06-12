@@ -38,35 +38,4 @@ public class Ranking extends HttpServlet {
 		response.setContentType("application/json");
 		out.print(jObject.toJSONString());
 	}
-	
-//	랭킹 추가
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("application/json");
-		PrintWriter out = response.getWriter();
-		
-		HashMap<String, Boolean> data = new HashMap<String, Boolean>();
-		
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("LoginOK");
-		boolean isSuccess = false;
-		
-		int score = 0; 
-		
-		try {
-			score = Integer.parseInt(request.getParameter("score"));
-		} catch (Exception e) {
-			data.put("result", isSuccess);
-			out.print(JSONObject.toJSONString(data));
-			return;
-		}
-		
-		if(user != null) {
-			isSuccess = this.rankingDao.addRanking(user.getId(), score);	
-		}
-
-		data.put("result", isSuccess);
-		out.print(JSONObject.toJSONString(data));
-	}
-
 }

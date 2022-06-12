@@ -6,10 +6,11 @@ export default class RankingView {
     }
 
     add = async ()=>{
-        await this.ajaxHelper.post('/ranking', getLevel())
+        console.log(`/addranking?score=${getLevel()}`)
+        return await this.ajaxHelper.get(`/addranking?score=${getLevel()}`)
     }
 
     view = async ()=>{
-        await this.ajaxHelper.get('/ranking')
+        return await this.ajaxHelper.get('/ranking')
     }
 }

@@ -20,6 +20,7 @@ export default class Engine {
 
         this.ui = document.querySelector('#play-state')
 
+        window.rankingPopup = document.querySelector('.ranking-popup')
         window.requestAnimationFrame(this.frame.bind(this));
 
         this.hitEffect = document.querySelector('.front-ground')
@@ -34,25 +35,11 @@ export default class Engine {
     gameSelect(){
         const basicMode = document.querySelector('.basic-mode')
         const bossMode = document.querySelector('.boss-mode')
-        const gameEx = document.querySelector('.game-ex')
 
         this.isStart = false
 
         basicMode.addEventListener('click', this.setBasicMode.bind(this))
-        bossMode.addEventListener('click', ()=>{
-            if(this.isStart){
-                return
-            }
-
-            this.isStart = true
-        })
-        gameEx.addEventListener('click', ()=>{
-            if(isStart){
-                return
-            }
-
-            this.isStart = true
-        })
+        bossMode.addEventListener('click', this.setBossMode.bind(this))
     }
 
     nextStage = ()=>{}
@@ -109,14 +96,60 @@ export default class Engine {
         document.querySelector('.select-game').style.display = 'none'
     }
 
-    uiSet = () => {
-        this.ui.querySelector('.weapon').innerHTML = `
-            <img src="./resources/image/ui/miku/${this.currentWeapon}.png" alt="${this.currentWeapon}" title="${this.currentWeapon}">
-        `
-        
-        
-            
+    setBossMode(){
+        if(this.isStart){
+            return
+        }
 
+        this.isStart = true
+
+        this.gameStart = ()=>{
+            this.setMap(new StartMap())
+        }
+        
+        this.nextStage = () => {
+            clearUnitList()
+            clearSpriteList()
+
+            if(this.mapListCount > 5){
+                this.mapListCount == 0
+            }
+            
+            // 똑같은 맵 많이 나올까봐 무작위 대신 시간으로
+            //const r = new Date().getTime() % 5
+            let map = null
+            switch (this.mapListCount) {
+                case 0:
+                    map = new BubbleMap()
+                    break;
+                case 1:
+                    map = new BubbleMap()
+                    break;
+                case 2:
+                    map = new BubbleMap()
+                    break;
+                case 3:
+                    map = new BubbleMap()
+                    break;
+                case 4:
+                    map = new BubbleMap()
+                    break;
+                default:
+                    map = new BubbleMap()
+                    break;
+            }
+            this.mapListCount++
+            setClearState(false)
+            this.setMap(map)
+        }
+
+        window.nextStage = this.nextStage
+        this.gameStart()
+
+        document.querySelector('.select-game').style.display = 'none'
+    }
+
+    uiSet = () => {
         if (this.beforeHp !== window.playerSprite.hp && !window.playerSprite.isDie) {
             this.hitEffect.classList.add('active')
             
@@ -198,6 +231,9 @@ export default class Engine {
     }
     
     setMap = (map) => {
+        upLevel()
+        this.ui.querySelector('.stage').innerHTML = `<span>${getLevel()}</span>`
+
         for (let sprite of map.sprites) {
             pushSpriteList(sprite, sprite.y)
         }

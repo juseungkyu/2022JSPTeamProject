@@ -22,14 +22,15 @@ public class RankingDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "INSERT INTO ranking(id, player_id, score, play_at) VALUES(NVL((SELECT MAX(id) FROM ranking),0)+1, ?, ?, ?);";
+		String sql = "INSERT INTO ranking(id, player_id, score, play_at) VALUES(NVL((SELECT MAX(id) FROM ranking),0)+1, ?, ?, ?)";
 
 		conn = JDBCUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, playerId);
 			pstmt.setInt(2, score);
-			pstmt.setDate(4, Date.valueOf(LocalDate.now()));
+			System.out.println(Date.valueOf(LocalDate.now()).toString());
+			pstmt.setString(3, Date.valueOf(LocalDate.now()).toString());
 			rs = pstmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();

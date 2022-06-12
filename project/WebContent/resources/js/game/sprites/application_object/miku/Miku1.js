@@ -62,11 +62,26 @@ export default class Miku1 extends Friendly {
             hitEffect.style.transition = '5s'
             hitEffect.classList.add('active')
             hitEffect.style.opacity = '0.9'
-            
+        }, 1000);
+        
+        if(this.isAjaxRequest){
+            return
+        }
+
+        this.isAjaxRequest = true
+
+        const rankingupdate = async ()=>{
             await this.rankingViewer.add()
             const data = await this.rankingViewer.view().data
 
-            console.log(data)
-        }, 1000);
+            clearUnitList()
+            clearSpriteList()
+
+            window.rankingPopup.style="visibility: visible; opacity: 1"
+        }
+
+        setTimeout(async () => {
+            rankingupdate()
+        }, 5000);
     }
 }
