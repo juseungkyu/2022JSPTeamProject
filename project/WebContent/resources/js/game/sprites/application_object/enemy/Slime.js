@@ -35,7 +35,7 @@ export default class Slime extends Enemy {
                     }, j*100)
                 }
                 
-            }, 2000);
+            }, 3000);
     }
 
     custemReset() {

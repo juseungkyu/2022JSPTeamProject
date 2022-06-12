@@ -29,7 +29,7 @@ export default class Seastar extends Enemy {
             this.changeDirection(x, y)
             const x2 = window.playerSprite.x - this.x
             const y2 = window.playerSprite.y - this.y
-            if(this.a > 70){
+            if(this.a > 200){
                 pushUnitList(new EnemyBullet1(this.x, this.y - 15, [x2, y2]), this.y - 15)
                 this.a = 1
             }

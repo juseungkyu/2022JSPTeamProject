@@ -8,8 +8,10 @@ import DefaultMap from '../map/state1/DefaultMap.js';
 import Map1 from '../map/state1/Map1.js';
 import BubbleMap from '../map/state1/BubbleMap.js';
 import Map2 from '../map/state1/Map2.js';
+import StartMap from '../map/state1/StartMap.js';
 
 export default class Engine {
+    mapListCount = 0
     constructor() {
         this.basicPhysics = new Physics()
         this.graph = new GraphicControl()
@@ -91,7 +93,8 @@ export default class Engine {
             //         map = new Map1()
             //         break;
             // }
-            map = new Map1()
+            //map = new StartMap()
+            map = new BubbleMap()
             
             setClearState(false)
             this.setMap(map)
@@ -104,22 +107,23 @@ export default class Engine {
     nextStage = () => {
         clearUnitList()
         clearSpriteList()
-
+        this.mapListCount++
+        
         // 똑같은 맵 많이 나올까봐 무작위 대신 시간으로
-        const r = new Date().getTime() % 5
+        //const r = new Date().getTime() % 5
         let map = null
-        switch (r) {
+        switch (this.mapListCount) {
             case 0:
-                map = new DefaultMap()
+                map = new StartMap()
                 break;
             case 1:
-                map = new DefaultMap()
+                map = new Map1()
                 break;
             case 2:
-                map = new DefaultMap()
+                map = new Map2()
                 break;
             case 3:
-                map = new Map1()
+                map = new BubbleMap()
                 break;
             case 4:
                 map = new Map1()

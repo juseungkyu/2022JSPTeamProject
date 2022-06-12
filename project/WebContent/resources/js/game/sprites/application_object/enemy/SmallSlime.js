@@ -35,7 +35,7 @@ export default class SmallSlime extends Enemy {
                 }, j*100)
             }
 
-        }, 1000);
+        }, 3000);
     }
 
     custemReset() {

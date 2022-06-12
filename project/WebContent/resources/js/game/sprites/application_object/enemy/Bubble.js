@@ -15,7 +15,7 @@ export default class Bubble extends Enemy {
                 'default': [window.imageObject.bubble],
                 'die': [window.imageObject.bubble],
             },
-            25, 20, 80, [100, 100])
+            30, 20, 80, [100, 100])
         this.beforeShotTime = new Date().getTime() - 10000
 
         this.changeDirection(1, 0)
@@ -87,6 +87,57 @@ export default class Bubble extends Enemy {
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, -1]), this.y - 15)
         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
         pushUnitList(new BubbleBaby(this.x, this.y), this.y)
+
+        setTimeout(() => {
+            pushUnitList(new EnemyBullet1(this.x, this.y - 15, [5, 0]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [4, 1]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [3, 2]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [2, 3]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [1, 4]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [0, 5]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-1, 4]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-2, 3]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, 2]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, 1]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
+
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [5, 0]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [4, -1]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [3, -2]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [2, -3]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [1, -4]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [0, -5]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-1, -4]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-2, -3]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, -2]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, -1]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
+        }, 50);
+        setTimeout(() => {
+            pushUnitList(new EnemyBullet1(this.x, this.y - 15, [5, 0]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [4, 1]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [3, 2]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [2, 3]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [1, 4]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [0, 5]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-1, 4]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-2, 3]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, 2]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, 1]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
+
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [5, 0]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [4, -1]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [3, -2]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [2, -3]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [1, -4]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [0, -5]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-1, -4]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-2, -3]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, -2]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, -1]), this.y - 15)
+        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
+        }, 100);
     }
 
     custemReset() {
