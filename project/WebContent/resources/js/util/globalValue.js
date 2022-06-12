@@ -5,6 +5,7 @@ window.gameState = {
     'clear' : false,
     'level' : 0
 }
+window.openAnimation = false
 
 // 게임 상황
 function setClearState(value) {
@@ -30,14 +31,18 @@ function checkClear() {
         }
     }
 
+    setClearState(true)
+
+    if(window.openAnimation){
+        return
+    }
+
     window.rightdoor.setAnimationSpeed(200)
     window.rightdoor.animationTypeChange('opening')
-
+    window.openAnimation = true
     setTimeout(() => {
         window.rightdoor.animationTypeChange('open')
-    }, 50*2);
-
-    setClearState(true)
+    }, 200*2);
 }
 
 // 유닛 리스트

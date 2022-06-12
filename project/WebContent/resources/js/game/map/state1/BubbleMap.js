@@ -15,7 +15,6 @@ import Crab from '../../sprites/application_object/enemy/Crab.js';
 import Seastar from '../../sprites/application_object/enemy/Seastar.js';
 
 import Bubble from '../../sprites/application_object/enemy/Bubble.js';
-import TestBoss from '../../sprites/application_object/boss/bossTest/TestBoss.js';
 
 export default class DefaultMap extends Map {
     constructor() {

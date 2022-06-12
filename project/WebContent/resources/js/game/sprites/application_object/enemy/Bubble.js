@@ -40,8 +40,8 @@ export default class Bubble extends Enemy {
     }
 
     getRandomDirection (currentX, currentY){
-        let y = Math.round(Math.random()*3)-2
-        let x = Math.round(Math.random()*3)-2
+        let y = Math.random()*3-2
+        let x =Math.random()*3-2
 
         if(currentY - 200 < 0) {
             y = 1

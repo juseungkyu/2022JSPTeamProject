@@ -14,10 +14,6 @@ import SmallSlime from '../../sprites/application_object/enemy/SmallSlime.js';
 import Crab from '../../sprites/application_object/enemy/Crab.js';
 import Seastar from '../../sprites/application_object/enemy/Seastar.js';
 
-
-
-import TestBoss from '../../sprites/application_object/boss/bossTest/TestBoss.js';
-
 export default class DefaultMap extends Map {
     constructor() {
         super()
@@ -117,9 +113,6 @@ export default class DefaultMap extends Map {
         units.push(new SmallSlime(...this.gridhelper(23, 7)))
         units.push(new Crab(...this.gridhelper(15, 10)))
         units.push(new Seastar(...this.gridhelper(15, 11)))
-        
-
-        units.push(new TestBoss(...this.gridhelper(15, 20)))
 
         this.init(background, sprites, units)
         // background.push(new EdgeWall1Upside(...this.backgroundGridhelper(0, 0, 64)))

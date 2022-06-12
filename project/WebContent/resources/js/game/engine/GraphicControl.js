@@ -121,6 +121,7 @@ export default class GraphicControl {
         window.leftdoor.setAnimationSpeed(200)
         window.leftdoor.animationTypeChange('closing')
         window.rightdoor.animationTypeChange('default')
+        window.openAnimation = false
 
         setTimeout(() => {
             window.leftdoor.animationTypeChange('close')
