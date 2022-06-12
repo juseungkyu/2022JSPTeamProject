@@ -52,8 +52,10 @@ export default class Engine {
         this.isStart = true
 
         this.gameStart = ()=>{
+            window.isBasic = true
             this.setMap(new StartMap())
         }
+
         this.nextStage = () => {
             clearUnitList()
             clearSpriteList()

@@ -61,6 +61,7 @@
                         <th>등수</th>
                         <th>이름</th>
                         <th>점수</th>
+                        <th>등록일</th>
                     </tr>
                 </thead>
                 <tbody>

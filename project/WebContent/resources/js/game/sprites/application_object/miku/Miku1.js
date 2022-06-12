@@ -70,15 +70,43 @@ export default class Miku1 extends Friendly {
 
         this.isAjaxRequest = true
 
+
         const rankingupdate = async ()=>{
+            const table = window.rankingPopup.querySelector('tbody')
+            table.innerHTML = ''
+            if(!window.isBasic){
+                window.rankingPopup.style="visibility: visible; opacity: 1"
+                return
+            }
+
+
             await this.rankingViewer.add()
-            const data = await this.rankingViewer.view().data
+            const data = await this.rankingViewer.view()
 
             clearUnitList()
             clearSpriteList()
 
+            let i = 0
+            for(let x of data.data){
+                i++
+
+                if(i > 10){
+                    break
+                }
+
+                table.innerHTML += `
+                <tr>
+                    <td>${i}</td>
+                    <td>${x.player_id}</td>
+                    <td>${x.score}</td>
+                    <td>${x.play_at}</td>
+                </tr>
+                `
+            }
+
             window.rankingPopup.style="visibility: visible; opacity: 1"
         }
+
 
         setTimeout(async () => {
             rankingupdate()
