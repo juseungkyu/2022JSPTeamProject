@@ -22,122 +22,87 @@ export default class Bubble extends Enemy {
     }
 
     customOnCollisionEnter = (sprite) => {
-        if(!sprite.type.includes('Terrain')){
+        if (!sprite.type.includes('Terrain')) {
             return
         }
 
         const currentTime = new Date().getTime()
-        if(currentTime - this.beforeShotTime < 1000){
+        if (currentTime - this.beforeShotTime < 1000) {
             return
         }
         this.beforeShotTime = new Date().getTime()
+        console.log('hi')
+        
         this.shot.bind(this)()
 
         // 방향 전환
         const diretion = this.getRandomDirection(this.x, this.y)
-        
+
         this.changeDirection(diretion[0], diretion[1])
     }
 
-    getRandomDirection (currentX, currentY){
-        let y = Math.random()*3-2
-        let x =Math.random()*3-2
+    getRandomDirection(currentX, currentY) {
+        let y = Math.random() * 3 - 2
+        let x = Math.random() * 3 - 2
 
-        if(currentY - 200 < 0) {
+        if (currentY - 200 < 0) {
             y = 1
-        } else if(currentY + 200 < 800) {
+        } else if (currentY + 200 < 800) {
             y = -1
         }
 
-        if(currentX - 200 < 0) {
+        if (currentX - 200 < 0) {
             x = 1
-        } else if(currentX + 200 < 1024) {
+        } else if (currentX + 200 < 1024) {
             x = -1
         }
 
-        if(y == 0 && x == 0){
+        if (y == 0 && x == 0) {
             return this.getRandomDirection(currentX, currentY)
         }
 
         return [x, y]
     }
 
-    shot(){
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [5, 0]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [4, 1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [3, 2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [2, 3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [1, 4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [0, 5]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-1, 4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-2, 3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, 2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, 1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
+    shot() {
+        const x = this.x
+        const y = this.y
 
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [5, 0]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [4, -1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [3, -2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [2, -3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [1, -4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [0, -5]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-1, -4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-2, -3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, -2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, -1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
-        pushUnitList(new BubbleBaby(this.x, this.y), this.y)
+        this.shotBullet(x, y)
+        pushUnitList(new BubbleBaby(x, y), y)
 
         setTimeout(() => {
-            pushUnitList(new EnemyBullet1(this.x, this.y - 15, [5, 0]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [4, 1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [3, 2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [2, 3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [1, 4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [0, 5]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-1, 4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-2, 3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, 2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, 1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
-
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [5, 0]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [4, -1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [3, -2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [2, -3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [1, -4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [0, -5]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-1, -4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-2, -3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, -2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, -1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
+            this.shotBullet(x, y)
         }, 100);
-        setTimeout(() => {
-            pushUnitList(new EnemyBullet1(this.x, this.y - 15, [5, 0]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [4, 1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [3, 2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [2, 3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [1, 4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [0, 5]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-1, 4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-2, 3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, 2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, 1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
 
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [5, 0]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [4, -1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [3, -2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [2, -3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [1, -4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [0, -5]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-1, -4]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-2, -3]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-3, -2]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-4, -1]), this.y - 15)
-        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [-5, 0]), this.y - 15)
+        setTimeout(() => {
+            this.shotBullet(x, y)
         }, 200);
+    }
+
+    shotBullet(x,y) {
+        pushUnitList(new EnemyBullet1(x, y - 15, [5, 0]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [4, 1]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [3, 2]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [2, 3]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [1, 4]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [0, 5]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [-1, 4]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [-2, 3]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [-3, 2]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [-4, 1]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [-5, 0]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [5, 0]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [4, -1]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [3, -2]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [2, -3]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [1, -4]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [0, -5]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [-1, -4]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [-2, -3]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [-3, -2]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [-4, -1]), y - 15)
+        pushUnitList(new EnemyBullet1(x, y - 15, [-5, 0]), y - 15)
     }
 
     custemReset() {

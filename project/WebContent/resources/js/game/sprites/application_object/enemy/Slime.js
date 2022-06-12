@@ -17,24 +17,13 @@ export default class Slime extends Enemy {
             5, 40, 100, [100, 150])
 
             this.setDirectionTimer = setInterval(() => {
-                //1안 플레이어 위치를 정확하게 기억하여 한 발을 발사하는 방식
-                //2안 랜덤하게 열발을 흩뿌리는 방식
-                //3안 눈물 간 간격이 일정한 산탄 방식
-    
-                
-                //4안 일정한 간격으로 발싸하는 머신건 방식
-                
                 for(let j = 0; j < 10; j++){
-                    let aaaa = Math.random() * 50 - 100
-                    console.log(aaaa)
-                    
                     setTimeout(() => {
-                    const x = window.playerSprite.x - this.x
-                    const y = window.playerSprite.y - this.y
-                    pushUnitList(new EnemyBullet1(this.x, this.y - 15, [x, y]), this.y - 15)
+                        const x = window.playerSprite.x - this.x
+                        const y = window.playerSprite.y - this.y
+                        pushUnitList(new EnemyBullet1(this.x, this.y - 15, [x, y]), this.y - 15)
                     }, j*100)
                 }
-                
             }, 3000);
     }
 
