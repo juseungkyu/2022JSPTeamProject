@@ -6,11 +6,11 @@
         <div class="container" >
             <div class="footer-container">
                 <div class="footer-info-box">
-                    <div class="img"></div>
+            		<a href="/" class="logo">미쿠의 모험</a>
                     <p class="footer-info">
-                        상호 : (주) 가나다라마바사 | 대표자명 : 홍길동 <br>
-                        사업자등록번호 : 000-0000 | 연락처 : 010-0000-0000 <br>
-                        주소 : 서울특별시 마포구 등교로 192 혜원빌딩 2F
+                        상호 : (주)승규 | 대표자명 : 이하민 <br>
+                        사업자등록번호 : 000-0000 | 연락처 : 010-1234-5678 <br>
+                        주소 : 김환집
                     </p>
                     <hr>
                 </div>

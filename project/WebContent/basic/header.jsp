@@ -16,7 +16,7 @@
     <!-- 헤더 -->
     <header>
         <div class="container just-between">
-            <a href="/">LOGO</a>
+            <a href="/" class="logo">미쿠의 모험</a>
             <div class="d-flex nav">
                 <ul>
                     <li><a href="/game.jsp">게임시작</a></li>
