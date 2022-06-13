@@ -75,6 +75,7 @@ export default class Miku1 extends Friendly {
             const table = window.rankingPopup.querySelector('tbody')
             table.innerHTML = ''
             if(!window.isBasic){
+                window.rankingPopup.querySelector('h2').innerHTML = `내 점수 : ${getLevel()} (보스 모드에서는 순위를 매기지 않습니다.)`
                 window.rankingPopup.style="visibility: visible; opacity: 1"
                 return
             }
@@ -85,6 +86,8 @@ export default class Miku1 extends Friendly {
 
             clearUnitList()
             clearSpriteList()
+
+            window.rankingPopup.querySelector('h2').innerHTML = `내 점수 : ${getLevel()}`
 
             let i = 0
             for(let x of data.data){

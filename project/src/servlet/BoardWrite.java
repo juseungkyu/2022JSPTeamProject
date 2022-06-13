@@ -48,8 +48,6 @@ public class BoardWrite extends HttpServlet {
 			out.print("<script>window.history.back() </script>");
 			return;
 		}
-		
-		System.out.println(title + contents);
 
 		if (title == null || contents == null) {
 			out.print("<script>alert('필수 입력 값이 누락 되었습니다.')</script>");
