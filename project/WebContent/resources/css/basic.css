@@ -5,6 +5,16 @@
     padding: 0;
 }
 
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+footer .logo {
+    color: white;
+}
+
 body {
     position: relative;
     min-height: 100vh;
@@ -148,6 +158,12 @@ header ul {
 header .nav{
     display: flex;
     gap: 30px;
+}
+
+header li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header a {
