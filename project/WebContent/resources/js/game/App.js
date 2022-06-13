@@ -34,6 +34,7 @@ async function initGameImage(){
     // 이미지 로딩
     const imageUrls = [
     '/resources/image/test.png', 
+    '/resources/image/test2.png', 
 
     '/resources/image/miku/mikuStandTemporary1.png',
     '/resources/image/miku/mikuStandTemporary3.png',
@@ -67,7 +68,7 @@ async function initGameImage(){
     '/resources/image/terrain/left_wall1.png',
     '/resources/image/terrain/right_wall1.png',
     '/resources/image/terrain/box1.png',
-    '/resources/image/terrain/InvisibleBox.png',
+    '/resources/image/terrain/invisibleBox.png',
     
 
     '/resources/image/background/sprite0002.png',

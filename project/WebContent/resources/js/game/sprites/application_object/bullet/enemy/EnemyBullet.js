@@ -8,7 +8,7 @@ export default class EnemyBullet1 extends EnemyBullet {
         super(x,y,
             [new Collision([{x:-5, y:-10}, {x:5, y:0}])],
             {
-                'default' : [window.imageObject.test],
+                'default' : [window.imageObject.test2],
                 'hit' : [
                     window.imageObject.disappearBullet1,
                     window.imageObject.disappearBullet2,
