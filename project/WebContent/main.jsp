@@ -12,8 +12,9 @@
 	
 	ArrayList<Board> boardList = boardDao.getBoardList(0, 4);
 	
+	user = (User) session.getAttribute("LoginOK");
 	boolean log = false;
-	if(session.getAttribute("LoginOK") != null) {
+	if(user != null) {
 		log = true;
 	}
 	
@@ -24,18 +25,18 @@
             <img src="./resources/image/visual/zzz.jpg" alt="">
         </div>
         <div class="right">
-            <div class="start">
+            <a href="/game.jsp" class="start">
                 <p>GAME <br>START</p>
-            </div>
+            </a>
             <div class="info">
                 <div class="profile"></div>
 <%
 				if(log) {
 %>	               
 	                <div class="profile-info">
-	                    <p class="name">닉네임 <span>님</span></p>
+	                    <p class="name"><%= user.getNickname() %> <span>님</span></p>
 	                    <p class="ranking">sadas</p>
-	                    <p class="one">간다라마바ㅏ사ㅏ</p>
+	                    <p class="one"><%= user.getId() %></p>
 	                    <p class="logout"><a href="">로그아웃</a></p>
 	                </div>
 <%

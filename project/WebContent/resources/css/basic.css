@@ -402,6 +402,8 @@ header a {
     background-color: #333;
     display: flex;
     align-items: center;
+	cursor: pointer;
+	text-decoration: none;
 }
 .right > .start > p {
 	font-size: 50px;
