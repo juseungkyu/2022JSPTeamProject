@@ -48,6 +48,8 @@ public class BoardWrite extends HttpServlet {
 			out.print("<script>window.history.back() </script>");
 			return;
 		}
+		
+		System.out.println(title + contents);
 
 		if (title == null || contents == null) {
 			out.print("<script>alert('필수 입력 값이 누락 되었습니다.')</script>");
@@ -62,7 +64,7 @@ public class BoardWrite extends HttpServlet {
 		}
 		
 		if(title.length() > 20 || contents.length() > 255) {
-			out.print("<script>alert('필수 입력 값이 누락 되었습니다.')</script>");
+			out.print("<script>alert('제목은 20자, 내용은 255자까지 입력 가능합니다.')</script>");
 			out.print("<script>window.history.back() </script>");
 			return;
 		}
