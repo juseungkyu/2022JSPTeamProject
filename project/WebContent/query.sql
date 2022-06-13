@@ -1,13 +1,13 @@
 CREATE table users(
-	id VARCHAR2(15) NOT NULL PRIMARY KEY,
-	name VARCHAR2(20) NOT NULL,
-	nick VARCHAR2(40) NOT NULL,
-	password VARCHAR2(80) NOT NULL
+	id VARCHAR2(15 char) NOT NULL PRIMARY KEY,
+	name VARCHAR2(20 char) NOT NULL,
+	nick VARCHAR2(10 char) NOT NULL,
+	password VARCHAR2(80 char) NOT NULL
 );
 
 CREATE TABLE board(
 	id NUMBER NOT NULL PRIMARY KEY,
-	user_id VARCHAR2(15) NOT NULL REFERENCES Users(id),
+	user_id VARCHAR2(15 char) NOT NULL REFERENCES Users(id),
 	title VARCHAR2(20 char),
 	contents VARCHAR2(255 char),
 	upload_at DATE
@@ -19,6 +19,10 @@ CREATE TABLE ranking(
 	score NUMBER NOT NULL,
 	play_at DATE
 );
+
+drop table board;
+drop table ranking;
+drop table users;
 
 select * from users;
 

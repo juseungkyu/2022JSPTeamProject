@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
             <a href="/">LOGO</a>
             <div class="d-flex nav">
                 <ul>
-                    <li><a href="/game.html">게임시작</a></li>
+                    <li><a href="/game.jsp">게임시작</a></li>
                     <li><a href="/board.jsp">게시판</a></li>
                 </ul>
                 <ul>
@@ -33,6 +33,7 @@
 				} else {
 %>                    
 					<li><a href="/logout">로그아웃</a></li>
+					<li><a href="#"><%=user.getName()%>님 환영합니다.</a></li>
 <% 
 				}
 %>                    

@@ -2,10 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -63,9 +59,31 @@ public class Join extends HttpServlet {
 			out.print("<script>window.location.href = './join.jsp' </script>");
 			return;
 		}
+		
+		if (id.length() > 15) {
+			out.print("<script>alert('아이디는 15자까지만 입력할 수 있습니다.')</script>");
+			out.print("<script>window.location.href = './join.jsp' </script>");
+			return;
+		}
+		if (name.length() > 20) {
+			out.print("<script>alert('이름은 20자까지만 입력할 수 있습니다.')</script>");
+			out.print("<script>window.location.href = './join.jsp' </script>");
+			return;
+		}
+		if (nick.length() > 10) {
+			out.print("<script>alert('닉네임은 10자까지만 입력할 수 있습니다.')</script>");
+			out.print("<script>window.location.href = './join.jsp' </script>");
+			return;
+		}
+		if (password.length() > 80) {
+			out.print("<script>alert('비밀번호는 80자까지만 입력할 수 있습니다.')</script>");
+			out.print("<script>window.location.href = './join.jsp' </script>");
+			return;
+		}
+		
 		if (this.userdao.join(id, name, nick, password)) {
 			out.print("<script>alert('회원가입 성공')</script>");
-			out.print("<script>window.location.href = '/' </script>");
+			out.print("<script>window.location.href = '/login.jsp' </script>");
 			return;
 		} else {
 			out.print("<script>alert('회원가입 실패')</script>");

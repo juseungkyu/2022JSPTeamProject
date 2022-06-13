@@ -47,10 +47,41 @@
             overflow: hidden;
             padding-bottom: 0px;
         }
+        
+        header {
+        	position:fixed;
+        }
     </style>
 </head>
 
 <body>
+    <!-- 헤더 -->
+    <header>
+        <div class="container just-between">
+            <a href="/">LOGO</a>
+            <div class="d-flex nav">
+                <ul>
+                    <li><a href="/game.jsp">게임시작</a></li>
+                    <li><a href="/board.jsp">게시판</a></li>
+                </ul>
+                <ul>
+<%
+				if(user == null) {
+%>                
+                    <li><a href="/login.jsp">로그인</a></li>
+                    <li><a href="/join.jsp">회원가입</a></li>
+<%				
+				} else {
+%>                    
+					<li><a href="/logout">로그아웃</a></li>
+					<li><a href="#"><%=user.getName()%>님 환영합니다.</a></li>
+<% 
+				}
+%>                    
+                </ul>
+            </div>
+        </div>
+    </header>
 
     <div class="ranking-popup popup">
         <div>
@@ -59,62 +90,12 @@
                 <thead>
                     <tr>
                         <th>등수</th>
-                        <th>이름</th>
+                        <th>아이디</th>
                         <th>점수</th>
                         <th>등록일</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>미쿠사랑꾼</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>미쿠사랑꾼</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>미쿠사랑꾼</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>미쿠사랑꾼</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>미쿠사랑꾼</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>미쿠사랑꾼</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>미쿠사랑꾼</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>미쿠사랑꾼</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>미쿠사랑꾼</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>미쿠사랑꾼</td>
-                        <td>1</td>
-                    </tr>
                 </tbody>
             </table>
 
