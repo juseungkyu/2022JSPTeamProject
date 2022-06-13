@@ -368,3 +368,170 @@ header a {
     margin-top: 30px;
     text-align: center;
 }
+
+/* 메인 페이지 */
+.aaa * {
+            padding: 0;
+            margin: 0 auto;
+}
+.aaa {
+	margin-bottom: 40px;
+    background-color: #222222;
+    display: flex;
+    height: 400px;
+}
+.visual {
+    width: 900px;
+    height: 100%;
+    background-color: #444444;
+    margin: 0;
+    overflow: hidden;
+}
+.visual > img {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.right {
+    width: 250px;
+    height: 100%;
+    background-color: #555555;
+}
+.right > .start {
+    width: 100%;
+    height: 250px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+}
+.right > .start > p {
+	font-size: 50px;
+	font-weight: bold;
+	text-align: center;
+	color: #ddd;
+}
+.right > .info {
+    width: 100%;
+    background-color: #999999;
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+.right > .info > .profile {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #C1C1C1;
+    margin: 0 0 0 20px;
+}
+.right > .info > .profile-info {
+    text-align: right;
+    margin-right: 20px;
+    line-height: 1.7;
+}
+.right > .info > .profile-info > .name {
+    font-size: 14px;
+}
+.profile-info > p {
+    margin: 0;
+}
+
+.profile-info > .name > span {
+    font-size: 16px;
+}
+.profile-info > .ranking {
+    font-size: 12px;
+}
+.profile-info > .one {
+    font-size: 12px;
+}
+.profile-info > .logout {
+    font-size: 10px;
+}
+.profile-info > .info-login {
+	text-align: left;
+}
+.bbb {
+    margin-top: 40px;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+.bbb > .notice {
+    width: 320px;
+    height: 100%;
+    background-color: #fff;
+    border: 2px solid rgb(82, 82, 82);
+}
+.bbb > .community {
+    width: 800px;
+    height: 100%;
+    background-color: #fff;
+    border: 2px solid rgb(82, 82, 82);
+    
+}
+.bbb .bbb-box {
+    padding: 10px 25px;
+}
+.bbb .bbb-box > h5 {
+    font-size: 16px;
+    margin: 0;
+    margin-top: 8px;
+}
+.ccc {
+    height: 60px;
+    margin-top: 40px;
+    background-color: #5b5b74;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.ccc p {
+    color: #dadae0;
+    font-size: 18px;
+}
+.eee {
+    height: 620px;
+    background-color: #252531;
+    margin: 0;
+}
+.eee h2 {
+    padding-top: 80px;
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: whitesmoke;
+    text-align: center;
+}
+.eee .posts {
+    display: flex;
+    justify-content: space-between;
+}
+.eee .posts > .post {
+    background-color: #dddddd;
+    width: 260px;
+    height: 350px;
+}
+.eee .posts > .post > div {
+    padding: 30px;
+    margin: 0;
+}
+.post > div p {
+    font-size: 11px;
+}
+.post > div h5 {
+    margin: 0;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.post > div > div {
+    height: 238px;
+    overflow: hidden;
+}
+.post > div > div > p {
+    font-size: 12px;
+    padding-top: 12px;
+}
+
+.main {
+    margin: 0 auto;
+}
