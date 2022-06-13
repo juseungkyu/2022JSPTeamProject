@@ -59,17 +59,13 @@ export default class Engine {
         this.nextStage = () => {
             clearUnitList()
             clearSpriteList()
-
-            if(this.mapListCount > 5){
-                this.mapListCount == 0
-            }
             
-            // 똑같은 맵 많이 나올까봐 무작위 대신 시간으로
-            //const r = new Date().getTime() % 5
+            // 무작위로 맵 로딩
+            const r = parseInt(Math.random()*1000) % 5
             let map = null
-            switch (this.mapListCount) {
+            switch (r) {
                 case 0:
-                    map = new StartMap()
+                    map = new BubbleMap()
                     break;
                 case 1:
                     map = new Map1()
@@ -87,7 +83,6 @@ export default class Engine {
                     map = new Map1()
                     break;
             }
-            this.mapListCount++
             setClearState(false)
             this.setMap(map)
         }
@@ -112,15 +107,10 @@ export default class Engine {
         this.nextStage = () => {
             clearUnitList()
             clearSpriteList()
-
-            if(this.mapListCount > 5){
-                this.mapListCount == 0
-            }
             
-            // 똑같은 맵 많이 나올까봐 무작위 대신 시간으로
-            //const r = new Date().getTime() % 5
+            const r = parseInt(Math.random()*1000) % 5
             let map = null
-            switch (this.mapListCount) {
+            switch (r) {
                 case 0:
                     map = new BubbleMap()
                     break;
@@ -140,7 +130,6 @@ export default class Engine {
                     map = new BubbleMap()
                     break;
             }
-            this.mapListCount++
             setClearState(false)
             this.setMap(map)
         }
