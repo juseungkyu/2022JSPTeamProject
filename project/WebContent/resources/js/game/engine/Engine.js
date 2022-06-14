@@ -112,7 +112,7 @@ export default class Engine {
             let map = null
             switch (r) {
                 case 0:
-                    map = new Boss2()
+                    map = new BubbleMap()
                     break;
                 default:
                     map = new BubbleMap()

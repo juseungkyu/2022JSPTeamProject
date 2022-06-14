@@ -1,7 +1,8 @@
 import Boss from "../Boss.js"
 import Left from "./Left.js"
 import Right from "./Right.js"
-import Seastaronly from "../../enemy/Seastaronly.js"
+
+import GreenCrab from "../../enemy/GreenCrab.js"
 
 export default class HermitCrab extends Boss {
     constructor(x, y) {
@@ -20,7 +21,7 @@ export default class HermitCrab extends Boss {
                 {
                     x: 0,
                     y: 0,
-                    sprite: new Seastaronly(x + 0, y)
+                    sprite: new GreenCrab(x + 0, y)
                 },
             ], 3, 1000)
 

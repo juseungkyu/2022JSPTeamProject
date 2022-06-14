@@ -7,14 +7,8 @@ export default class Left extends Enemy {
         super(x, y, 
             [new Collision([{x:-25, y:-50}, {x:25, y:0}])],
             {
-                'default' : [window.imageObject.crab1, 
-                            window.imageObject.crab2, 
-                            window.imageObject.crab3, 
-                            window.imageObject.crab4],
-                'die' : [window.imageObject.crab1, 
-                             window.imageObject.crab2, 
-                             window.imageObject.crab3, 
-                             window.imageObject.crab4],
+                'default' : [window.imageObject.right],
+                'die' : [window.imageObject.right],
             }, 
             20, 0, 0, [50, 50]
         )
