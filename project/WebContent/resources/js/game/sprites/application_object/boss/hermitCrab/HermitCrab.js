@@ -33,7 +33,6 @@ export default class HermitCrab extends Boss {
                 this.stopMoving()
                 return
             }
-            console.log("x : "+window.playerSprite.x+"y : "+window.playerSprite.y)
             let playerX = window.playerSprite.x
             let playerY = window.playerSprite.y
             if(playerX>860){
