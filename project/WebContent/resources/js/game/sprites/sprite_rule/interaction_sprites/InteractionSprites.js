@@ -10,8 +10,7 @@ export default class InteractionSprites extends Sprites {
         this.type.push('InteractionSprites')
     }
 
-    // 나중에 충돌한 스프라이트 정보를 받아올 것 같은데 
-    // 다른거 받아올 수 있으니까 일단 obj라고 표현함
+    // 충돌 시 처리
     onCollisionEnter = (sprite, collision)=>{
         this.customOnCollisionEnter(sprite, collision)
     }

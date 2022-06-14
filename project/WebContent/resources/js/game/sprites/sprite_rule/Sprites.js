@@ -12,6 +12,7 @@
 
 import DefaultValue from '../../../constant/DefaultValue.js';
 
+// 스프라이트 클래스 거의 모든 클래스가 상속
 export default class Sprites {
     constructor(x,y, collisionList, hitBoxType, animationImageList, size){
         this.x = x
@@ -36,14 +37,17 @@ export default class Sprites {
         this.animationInit()
     }
 
+    // 애니메이션 실행 속도 설정
     setAnimationSpeed = (animationspeed)=>{
         this.animationspeed = animationspeed
     }
 
+    // 애니메이션 설정
     animationInit() {
         this.animationTypeChange('default')
     }
 
+    // 지정된 애니메이션의 다음 이미지로 변경
     imageChange() {
         this.animationIndex++
 
@@ -56,6 +60,7 @@ export default class Sprites {
         this.animationTimer = setTimeout(this.imageChange.bind(this), this.animationspeed);
     }
 
+    // 애니메이션 상태를 변경
     animationTypeChange = (type)=>{
         clearTimeout(this.animationTimer)
         

@@ -1,6 +1,7 @@
 import Boss from "../Boss.js"
 import TestBossBody from "./TestBossBody.js"
 
+// 보스 인터페이스를 적용한 클래스
 export default class TestBoss extends Boss {
     constructor(x, y) {
         super(x, y,

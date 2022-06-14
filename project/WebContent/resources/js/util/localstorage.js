@@ -1,3 +1,6 @@
+// 브라우저에 저장하는 메소드인데
+// 안 쓰기로 했음
+
 function getLocal(key, defaultValue=null){
     const value = window.localStorage.getItem(key)
 

@@ -3,7 +3,7 @@ import Left from "./Left.js"
 import Right from "./Right.js"
 import GreenCrab from "./GreenCrab.js"
 
-// 보스를 이루는 개체들 제어
+// 설명서 참고
 export default class HermitCrab extends Boss {
     constructor(x, y) {
         super(x, y,

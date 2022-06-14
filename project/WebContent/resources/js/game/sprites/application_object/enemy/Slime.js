@@ -1,10 +1,8 @@
-// 적 유닛
-// Enemy 상속하고 Collision으로 히트박스 구현
-
 import Enemy from "../../sprite_rule/interaction_sprites/unit/enemy/Enemy.js";
 import Collision from "../../sprite_rule/Collision.js";
 import EnemyBullet1 from "../bullet/enemy/EnemyBullet.js";
 
+// 원래 슬라임 만드려고 했는데 터렛이 됨
 export default class Slime extends Enemy {
     constructor(x, y){
         super(x, y, 

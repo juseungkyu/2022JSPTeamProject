@@ -1,10 +1,8 @@
-// 적 유닛
-// Enemy 상속하고 Collision으로 히트박스 구현
-
 import Enemy from "../../sprite_rule/interaction_sprites/unit/enemy/Enemy.js";
 import Collision from "../../sprite_rule/Collision.js";
 import EnemyBullet1 from "../bullet/enemy/EnemyBullet.js";
 
+// 멈춰서 탄환만 발사하는 불가사리
 export default class Seastaronly extends Enemy {
     constructor(x, y){
         super(x, y, 
@@ -15,6 +13,7 @@ export default class Seastaronly extends Enemy {
             }, 
             5, 40, 100, [50, 50])
 
+        // 탄환 발사
         const setDirectionTimer = setInterval(() => {
             for(let j = 0; j < 3; j++){
                 setTimeout(() => {

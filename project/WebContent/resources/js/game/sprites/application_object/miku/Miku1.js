@@ -1,12 +1,10 @@
-// 플레이어 캐릭터
-// Friendly 상속하고 Collision으로 히트박스 구현
-
 import Friendly from "../../sprite_rule/interaction_sprites/unit/friendly/Friendly.js";
 import Collision from "../../sprite_rule/Collision.js";
 import PlayerBullet from "../bullet/friendly/PlayerBullet.js";
 import DefaultValue from "../../../../constant/DefaultValue.js";
 import RankingView from "../../../../util/RankingView.js";
 
+// 플레이어
 export default class Miku1 extends Friendly {
     constructor() {
         super(400, 400,
@@ -36,6 +34,7 @@ export default class Miku1 extends Friendly {
         this.rankingViewer = new RankingView();
     }
 
+    // 공격 알고리즘
     attack = (x, y) => {
         if(this.isDie){
             return
@@ -54,6 +53,7 @@ export default class Miku1 extends Friendly {
         
     }
 
+    // 죽었을때 처리
     custemReset() {
         this.isDie = true
         const hitEffect = document.querySelector('.front-ground')

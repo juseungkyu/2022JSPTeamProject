@@ -1,5 +1,3 @@
-// 피아식별 기능 추가
-
 import Friendly from "./Friendly.js";
 
 export default class FriendlyBullet extends Friendly {
@@ -11,6 +9,7 @@ export default class FriendlyBullet extends Friendly {
         this.type.push('Bullet')
     }
 
+    // 충돌 시 처리
     onCollisionEnter = (sprite, collision)=>{
         if(this.deleted) {
             return
