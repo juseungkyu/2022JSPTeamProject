@@ -8,6 +8,7 @@
 import Unit from "../../sprite_rule/interaction_sprites/unit/Unit.js"
 import Collision from "../../sprite_rule/Collision.js"
 
+// 보스 인터페이스(추상클래스에 가까움)
 export default class Boss extends Unit{
     constructor(x,y, enemyList, speed, maxSpeed){
         super(x,y,
@@ -29,6 +30,7 @@ export default class Boss extends Unit{
         }
     }
 
+    // 모든 보스 부위가 죽었는지 확인하고 보스를 제거
     checkBossDie = (dieSprite)=>{
 
         for(let enemy of this.enemyList){

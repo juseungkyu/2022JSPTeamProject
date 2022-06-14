@@ -12,6 +12,7 @@ import StartMap from '../map/state1/StartMap.js';
 import TwoBubbleMap from '../map/state1/TwoBubbleMap.js';
 
 export default class Engine {
+    // 엔진 시작
     constructor() {
         this.basicPhysics = new Physics()
         this.graph = new GraphicControl()
@@ -31,6 +32,7 @@ export default class Engine {
         this.gameSelect()
     }
 
+    // 게임 모드 선택
     gameSelect() {
         const basicMode = document.querySelector('.basic-mode')
         const bossMode = document.querySelector('.boss-mode')
@@ -41,8 +43,10 @@ export default class Engine {
         bossMode.addEventListener('click', this.setBossMode.bind(this))
     }
 
+    // 다음 스테이지 이동
     nextStage = () => { }
 
+    // 기본 모드 설정
     setBasicMode() {
         if (this.isStart) {
             return
@@ -93,6 +97,7 @@ export default class Engine {
         document.querySelector('.select-game').style.display = 'none'
     }
 
+    // 보스 모드 설정
     setBossMode() {
         if (this.isStart) {
             return
@@ -129,6 +134,7 @@ export default class Engine {
         document.querySelector('.select-game').style.display = 'none'
     }
 
+    // ui 설정
     uiSet = () => {
         if (this.beforeHp !== window.playerSprite.hp && !window.playerSprite.isDie) {
             this.hitEffect.classList.add('active')
@@ -200,6 +206,7 @@ export default class Engine {
         `
     }
 
+    // 한 프레임을 제어
     frame(timeStamp) {
         const time = timeStamp - this.before
 
@@ -210,6 +217,7 @@ export default class Engine {
         window.requestAnimationFrame(this.frame.bind(this));
     }
 
+    // 파라미터로 받은 맵을 설정함
     setMap = (map) => {
         upLevel()
         this.ui.querySelector('.stage').innerHTML = `<span>${getLevel()}</span>`

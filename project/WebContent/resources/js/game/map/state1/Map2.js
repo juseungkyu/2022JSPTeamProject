@@ -1,28 +1,20 @@
-// Map의 구조
-// background : 세로 25, 가로 32 그리드 (1칸당 32픽셀)
-// sprites : 스프라이트들
+// 필요한 객체 임포트
 
 import Map from '../Map.js';
 import Background2_1 from '../../sprites/application_object/background/tile/Background2_1.js';
 import Background2_2 from '../../sprites/application_object/background/tile/Background2_2.js';
-// import Wall1 from '../../sprites/application_object/wall/Wall1.js';
 import Box1 from '../../sprites/application_object/wall/Box1.js';
 import InvisibleBox from '../../sprites/application_object/wall/InvisibleBox.js';
 
-import Slime from '../../sprites/application_object/enemy/Slime.js';
-import Seastaronly from '../../sprites/application_object/enemy/Seastaronly.js';
-import Crab from '../../sprites/application_object/enemy/Crab.js';
 import Seastar from '../../sprites/application_object/enemy/Seastar.js';
 
-
-
-import TestBoss from '../../sprites/application_object/boss/bossTest/TestBoss.js';
 import BubbleBaby from '../../sprites/application_object/enemy/BubbleBaby.js';
 
 export default class Map2 extends Map {
     constructor() {
         super()
 
+        // 배경 설정
         const background = []
 
         for(let j = 0; j < 1024 / 64; j++){
@@ -35,6 +27,7 @@ export default class Map2 extends Map {
             }
         }
         
+        // 지형 설정
         const sprites = []
         
         for(let i = 0; i < 32; i++){
@@ -48,9 +41,7 @@ export default class Map2 extends Map {
             sprites.push(new InvisibleBox(...this.gridhelper(30, i)))
         }
 
-
-        let a = 5
-        let b = 5
+        // 유닛 설정
         const units = []
         for(let i = 5; i < 24; i++){
             for(let j = 2; j < 23; j = j+3){
@@ -66,19 +57,6 @@ export default class Map2 extends Map {
             
         }
 
-        
-        
-        
-
-        
-        
-
-        
-        
-        
-
-
         this.init(background, sprites, units)
-        //background.push(new EdgeWall1(...this.backgroundGridhelper(0, 0, 64)))
     }
 }
