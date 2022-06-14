@@ -1,13 +1,13 @@
 // 필요한 객체 임포트
 
 import Map from '../Map.js';
+
 import Background2_1 from '../../sprites/application_object/background/tile/Background2_1.js';
 import Background2_2 from '../../sprites/application_object/background/tile/Background2_2.js';
+import DescriptionBackground from '../../sprites/application_object/background/tile/DescriptionBackground.js';
 
-import Box1 from '../../sprites/application_object/wall/Box1.js';
 import InvisibleBox from '../../sprites/application_object/wall/InvisibleBox.js';
-
-import HermitCrab from '../../sprites/application_object/boss/hermitCrab/HermitCrab.js';
+import BubbleBaby from '../../sprites/application_object/enemy/BubbleBaby.js';
 
 // 시작 튜토리얼 맵
 export default class StartMap extends Map {
@@ -25,6 +25,8 @@ export default class StartMap extends Map {
                 }
             }
         }
+
+        background.push(new DescriptionBackground(...this.backgroundGridhelper(0, 0, 64)))
         
         const sprites = []
         
@@ -39,28 +41,10 @@ export default class StartMap extends Map {
             sprites.push(new InvisibleBox(...this.gridhelper(30, i)))
         }
 
-        let a = 20
-        let b = 8
-        sprites.push(new Box1(...this.gridhelper(a, b)))
-        sprites.push(new Box1(...this.gridhelper(a, b+1)))
-        sprites.push(new Box1(...this.gridhelper(a+1, b)))
-        sprites.push(new Box1(...this.gridhelper(a+1, b+1)))
-
-        b = 20
-        sprites.push(new Box1(...this.gridhelper(a, b)))
-        sprites.push(new Box1(...this.gridhelper(a, b+1)))
-        sprites.push(new Box1(...this.gridhelper(a+1, b)))
-        sprites.push(new Box1(...this.gridhelper(a+1, b+1)))
-
-        
         const units = []
-        // units.push(new BubbleBaby(...this.gridhelper(25, 16)))
-        units.push(new HermitCrab(...this.gridhelper(25, 16)))
+
+        units.push(new BubbleBaby(...this.gridhelper(25, 16)))
 
         this.init(background, sprites, units)
-        // background.push(new EdgeWall1Upside(...this.backgroundGridhelper(0, 0, 64)))
-        // background.push(new EdgeWall1Downside(...this.backgroundGridhelper(0, 10, 64)))
-        // background.push(new EdgeWall1Left(...this.backgroundGridhelper(0, 0, 64)))
-        // background.push(new EdgeWall1Right(...this.backgroundGridhelper(0, 0, 64)))
     }
 }
