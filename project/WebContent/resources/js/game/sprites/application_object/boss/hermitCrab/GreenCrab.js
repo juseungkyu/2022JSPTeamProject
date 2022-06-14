@@ -17,7 +17,7 @@ export default class GreenCrab extends Enemy {
                         window.imageObject.greenCrab3,
                         window.imageObject.greenCrab4],
             }, 
-            50, 40, 100, [300, 200])
+            50, 40, 100, [240, 160])
 
         this.isGreenCrab = true
     }

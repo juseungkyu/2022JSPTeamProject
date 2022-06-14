@@ -15,12 +15,12 @@ export default class HermitCrab extends Boss {
                 },
                 {
                     x: -70,
-                    y: -80,
+                    y: -70,
                     sprite: new Left(x - 70, y - 80)
                 },
                 {
                     x: 70,
-                    y: -80,
+                    y: -70,
                     sprite: new Right(x + 70, y - 80)
                 },
             ], 3, 1000)
@@ -33,9 +33,24 @@ export default class HermitCrab extends Boss {
                 this.stopMoving()
                 return
             }
+            console.log("x : "+window.playerSprite.x+"y : "+window.playerSprite.y)
+            let playerX = window.playerSprite.x
+            let playerY = window.playerSprite.y
+            if(playerX>860){
+                playerX = 860
+            } else if(playerX<140){
+                playerX = 140
+            }
+            
+            if(playerY<210){
+                playerY=210
+            } else if(playerY > 760){
+                playerY = 760
+            }
+            
 
-            const x = (this.x - window.playerSprite.x) > 0 ? -1 : 1
-            const y = (this.y - window.playerSprite.y) > 0 ? -1 : 1
+            const x = (this.x - playerX) > 0 ? -1 : 1
+            const y = (this.y - playerY) > 0 ? -1 : 1
 
             this.changeDirection(x, y)
         }, 10);
