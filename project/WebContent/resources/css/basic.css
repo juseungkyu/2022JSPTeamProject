@@ -471,6 +471,31 @@ header a {
 .profile-info > .info-login {
 	text-align: left;
 }
+.profile-login{
+	display: flex;
+	align-items: center;
+	height: 150px;
+}
+.profile-login p {
+	font-size: 14px;
+	color: white;
+}
+.profile-login > form > div:nth-child(2) {
+	margin-top: 10px;
+}
+.profile-login > form > div:nth-child(3) {
+	display: flex;
+	margin-top: 15px;
+}
+.profile-login .loginBtn {
+	
+	width: 100px;
+    padding: 0;
+    background: rgb(139, 209, 255);
+    color: rgb(241, 241, 241);
+    font-weight: bold;
+}
+
 .bbb {
     margin-top: 40px;
     height: 300px;

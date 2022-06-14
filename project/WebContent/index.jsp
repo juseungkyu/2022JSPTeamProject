@@ -44,8 +44,20 @@
 <%
 			} else {
 %>		                
-				<div class="profile-info">	                 
-                    <a class="info-login">로그인</a>
+				<div class="profile-login">	                 
+                    <form action="/login" method="post"">
+                    	<div>
+			                <p>아이디</p>
+			                <input type="text" name="id" id="" placeholder="아이디" required>
+			            </div>
+			            <div>
+			                <p>비밀번호</p>
+			                <input type="password" name="password" id="" placeholder="비밀번호" required>
+			            </div>
+			            <div>
+			            	<input type="submit" value="로그인" class="loginBtn">
+			            </div>
+                    </form>
                 </div>
 <%
 			}
