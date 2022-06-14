@@ -1,6 +1,8 @@
 import Enemy from "../../../sprite_rule/interaction_sprites/unit/enemy/Enemy.js"
 import Collision from "../../../sprite_rule/Collision.js";
 import EnemyBullet1 from "../../bullet/enemy/EnemyBullet.js";
+
+// 보스의 왼쪽에서 탄막을 형성하는 적
 export default class Left extends Enemy {
     constructor(x,y){
         super(x, y, 

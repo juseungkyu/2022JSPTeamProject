@@ -3,6 +3,7 @@
 import EnemyBullet from "../../../sprite_rule/interaction_sprites/unit/enemy/EnemyBullet.js"
 import Collision from "../../../sprite_rule/Collision.js"
 
+// 적 탄환 예시 
 export default class EnemyBullet1 extends EnemyBullet {
     constructor(x,y, distance){
         super(x,y,

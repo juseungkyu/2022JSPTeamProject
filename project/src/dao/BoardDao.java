@@ -16,7 +16,8 @@ public class BoardDao {
 	public BoardDao() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	// 게시글 수 구하기
 	public int getCount() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -38,6 +39,7 @@ public class BoardDao {
 		return 0;
 	}
 
+	// 게시글 추가
 	public boolean addBoard(String title, String contents, User user) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -60,6 +62,7 @@ public class BoardDao {
 		return true;
 	}
 
+	// 게시글 리스트 형식으로 받기
 	public ArrayList<Board> getBoardList(int start, int count) {
 		ArrayList<Board> boardList = new ArrayList<Board>();
 

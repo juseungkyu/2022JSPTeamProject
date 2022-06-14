@@ -2,6 +2,7 @@
 
 import HitBoxType from '/resources/js/constant/HitBoxType.js';
 
+// 충돌판정, 이동 등의 물리효과를 당담하는 세부엔진
 export default class Physics {
     constructor(){
         
@@ -16,8 +17,7 @@ export default class Physics {
         const spriteList = getSpriteList()
 
         for(let unit of unitList){
-            // 무슨 비동기 실행이 먼저 돌아갈지 정확하게 알 수 없기에
-            // 삭제 요청한 스프라이트를 한번만 삭제하게 함
+            // 삭제 요청이 들어오면 삭제
             if(unit.deleted){
                 if(unit.deleted === true){
                     unit.deleted = 1
@@ -37,6 +37,7 @@ export default class Physics {
         }
     }
     
+    // 히트박스와 히트박스가 충돌했는지 체크함
     hitBoxCheck(unit, sprite){
         for(let unitHitbox of unit.collisionList){
             const x1 = unit.x + unitHitbox.vertexList[0].x
@@ -61,6 +62,7 @@ export default class Physics {
         return false
     }
     
+    // 지형과 히트박스가 충돌한 축을 판단하여 충돌하지 않은 방향으로는 이동이 가능하도록
     hitDirectionCheck(unit, beforeX, beforeY, {spriteX1, spriteY1, spriteX2, spriteY2, unitHitbox}){
         let x1 = beforeX + unitHitbox.vertexList[0].x
         let x2 = beforeX + unitHitbox.vertexList[1].x
@@ -81,6 +83,7 @@ export default class Physics {
         }
     }
 
+    // 한 히트박스 : 모든 히트박스의 충돌을 처리
     checkCollisionWithAll(unit, sprite, beforeX, beforeY) {
         // 배경 등 상호작용이 없는 스프라이트는 무시
         if(sprite.hitBoxType & HitBoxType.nonIgnoreConflicts == HitBoxType.nonIgnoreConflicts){
@@ -116,6 +119,7 @@ export default class Physics {
         }
     }
 
+    // 유닛 하나의 이동과 이동 중 충돌처리를 처리함
     moving (timeStamp, unit, spriteList){
         const beforeY = unit.y
         const beforeX = unit.x 
@@ -141,6 +145,7 @@ export default class Physics {
             swapUnitPoint(unit, beforeY, unit.y)
         }
 
+        // 보스 처리
         if(unit.type.includes('Boss')){
             for(let enemy of unit.enemyList){
                 enemy.sprite.x = unit.x + enemy.x

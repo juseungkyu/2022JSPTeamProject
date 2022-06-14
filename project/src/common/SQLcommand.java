@@ -9,6 +9,8 @@ import java.util.Iterator;
 
 public class SQLcommand {
 
+	// 번호 순서대로 자동생성 기능
+	// 테이블에서 해당 컬럼의 번호를 순서대로 받아와 없는 번호를 리턴
 	public static int autoInc(String id, String table) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

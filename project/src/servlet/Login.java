@@ -22,6 +22,7 @@ public class Login extends HttpServlet {
 		userdao = new UserDao();
 	}
 	
+	// 로그인 조건 확인
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");

@@ -7,6 +7,7 @@ import EnemyBullet1 from "../bullet/enemy/EnemyBullet.js";
 import Crab from "./Crab.js";
 import BubbleBaby from "./BubbleBaby.js";
 
+// 작은 게거품
 export default class Bubble extends Enemy {
     constructor(x, y) {
         super(x, y,

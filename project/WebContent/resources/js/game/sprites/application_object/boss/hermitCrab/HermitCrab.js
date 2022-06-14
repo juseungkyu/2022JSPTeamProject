@@ -4,6 +4,7 @@ import Right from "./Right.js"
 
 import GreenCrab from "../../enemy/GreenCrab.js"
 
+// 보스를 이루는 개체들 제어
 export default class HermitCrab extends Boss {
     constructor(x, y) {
         super(x, y,
@@ -25,6 +26,7 @@ export default class HermitCrab extends Boss {
                 },
             ], 3, 1000)
 
+        // 플레이어 방향으로 이동
         this.setDirectionTimer = setInterval(() => {
             const x = (this.x - window.playerSprite.x) > 0 ? -1 : 1
             const y = (this.y - window.playerSprite.y) > 0 ? -1 : 1
