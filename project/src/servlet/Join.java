@@ -22,7 +22,8 @@ public class Join extends HttpServlet {
 
         this.userdao = new UserDao(); 
     }
-
+    
+    // 회원가입 조건 확인
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");

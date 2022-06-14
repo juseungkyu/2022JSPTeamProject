@@ -97,6 +97,12 @@ async function initGameImage(){
     '/resources/image/effect/disappearBullet/disappearBullet6.png',
     '/resources/image/effect/disappearBullet/disappearBullet7.png',
 
+    '/resources/image/enemy/hermitCrab/greenCrab1.png ',
+    '/resources/image/enemy/hermitCrab/greenCrab2.png ',
+    '/resources/image/enemy/hermitCrab/greenCrab3.png ',
+    '/resources/image/enemy/hermitCrab/greenCrab4.png ',
+    '/resources/image/enemy/hermitCrab/right.png ',
+    '/resources/image/enemy/hermitCrab/left.png ',
     
     ]
 

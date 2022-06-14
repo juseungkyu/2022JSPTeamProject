@@ -1,25 +1,19 @@
-// Map의 구조
-// background : 세로 25, 가로 32 그리드 (1칸당 32픽셀)
-// sprites : 스프라이트들
+// 필요한 객체 임포트
 
 import Map from '../Map.js';
 import Background2_1 from '../../sprites/application_object/background/tile/Background2_1.js';
 import Background2_2 from '../../sprites/application_object/background/tile/Background2_2.js';
 
-// import Wall1 from '../../sprites/application_object/wall/Wall1.js';
-import Box1 from '../../sprites/application_object/wall/Box1.js';
 import InvisibleBox from '../../sprites/application_object/wall/InvisibleBox.js';
-
-import Slime from '../../sprites/application_object/enemy/Slime.js';
-import Crab from '../../sprites/application_object/enemy/Crab.js';
-import Seastar from '../../sprites/application_object/enemy/Seastar.js';
 
 import Bubble from '../../sprites/application_object/enemy/Bubble.js';
 
+// 게거품 보스가 나오는 맵
 export default class DefaultMap extends Map {
     constructor() {
         super()
-
+        
+        // 배경 설정
         const background = []
 
         for(let j = 0; j < 1024 / 64; j++){
@@ -32,6 +26,7 @@ export default class DefaultMap extends Map {
             }
         }
         
+        // 지형 설정
         const sprites = []
         
         for(let i = 0; i < 32; i++){
@@ -45,7 +40,7 @@ export default class DefaultMap extends Map {
             sprites.push(new InvisibleBox(...this.gridhelper(30, i)))
         }
         
-
+        // 유닛 설정
         const units = []
         units.push(new Bubble(...this.gridhelper(23, 15)))
         

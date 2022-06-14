@@ -9,9 +9,10 @@
 <%
 	BoardDao boardDao = new BoardDao();
 	int i = 0;
-	
+	// 게시글 받아와서 리스트에 저장
 	ArrayList<Board> boardList = boardDao.getBoardList(0, 4);
 	
+	// 로그인 여부 확인
 	user = (User) session.getAttribute("LoginOK");
 	boolean log = false;
 	if(user != null) {
@@ -29,26 +30,26 @@
                 <p>GAME <br>START</p>
             </a>
             <div class="info">
-                <div class="profile"></div>
 <%
-				if(log) {
+			if(log) {
 %>	               
+                <div class="profile"></div>
 	                <div class="profile-info">
 	                    <p class="name"><%= user.getNickname() %> <span>님</span></p>
 	                    <p class="ranking">sadas</p>
 	                    <p class="one"><%= user.getId() %></p>
 	                    <p class="logout"><a href="">로그아웃</a></p>
 	                </div>
+            	</div>
 <%
-				} else {
+			} else {
 %>		                
-					<div class="profile-info">	                 
-	                    <a class="info-login">로그인</a>
-	                </div>
+				<div class="profile-info">	                 
+                    <a class="info-login">로그인</a>
+                </div>
 <%
-				}
+			}
 %>		                
-            </div>
         </div>
     </section>
 
@@ -60,6 +61,7 @@
 	        <h2>커뮤니티 최신글</h2>
 	        <div class="container posts">
 <%
+			// 게시글 출력
 			Board board = null;
 			if(boardList.size() > 0) {
 				board = boardList.get(0);	

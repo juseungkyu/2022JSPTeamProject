@@ -15,6 +15,7 @@ public class UserDao {
 		
 	}
 	
+	// 로그인 기능
 	public User loginCheck(String id, String pw) {
 		
 		Connection conn = null;
@@ -43,6 +44,7 @@ public class UserDao {
 		return null;
 	}
 	
+	// 회원가입 기능
 	public boolean join(String id, String name, String nick, String password) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

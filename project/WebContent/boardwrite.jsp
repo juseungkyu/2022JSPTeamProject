@@ -3,6 +3,7 @@
     
 <%@ include file="/basic/header.jsp" %>
 
+<!-- 글 쓰기 -->
 	<div class="join-container">
         <h2>글쓰기 <span>write</span></h2>
         <hr>
@@ -22,4 +23,5 @@
 
         </form>
     </div>
+<!-- 글 쓰기 -->
 <%@ include file="/basic/footer.jsp" %>

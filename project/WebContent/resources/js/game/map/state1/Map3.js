@@ -1,29 +1,20 @@
-// Map의 구조
-// background : 세로 25, 가로 32 그리드 (1칸당 32픽셀)
-// sprites : 스프라이트들
+// 필요한 객체 임포트
 
 import Map from '../Map.js';
+
 import Background2_1 from '../../sprites/application_object/background/tile/Background2_1.js';
 import Background2_2 from '../../sprites/application_object/background/tile/Background2_2.js';
-// import Wall1 from '../../sprites/application_object/wall/Wall1.js';
+
 import Box1 from '../../sprites/application_object/wall/Box1.js';
 import InvisibleBox from '../../sprites/application_object/wall/InvisibleBox.js';
 
-import Slime from '../../sprites/application_object/enemy/Slime.js';
-//import SmallSlime from '../../sprites/application_object/enemy/SmallSlime.js';
-import Crab from '../../sprites/application_object/enemy/Crab.js';
-import Seastar from '../../sprites/application_object/enemy/Seastar.js';
-
-
-
-import TestBoss from '../../sprites/application_object/boss/bossTest/TestBoss.js';
-import BubbleBaby from '../../sprites/application_object/enemy/BubbleBaby.js';
 import Slime2 from '../../sprites/application_object/enemy/Slime2.js';
 
 export default class Map3 extends Map {
     constructor() {
         super()
 
+        // 배경 설정
         const background = []
 
         for(let j = 0; j < 1024 / 64; j++){
@@ -35,6 +26,8 @@ export default class Map3 extends Map {
                 }
             }
         }
+
+        // 지형 설정
         
         const sprites = []
         
@@ -84,19 +77,10 @@ export default class Map3 extends Map {
         // sprbtes.push(new Box1(...thbs.grbdhelper(a, b)))
         // sprctes.push(new Box1(...thcs.grcdhelper(a, b)))
         
+        // 유닛 추가
 
         units.push(new Slime2(...this.gridhelper(a,b),true))
         units.push(new Slime2(...this.gridhelper(a,b),false))
-        
-        
-
-        
-        
-
-        
-        
-        
-
 
         this.init(background, sprites, units)
         //background.push(new EdgeWall1(...this.backgroundGridhelper(0, 0, 64)))

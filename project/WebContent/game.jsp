@@ -1,6 +1,7 @@
 <%@page import="format.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- 유저 정보 확인 -->
 <%
 	User user = (User) session.getAttribute("LoginOK");
 
@@ -9,6 +10,7 @@
 		out.print("<script>window.location.href = './login.jsp' </script>");
 	}
 %>
+<!-- 유저 정보 확인 -->
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -82,7 +84,9 @@
             </div>
         </div>
     </header>
+    <!-- 헤더 -->
 
+    <!-- 랭킹 팝업 -->
     <div class="ranking-popup popup">
         <div>
             <h2>내 점수 : 1</h2>
@@ -105,7 +109,9 @@
             </div>
         </div>
     </div>
+    <!-- 랭킹 팝업 -->
 
+    <!-- 게임 선택 팝업 -->
     <div class="select-game popup">
         <div>
             <div>
@@ -114,11 +120,15 @@
             </div>
         </div>
     </div>
+    <!-- 게임 선택 팝업 -->
 
+    <!-- 빨강색 배경 -->
     <div class="front-ground"></div>
 
+    <!-- 게임 -->
     <div class="align-center">
         <section id="game">
+            <!-- UI -->
             <div id="ui">
                 <div id="play-state">
                     <div class="stage"> 
@@ -139,9 +149,14 @@
                     <img src="./resources/image/player/1.png" alt="image" title="image">
                 </div>
             </div>
+            <!-- UI -->
+
+            <!-- CANVAS -->
             <div id="gameBox"></div>
+            <!-- CANVAS -->
         </section>
     </div>
+    <!-- 게임 -->
 </body>
 
 </html>

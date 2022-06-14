@@ -1,18 +1,21 @@
+// 벽, 문 이미지 임포트
 import EdgeWall1Upside from '../sprites/application_object/background/edgeWall1/EdgeWall1Upside.js';
 import EdgeWall1Right from '../sprites/application_object/background/edgeWall1/EdgeWall1Right.js';
 import EdgeWall1Downside from '../sprites/application_object/background/edgeWall1/EdgeWall1Downside.js';
 import EdgeWall1Left from '../sprites/application_object/background/edgeWall1/EdgeWall1Left.js';
-
 import EdgeWall1DoorLeft from '../sprites/application_object/background/edgeWall1/EdgeWall1DoorLeft.js';
 import EdgeWall1DoorRight from '../sprites/application_object/background/edgeWall1/EdgeWall1DoorRight.js';
 
+// 맵 인터페이스 임포트
 import Map from '../map/Map.js';
 
+// 그래픽을 담당하는 세부 엔진
 export default class GraphicControl {
     constructor() {
         this.init()
     }
     
+    // 기본 설정
     init() {
         this.bufferCanvas = document.createElement('canvas')
         this.bufferCtx = this.bufferCanvas.getContext('2d')
@@ -38,7 +41,7 @@ export default class GraphicControl {
         ]
     }
 
-    // 캔버스 로딩
+    // 캔버스 생성
     setCanvas(gameBox) {
         const canvas = document.createElement('canvas')
         const ctx = canvas.getContext('2d')
@@ -67,6 +70,7 @@ export default class GraphicControl {
             }
         }
 
+        // 문 랜더링 (백그라운드에서 움직이는 건 문 밖에 없어서 따로)
         this.backgroundCtx.drawImage(window.rightdoor.image, window.rightdoor.x, window.rightdoor.y, window.rightdoor.size[0], window.rightdoor.size[1])
         this.backgroundCtx.drawImage(window.leftdoor.image, window.leftdoor.x, window.leftdoor.y, window.leftdoor.size[0], window.leftdoor.size[1])
     }
@@ -78,7 +82,6 @@ export default class GraphicControl {
 
             if(sprite.isHit){
                 this.imageToHitImage.bind(this)(sprite.image)
-
                 image = this.bufferCanvas
             }
             
