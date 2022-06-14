@@ -6,12 +6,12 @@ import EnemyBullet1 from "../../bullet/enemy/EnemyBullet.js";
 export default class Left extends Enemy {
     constructor(x,y){
         super(x, y, 
-            [new Collision([{x:-65, y:-70}, {x:65, y:80}])],
+            [new Collision([{x:-50, y:-75}, {x:50, y:25}])],
             {
                 'default' : [window.imageObject.right],
                 'die' : [window.imageObject.right],
             }, 
-            50, 0, 0, [50, 50]
+            20, 0, 0, [50, 50]
         )
 
         let i = 0;
