@@ -1,10 +1,7 @@
-// Map의 구조
-// background : 세로 25, 가로 32 그리드 (1칸당 32픽셀)
-// sprites : 스프라이트들
+// 필요한 객체 임포트
 
 import Map from '../Map.js';
 import Tile1 from '../../sprites/application_object/background/tile/Tile1.js';
-// import Wall1 from '../../sprites/application_object/wall/Wall1.js';
 import CenterWall1 from '../../sprites/application_object/wall/wall1/CenterWall1.js';
 import LeftWall1 from '../../sprites/application_object/wall/wall1/LeftWall1.js';
 import RightWall1 from '../../sprites/application_object/wall/wall1/RightWall1.js';
@@ -12,6 +9,12 @@ import RightWall1 from '../../sprites/application_object/wall/wall1/RightWall1.j
 import Slime from '../../sprites/application_object/enemy/Slime.js';
 import Crab from '../../sprites/application_object/enemy/Crab.js';
 
+// 지금은 사용하지 않는 클래스
+// 지금은 사용하지 않는 클래스
+// 지금은 사용하지 않는 클래스
+// 지금은 사용하지 않는 클래스
+// 지금은 사용하지 않는 클래스
+// 지금은 사용하지 않는 클래스
 export default class DefaultMap extends Map {
     constructor() {
         super()
