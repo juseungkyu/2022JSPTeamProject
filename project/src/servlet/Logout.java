@@ -20,6 +20,7 @@ public class Logout extends HttpServlet {
 		super();
 	}
 
+	// 로그아웃 기능
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");

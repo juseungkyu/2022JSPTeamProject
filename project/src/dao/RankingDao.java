@@ -18,6 +18,7 @@ public class RankingDao {
 	
 	private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
+	// 랭킹에 기록 추가
 	public boolean addRanking(String playerId, int score) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -40,6 +41,7 @@ public class RankingDao {
 		return true;
 	}
 		
+	// 랭킹 불러오기
 	public HashMap<String, ArrayList<HashMap<String,String>>> getRanking() {
 		HashMap<String, ArrayList<HashMap<String,String>>> output = new HashMap<String, ArrayList<HashMap<String,String>>>();
 		
