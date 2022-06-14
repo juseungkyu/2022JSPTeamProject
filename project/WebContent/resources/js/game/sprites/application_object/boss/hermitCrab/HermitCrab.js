@@ -30,7 +30,7 @@ export default class HermitCrab extends Boss {
         // 플레이어 방향으로 이동
         this.setDirectionTimer = setInterval(() => {
             if(greenCrab.sprite.isDie){
-                this.stopMoving()
+                this.speed = 1.5
                 return
             }
             let playerX = window.playerSprite.x
