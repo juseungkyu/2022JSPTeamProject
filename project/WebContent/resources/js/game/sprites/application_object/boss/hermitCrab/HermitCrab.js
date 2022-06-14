@@ -1,8 +1,7 @@
 import Boss from "../Boss.js"
 import Left from "./Left.js"
 import Right from "./Right.js"
-
-import GreenCrab from "../../enemy/GreenCrab.js"
+import GreenCrab from "./GreenCrab.js"
 
 // 보스를 이루는 개체들 제어
 export default class HermitCrab extends Boss {
@@ -10,24 +9,31 @@ export default class HermitCrab extends Boss {
         super(x, y,
             [
                 {
-                    x: -20,
-                    y: 20,
-                    sprite: new Left(x - 20, y + 20)
-                },
-                {
-                    x: 20,
-                    y: 20,
-                    sprite: new Right(x + 20, y + 20)
-                },
-                {
                     x: 0,
                     y: 0,
                     sprite: new GreenCrab(x + 0, y)
                 },
+                {
+                    x: -70,
+                    y: -80,
+                    sprite: new Left(x - 70, y - 80)
+                },
+                {
+                    x: 70,
+                    y: -80,
+                    sprite: new Right(x + 70, y - 80)
+                },
             ], 3, 1000)
+
+        const greenCrab = this.enemyList.find(x=>x.sprite.isGreenCrab)
 
         // 플레이어 방향으로 이동
         this.setDirectionTimer = setInterval(() => {
+            if(greenCrab.sprite.isDie){
+                this.stopMoving()
+                return
+            }
+
             const x = (this.x - window.playerSprite.x) > 0 ? -1 : 1
             const y = (this.y - window.playerSprite.y) > 0 ? -1 : 1
 

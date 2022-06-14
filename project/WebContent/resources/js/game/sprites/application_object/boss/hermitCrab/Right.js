@@ -11,7 +11,7 @@ export default class Left extends Enemy {
                 'default' : [window.imageObject.right],
                 'die' : [window.imageObject.right],
             }, 
-            20, 0, 0, [50, 50]
+            50, 0, 0, [50, 50]
         )
 
         let i = 0;
