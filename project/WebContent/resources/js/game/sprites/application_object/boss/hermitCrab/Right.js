@@ -6,7 +6,7 @@ import EnemyBullet1 from "../../bullet/enemy/EnemyBullet.js";
 export default class Left extends Enemy {
     constructor(x,y){
         super(x, y, 
-            [new Collision([{x:-25, y:-50}, {x:25, y:0}])],
+            [new Collision([{x:-65, y:-70}, {x:65, y:80}])],
             {
                 'default' : [window.imageObject.right],
                 'die' : [window.imageObject.right],

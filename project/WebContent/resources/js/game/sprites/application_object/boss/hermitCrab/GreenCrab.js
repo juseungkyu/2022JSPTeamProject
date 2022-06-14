@@ -8,7 +8,7 @@ import EnemyBullet1 from "../../bullet/enemy/EnemyBullet.js";
 export default class GreenCrab extends Enemy {
     constructor(x, y){
         super(x, y, 
-            [new Collision([{x:-50, y:-80}, {x:50, y:-30}])],
+            [new Collision([{x:-100, y:-130}, {x:100, y:20}])],
             {
                 'default' : [window.imageObject.greenCrab1,
                             window.imageObject.greenCrab2,
@@ -19,7 +19,7 @@ export default class GreenCrab extends Enemy {
                         window.imageObject.greenCrab3,
                         window.imageObject.greenCrab4],
             }, 
-            50, 40, 100, [150, 150])
+            50, 40, 100, [300, 200])
 
         this.isGreenCrab = true
     }
