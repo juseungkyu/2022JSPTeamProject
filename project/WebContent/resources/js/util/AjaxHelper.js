@@ -1,6 +1,7 @@
 export default class AjaxHelper {
   constructor() { }
 
+  // GET과 관련된 처리
   get = async (url) => {
     const json = await (
       await fetch(url, {
@@ -11,6 +12,7 @@ export default class AjaxHelper {
     return json
   }
 
+  // poSt와 관련된 처리
   post = async (url, data) => {
     const keys = Object.keys(data)
 

@@ -76,6 +76,7 @@ async function initGameImage(){
     '/resources/image/background/background1_1.png',
     '/resources/image/background/background2_1.png',
     '/resources/image/background/background2_2.png',
+    '/resources/image/background/explainingTile1.png',
 
     '/resources/image/background/edgeWalls/doorclose.png',
     '/resources/image/background/edgeWalls/edgeWall1_downside.png',

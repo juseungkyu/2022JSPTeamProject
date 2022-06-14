@@ -1,9 +1,7 @@
-// 적 유닛
-// Enemy 상속하고 Collision으로 히트박스 구현
+// 설명서 참고
 
 import Enemy from "../../../sprite_rule/interaction_sprites/unit/enemy/Enemy.js";
 import Collision from "../../../sprite_rule/Collision.js";
-import EnemyBullet1 from "../../bullet/enemy/EnemyBullet.js";
 
 export default class GreenCrab extends Enemy {
     constructor(x, y){

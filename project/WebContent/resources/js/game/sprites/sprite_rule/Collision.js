@@ -2,6 +2,7 @@
 // vertexList = [{x:-50, y:-50}, {x:50, y:0}]
 // 캔버스는 y좌표가 위쪽이 0임
 
+// 히트박스
 export default class Collision {
     constructor(vertexList){
         this.vertexList = vertexList

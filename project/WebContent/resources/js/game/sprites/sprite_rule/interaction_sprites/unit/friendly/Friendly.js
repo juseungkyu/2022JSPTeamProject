@@ -1,5 +1,3 @@
-// 피아식별 기능 추가
-
 import Unit from "../Unit.js";
 import DefaultValue from "../../../../../../constant/DefaultValue.js";
 
@@ -12,6 +10,7 @@ export default class Friendly extends Unit {
         this.type.push('Friendly')
     }
 
+    // 충돌 시 처리
     onCollisionEnter = (sprite, collision)=>{
         if(sprite.type.includes('Enemy')){
             this.underAttack(sprite)
@@ -19,7 +18,9 @@ export default class Friendly extends Unit {
         this.customOnCollisionEnter(sprite, collision)
     }
 
+    // 공격 받을 시 처리
     underAttack = (sprite)=>{
+        // 피격 효과와 무적 판정을 부여
         this.hp--
         this.isNoHitTime = true
         this.isHit = true
@@ -42,6 +43,7 @@ export default class Friendly extends Unit {
         }
     }
 
+    // 죽었을 때 처리
     die = () => {
         this.animationTypeChange('die')
         this.stopMoving()

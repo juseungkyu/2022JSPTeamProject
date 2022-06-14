@@ -1,10 +1,8 @@
-// 적 유닛
-// Enemy 상속하고 Collision으로 히트박스 구현
-
 import Enemy from "../../sprite_rule/interaction_sprites/unit/enemy/Enemy.js";
 import Collision from "../../sprite_rule/Collision.js";
 import EnemyBullet1 from "../bullet/enemy/EnemyBullet.js";
 
+// 불가사리 업고 있는 게
 export default class Seastar extends Enemy {
     a = Math.floor(Math.random() * (60 - 1)) + 1
     constructor(x, y){
@@ -22,6 +20,7 @@ export default class Seastar extends Enemy {
             }, 
             20, 3, 1000, [50, 50])
 
+        // 플레이어 따라오면서 총알 쏨
         this.setDirectionTimer = setInterval(() => {
             const x = (this.x - window.playerSprite.x) > 0 ? -1 : 1
             const y = (this.y - window.playerSprite.y) > 0 ? -1 : 1

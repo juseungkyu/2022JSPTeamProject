@@ -1,13 +1,9 @@
-// 적 유닛
-// Enemy 상속하고 Collision으로 히트박스 구현
-
 import Enemy from "../../sprite_rule/interaction_sprites/unit/enemy/Enemy.js";
 import Collision from "../../sprite_rule/Collision.js";
 import EnemyBullet1 from "../bullet/enemy/EnemyBullet.js";
-import Crab from "./Crab.js";
 import BubbleBaby from "./BubbleBaby.js";
 
-// 작은 게거품
+// 거품
 export default class Bubble extends Enemy {
     constructor(x, y) {
         super(x, y,
@@ -22,6 +18,7 @@ export default class Bubble extends Enemy {
         this.changeDirection(1, 0)
     }
 
+    // 충돌 시
     customOnCollisionEnter = (sprite) => {
         if (!sprite.type.includes('Terrain')) {
             return
@@ -41,6 +38,7 @@ export default class Bubble extends Enemy {
         this.changeDirection(diretion[0], diretion[1])
     }
 
+    // 랜덤 방향
     getRandomDirection(currentX, currentY) {
         let y = Math.random() * 3 - 2
         let x = Math.random() * 3 - 2
@@ -64,6 +62,7 @@ export default class Bubble extends Enemy {
         return [x, y]
     }
 
+    // 탄환 생성 알고리즘
     shot() {
         const x = this.x
         const y = this.y
@@ -80,6 +79,7 @@ export default class Bubble extends Enemy {
         }, 200);
     }
 
+    // 탄환 생성
     shotBullet(x,y) {
         pushUnitList(new EnemyBullet1(x, y - 15, [5, 0]), y - 15)
         pushUnitList(new EnemyBullet1(x, y - 15, [4, 1]), y - 15)
@@ -105,6 +105,7 @@ export default class Bubble extends Enemy {
         pushUnitList(new EnemyBullet1(x, y - 15, [-5, 0]), y - 15)
     }
 
+    
     custemReset() {
         clearInterval(this.setDirectionTimer)
     }

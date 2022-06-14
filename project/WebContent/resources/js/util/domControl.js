@@ -1,3 +1,4 @@
+// 이미지 불러오기
 async function getImage(url){
     const img = document.createElement('img')
     img.src = url
@@ -12,6 +13,7 @@ async function getImage(url){
     })
 }
 
+// 이미지를 도트로 변환 (안티 엘리어싱 회피)
 async function getDotImage(url, scale = 3) {
 	const img = await getImage(url)
 	
@@ -46,6 +48,7 @@ async function getDotImage(url, scale = 3) {
     return resultCanvas
 }
 
+// 불러온 이미지 저장
 async function imageSetting(imageUrls){
 	for(let url of imageUrls){
 		const urls = url.split('/')
