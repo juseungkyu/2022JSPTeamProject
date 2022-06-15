@@ -30,6 +30,8 @@ export default class Engine {
         window.uiSettingFunc()
 
         this.gameSelect()
+        
+        this.beforeMap = [0, 1]
     }
 
     // 게임 모드 선택
@@ -41,6 +43,18 @@ export default class Engine {
 
         basicMode.addEventListener('click', this.setBasicMode.bind(this))
         bossMode.addEventListener('click', this.setBossMode.bind(this))
+    }
+    
+    getRandom = () => {
+    	// 무작위로 맵 설정 걍 랜덤 돌리면 똑같은거 나오길래 복잡하게 함
+        const r = Math.floor(Math.random() * 4)
+        
+        // 중복 제거
+        if(this.beforeMap.includes(r)){
+        	return this.getRandom()
+        }
+        
+        return r
     }
 
     // 다음 스테이지 이동
@@ -63,8 +77,12 @@ export default class Engine {
             clearUnitList()
             clearSpriteList()
 
-            // 무작위로 맵 설정 걍 랜덤 돌리면 2/3 확률로 똑같은거 나오길래 복잡하게 함
-            const r = [0, 1, 2, 3, 4].sort((a, b) => Math.random() - 0.5)[0]
+//          랜덤
+            const r = this.getRandom()
+            
+            this.beforeMap.push(r)
+            this.beforeMap.splice(0, 1)
+            
             let map = null
             switch (r) {
                 case 0:
