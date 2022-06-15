@@ -45,13 +45,13 @@ export default class Engine {
         bossMode.addEventListener('click', this.setBossMode.bind(this))
     }
     
-    getRandom = () => {
+    getRandom = (number=5) => {
     	// 무작위로 맵 설정 걍 랜덤 돌리면 똑같은거 나오길래 복잡하게 함
-        const r = Math.floor(Math.random() * 5)
+        const r = Math.floor(Math.random() * number)
         
         // 중복 제거
         if(this.beforeMap.includes(r)){
-        	return this.getRandom()
+        	return this.getRandom(number)
         }
         
         return r
@@ -133,10 +133,12 @@ export default class Engine {
             clearUnitList()
             clearSpriteList()
 
-            const r = this.getRandom()
+            const r = this.getRandom(2)
             
             this.beforeMap.push(r)
             this.beforeMap.splice(0, 1)
+
+            let map = null
 
             switch (r) {
                 case 0:
