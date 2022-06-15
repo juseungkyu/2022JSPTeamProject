@@ -1,5 +1,5 @@
 // 필요한 객체 임포트
-
+// 상자, 게, 거품나오는 맵. 거품이 탱킹하고 게가 원거리 공격
 import Map from '../Map.js';
 import Background2_1 from '../../sprites/application_object/background/tile/Background2_1.js';
 import Background2_2 from '../../sprites/application_object/background/tile/Background2_2.js';
@@ -43,7 +43,7 @@ export default class Map2 extends Map {
 
         // 유닛 설정
         const units = []
-        for(let i = 5; i < 24; i++){
+        for(let i = 5; i < 25; i++){
             for(let j = 2; j < 23; j = j+3){
                 sprites.push(new Box1(...this.gridhelper(i, j)))
             }
