@@ -8,7 +8,7 @@ export default class EnemyBullet extends Enemy {
         this.type.push('Bullet')
 
         // x축 힘과 y축 힘을 합했을때 maxSpeed가 되도록 비율을 구해줌
-        const ratio = maxSpeed / (Math.abs(distance[0]) + Math.abs(distance[1]))
+        const ratio = maxSpeed / getForce(Math.abs(distance[0]), Math.abs(distance[1]))
 
         // 스피드 조절
         this.xForce = ratio * distance[0]
