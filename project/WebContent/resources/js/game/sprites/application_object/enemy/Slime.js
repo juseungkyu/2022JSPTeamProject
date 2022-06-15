@@ -22,7 +22,7 @@ export default class Slime extends Enemy {
                         pushUnitList(new EnemyBullet1(this.x, this.y - 15, [x, y]), this.y - 15)
                     }, j*100)
                 }
-            }, 3000);
+            }, 1500);
     }
 
     custemReset() {

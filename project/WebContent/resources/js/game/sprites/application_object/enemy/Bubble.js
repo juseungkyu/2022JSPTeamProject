@@ -12,7 +12,7 @@ export default class Bubble extends Enemy {
                 'default': [window.imageObject.bubble],
                 'die': [window.imageObject.bubble],
             },
-            40, 20, 100, [100, 100])
+            35, 20, 100, [100, 100])
         this.beforeShotTime = new Date().getTime() - 10000
 
         this.changeDirection(1, 0)

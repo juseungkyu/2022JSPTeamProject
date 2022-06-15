@@ -47,7 +47,7 @@ export default class Engine {
     
     getRandom = () => {
     	// 무작위로 맵 설정 걍 랜덤 돌리면 똑같은거 나오길래 복잡하게 함
-        const r = Math.floor(Math.random() * 4)
+        const r = Math.floor(Math.random() * 5)
         
         // 중복 제거
         if(this.beforeMap.includes(r)){
