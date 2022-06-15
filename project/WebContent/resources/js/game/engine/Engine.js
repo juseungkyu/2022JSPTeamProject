@@ -66,27 +66,27 @@ export default class Engine {
             // 무작위로 맵 설정 걍 랜덤 돌리면 2/3 확률로 똑같은거 나오길래 복잡하게 함
             const r = [0, 1, 2, 3, 4, 5].sort((a, b) => Math.random() - 0.5)[0]
             let map = null
-            // switch (r) {
-            //     case 0:
-            //         map = new Boss2()
-            //         break;
-            //     case 1:
-            //         map = new BubbleMap()
-            //         break;
-            //     case 2:
-            //         map = new Map1()
-            //         break;
-            //     case 3:
-            //         map = new Map2()
-            //         break;
-            //     case 4:
-            //         map = new Map3()
-            //         break;
-            //     default:
-            //         map = new TwoBubbleMap()
-            //         break;
-            // }
-            map = new Boss2()
+            switch (r) {
+                case 0:
+                    map = new Boss2()
+                    break;
+                case 1:
+                    map = new BubbleMap()
+                    break;
+                case 2:
+                    map = new Map1()
+                    break;
+                case 3:
+                    map = new Map2()
+                    break;
+                case 4:
+                    map = new Map3()
+                    break;
+                default:
+                    map = new TwoBubbleMap()
+                    break;
+            }
+            //map = new Boss2()
             setClearState(false)
             this.setMap(map)
         }
