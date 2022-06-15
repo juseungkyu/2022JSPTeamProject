@@ -17,7 +17,7 @@
             </div>
             <div class="btn-box">
                 <input type="submit" value="로그인" class="loginBtn">
-                <input type="button" value="취소하기" class="cancelBtn">
+                <input type="reset" value="초기화" class="cancelBtn">
             </div>
 
         </form>

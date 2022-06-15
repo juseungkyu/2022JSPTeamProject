@@ -81,12 +81,15 @@ footer {
     margin-left: 55px;
 }
 .icon {
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
     background-color: rgb(245, 245, 245);
     border-radius: 50%;
     padding: 9px;
     margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .icon img{
     height: 25px;
@@ -319,6 +322,10 @@ header a {
     width: 100px;
     padding: 0;
 }
+.joinForm input.cancelBtn:hover {
+	background: rgb(150, 150, 150);
+	cursor: pointer;
+}
 .joinForm .inp-box {
     margin-bottom: 20px;
 }
@@ -376,6 +383,10 @@ header a {
 .loginForm input.cancelBtn {
     width: 100px;
     padding: 0;
+}
+.loginForm input.cancelBtn:hover {
+	background: rgb(150, 150, 150);
+	cursor: pointer;
 }
 .loginForm .inp-box {
     margin-bottom: 20px;
@@ -443,6 +454,9 @@ header a {
     border-radius: 50%;
     background-color: #C1C1C1;
     margin: 0 0 0 20px;
+    background: url("../image/icon/miku-icon.png");
+    background-position: center;
+    background-size: cover;
 }
 .right > .info > .profile-info {
     text-align: right;
@@ -457,7 +471,7 @@ header a {
 }
 
 .profile-info > .name > span {
-    font-size: 16px;
+    font-size: 14px;
 }
 .profile-info > .ranking {
     font-size: 12px;

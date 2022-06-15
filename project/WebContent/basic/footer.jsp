@@ -27,7 +27,16 @@
                     <p>운영정책</p>
                     <p>고객지원</p>
                 </div>
-                <div>
+                <div class="icons">
+                    <div class="icon">
+                        <img src="../resources/image/icon/facebook.png" alt="">
+                    </div>
+                    <div class="icon">
+                        <img src="../resources/image/icon/instagram.png" alt="">
+                    </div>
+                    <div class="icon">
+                        <img src="../resources/image/icon/twitter.png" alt="">
+                    </div>
                 </div>
             </div>
             <div class="footer-container">
@@ -35,6 +44,7 @@
                     <p class="copyRight">&copy; 2022. (주)Seungkyu Co. all rights reserved.</p>
                 </div>
             </div>
+            
         </div>
     </footer>
     <!-- 푸터 -->

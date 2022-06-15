@@ -1,3 +1,4 @@
+<%@page import="dao.RankingDao"%>
 <%@page import="dao.BoardDao"%>
 <%@page import="format.Board"%>
 <%@page import="java.util.ArrayList"%>
@@ -32,12 +33,13 @@
             <div class="info">
 <%
 			if(log) {
+				RankingDao rankingDao = new RankingDao();
+				int score = rankingDao.getMyRanking(user.getId());
 %>	               
                 <div class="profile"></div>
 	                <div class="profile-info">
 	                    <p class="name"><%= user.getNickname() %> <span>님</span></p>
-	                    <p class="ranking">sadas</p>
-	                    <p class="one"><%= user.getId() %></p>
+	                    <p class="one">최고점수: <%= score %>점</p>
 	                    <p class="logout"><a href="">로그아웃</a></p>
 	                </div>
             	</div>

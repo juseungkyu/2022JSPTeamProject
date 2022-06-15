@@ -76,4 +76,26 @@ public class RankingDao {
 		
 		return output;
 	}
+	
+	public int getMyRanking(String user_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from ranking WHERE player_id = ? ORDER BY score DESC";
+		
+		conn = JDBCUtil.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt("score");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+		
 }
