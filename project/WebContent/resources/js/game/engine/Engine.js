@@ -127,12 +127,17 @@ export default class Engine {
             this.setMap(new StartMap())
         }
 
+        this.beforeMap = [0]
+
         this.nextStage = () => {
             clearUnitList()
             clearSpriteList()
 
-            const r = [0, 1].sort((a, b) => Math.random() - 0.5)[0]
-            let map = null
+            const r = this.getRandom()
+            
+            this.beforeMap.push(r)
+            this.beforeMap.splice(0, 1)
+
             switch (r) {
                 case 0:
                     map = new BubbleMap()
