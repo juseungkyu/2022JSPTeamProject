@@ -79,8 +79,8 @@ export default class Map3 extends Map {
         
         // 유닛 추가
 
-        units.push(new Slime2(...this.gridhelper(a,b),true))
-        units.push(new Slime2(...this.gridhelper(a,b),false))
+        units.push(new Slime2(...this.gridhelper(a-1,b),true))
+        units.push(new Slime2(...this.gridhelper(a+1,b),false))
 
         this.init(background, sprites, units)
         //background.push(new EdgeWall1(...this.backgroundGridhelper(0, 0, 64)))
