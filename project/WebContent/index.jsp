@@ -45,19 +45,10 @@
 			} else {
 %>		                
 				<div class="profile-login">	                 
-                    <form action="/login" method="post"">
-                    	<div>
-			                <p>아이디</p>
-			                <input type="text" name="id" id="" placeholder="아이디" required>
-			            </div>
-			            <div>
-			                <p>비밀번호</p>
-			                <input type="password" name="password" id="" placeholder="비밀번호" required>
-			            </div>
-			            <div>
-			            	<input type="submit" value="로그인" class="loginBtn">
-			            </div>
-                    </form>
+                    <div>
+                    	<a href="/login.jsp"><button>로그인</button></a>
+                   		<a href="/join.jsp"><button>회원가입</button></a>
+                    </div>
                 </div>
 <%
 			}
@@ -74,6 +65,7 @@
 	        <div class="container posts">
 <%
 			// 게시글 출력
+			// 게시글이 4개보다 적은 경우에는 기본 구조를 출력
 			Board board = null;
 			if(boardList.size() > 0) {
 				board = boardList.get(0);	

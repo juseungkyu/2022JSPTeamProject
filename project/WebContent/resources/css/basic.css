@@ -475,26 +475,26 @@ header a {
 	display: flex;
 	align-items: center;
 	height: 150px;
+	justify-content: space-between;
+	width: 250px;
+	background-color: #97c1c7;
 }
-.profile-login p {
+.profile-login > div button {
+	cursor: pointer;
+	width: 75px;
+	height: 38px;
+	border: none;
+	background-color: #ffc107;
+	border-radius: 10px;
 	font-size: 14px;
 	color: white;
 }
-.profile-login > form > div:nth-child(2) {
-	margin-top: 10px;
+
+.profile-login > div a:last-child > button {
+	background-color: #d749ae; 
 }
-.profile-login > form > div:nth-child(3) {
-	display: flex;
-	margin-top: 15px;
-}
-.profile-login .loginBtn {
-	
-	width: 100px;
-    padding: 0;
-    background: rgb(139, 209, 255);
-    color: rgb(241, 241, 241);
-    font-weight: bold;
-}
+
+
 
 .bbb {
     margin-top: 40px;
