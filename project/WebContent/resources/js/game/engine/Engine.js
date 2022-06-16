@@ -145,7 +145,7 @@ export default class Engine {
                     map = new BubbleMap()
                     break;
                 default:
-                    map = new BubbleMap()
+                    map = new Boss2()
                     break;
             }
 
