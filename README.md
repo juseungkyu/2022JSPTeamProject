@@ -18,5 +18,5 @@
 
 ## 프로젝트 실행화면
 
-![녹화_2022_12_08_22_15_40_528](https://user-images.githubusercontent.com/77566626/206456245-50d9926e-3fde-4e04-881b-b7b9b3900aab.gif)
-![녹화2](녹화_2022_12_08_22_15_57_720.gif)
+![녹화1](https://user-images.githubusercontent.com/77566626/206456245-50d9926e-3fde-4e04-881b-b7b9b3900aab.gif)
+![녹화2](images/1.gif)
